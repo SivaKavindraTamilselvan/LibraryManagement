@@ -1,0 +1,12 @@
+/Users/sivakavindra/InternProgram/LibraryManagement/ModelLibrary/bin/Debug/net10.0/ModelLibrary.deps.json
+/Users/sivakavindra/InternProgram/LibraryManagement/ModelLibrary/bin/Debug/net10.0/ModelLibrary.dll
+/Users/sivakavindra/InternProgram/LibraryManagement/ModelLibrary/bin/Debug/net10.0/ModelLibrary.pdb
+/Users/sivakavindra/InternProgram/LibraryManagement/ModelLibrary/obj/Debug/net10.0/ModelLibrary.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sivakavindra/InternProgram/LibraryManagement/ModelLibrary/obj/Debug/net10.0/ModelLibrary.AssemblyInfoInputs.cache
+/Users/sivakavindra/InternProgram/LibraryManagement/ModelLibrary/obj/Debug/net10.0/ModelLibrary.AssemblyInfo.cs
+/Users/sivakavindra/InternProgram/LibraryManagement/ModelLibrary/obj/Debug/net10.0/ModelLibrary.csproj.CoreCompileInputs.cache
+/Users/sivakavindra/InternProgram/LibraryManagement/ModelLibrary/obj/Debug/net10.0/ModelLibrary.sourcelink.json
+/Users/sivakavindra/InternProgram/LibraryManagement/ModelLibrary/obj/Debug/net10.0/ModelLibrary.dll
+/Users/sivakavindra/InternProgram/LibraryManagement/ModelLibrary/obj/Debug/net10.0/refint/ModelLibrary.dll
+/Users/sivakavindra/InternProgram/LibraryManagement/ModelLibrary/obj/Debug/net10.0/ModelLibrary.pdb
+/Users/sivakavindra/InternProgram/LibraryManagement/ModelLibrary/obj/Debug/net10.0/ref/ModelLibrary.dll
