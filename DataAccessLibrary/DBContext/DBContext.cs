@@ -162,5 +162,14 @@ public class LibraryManagementContext : DbContext
             p.HasOne(p => p.ModeOfPayment).WithMany(f => f.Payments).HasForeignKey(p => p.ModeOfPaymentId).HasConstraintName("FK_Payment_Mode");
 
         });
+
+        modelBuilder.Entity<DamagedBook>(db =>
+        {
+            db.HasKey(db => db.DamagedBookId).HasName("PK_Damaged_Book");
+            db.Property(db => db.createdAt).HasColumnType("timestamp without time zone");
+            db.HasOne(db => db.Member).WithMany(m => m.DamagedBooks).HasForeignKey(db => db.MemberId).HasConstraintName("FK_Damaged_Book_Member");
+            db.HasOne(db => db.BookCopy).WithMany(m => m.DamagedBooks).HasForeignKey(db => db.BookCopyId).HasConstraintName("FK_Damaged_Book_Copy");
+            db.HasOne(db => db.DamagedLevel).WithMany(m => m.DamagedBooks).HasForeignKey(db => db.DamagedLevelId).HasConstraintName("FK_Damaged_Book_Level");
+        });
     }
 }
