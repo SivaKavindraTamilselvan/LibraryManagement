@@ -91,5 +91,12 @@ public class LibraryManagementContext : DbContext
             m.HasOne(m => m.MemberType).WithMany(mt => mt.Members).HasForeignKey(m => m.MemberTypeId).HasConstraintName("FK_Member_Type");
             m.HasOne(m => m.Role).WithMany(r => r.Members).HasForeignKey(m => m.RoleId).HasConstraintName("FK_Member_Role");
         });
+
+        modelBuilder.Entity<BookCategory>(bc =>
+        {
+            bc.HasKey(bc=>bc.BookCategoryId).HasName("PK_Book_Category");
+            bc.HasIndex(bc=>bc.BookCategoryName).IsUnique();
+            bc.Property(bc=>bc.BookCategoryName).IsRequired();
+        });
     }
 }
