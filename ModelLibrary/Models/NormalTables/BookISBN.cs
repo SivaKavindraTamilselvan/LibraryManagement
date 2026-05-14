@@ -8,5 +8,7 @@ public class BookISBN
     public int Edition {get;set;}
     public int BookId {get;set;}
     public Book? Book {get;set;}
+
+    public ICollection<BookCopy>? BookCopies {get;set;}
     
 }
