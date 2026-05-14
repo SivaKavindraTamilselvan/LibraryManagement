@@ -14,6 +14,14 @@ public class LibraryManagementContext : DbContext
     public DbSet<MemberType> MemberTypes { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Role>(r =>
+        {
+           r.HasKey(r=>r.RoleId).HasName("PK_Role_Id");
+           r.HasIndex(r=>r.RoleName).IsUnique();
+           r.HasData(new Role() {RoleId = 1,RoleName = "Admin"});
+           r.HasData(new Role() {RoleId = 2,RoleName = "User"}) ;
+        });
+
         modelBuilder.Entity<MemberType>(mt =>
         {
             mt.HasKey(mt => mt.MemberTypeId).HasName("PK_Member_Type_Id");
