@@ -126,5 +126,18 @@ public class LibraryManagementContext : DbContext
             bc.HasOne(bc => bc.BookISBN).WithMany(b => b.BookCopies).HasForeignKey(bc => bc.BookISBNId).HasConstraintName("FK_Book_Copy");
             bc.HasOne(bc => bc.BookStatus).WithMany(b => b.BookCopies).HasForeignKey(bc => bc.BookStatusId).HasConstraintName("FK_Book_Status");
         });
+
+        modelBuilder.Entity<Borrowing>(br =>
+        {
+            br.HasKey(br => br.BorrowingId).HasName("PK_Borrowing");
+            br.Property(br => br.createdAt).HasColumnType("timestamp without time zone");
+            br.Property(br => br.updatedAt).HasColumnType("timestamp without time zone");
+            br.Property(br => br.BorrowedDate).HasColumnType("timestamp without time zone");
+            br.Property(br => br.DueDate).HasColumnType("timestamp without time zone");
+            br.Property(br => br.ReturnDate).HasColumnType("timestamp without time zone");
+            br.HasOne(br => br.Member).WithMany(m => m.Borrowings).HasForeignKey(br => br.MemberId).HasConstraintName("FK_Borrowing_Member");
+            br.HasOne(br => br.BookCopy).WithMany(bc => bc.Borrowings).HasForeignKey(br => br.BookCopyId).HasConstraintName("FK_Borrowing_Book_Copy");
+            br.HasOne(br => br.BorrowingStatus).WithMany(bc => bc.Borrowings).HasForeignKey(br => br.BorrowingStatusId).HasConstraintName("FK_Borrowing_Status");
+        });
     }
 }
