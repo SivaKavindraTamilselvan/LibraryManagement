@@ -73,8 +73,8 @@ public class LibraryManagementContext : DbContext
             dl.HasKey(dl => dl.DamagedLevelId).HasName("PK_Damaged_Level");
             dl.HasIndex(dl => dl.DamagedLevelName).IsUnique();
             dl.HasData(new DamagedLevel() { DamagedLevelId = 1, DamagedLevelName = "Little", FineAmount = 100 });
-            dl.HasData(new DamagedLevel() { DamagedLevelId = 1, DamagedLevelName = "Medium", FineAmount = 300 });
-            dl.HasData(new DamagedLevel() { DamagedLevelId = 1, DamagedLevelName = "Hard", FineAmount = 500 });
+            dl.HasData(new DamagedLevel() { DamagedLevelId = 2, DamagedLevelName = "Medium", FineAmount = 300 });
+            dl.HasData(new DamagedLevel() { DamagedLevelId = 3, DamagedLevelName = "Hard", FineAmount = 500 });
         });
 
         modelBuilder.Entity<Member>(m =>
