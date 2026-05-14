@@ -84,6 +84,7 @@ public class LibraryManagementContext : DbContext
             m.HasIndex(m => m.PhoneNumber).IsUnique();
             m.Property(m => m.Email).IsRequired();
             m.Property(m => m.PhoneNumber).IsRequired();
+            m.Property(m => m.PhoneNumber).HasMaxLength(10);
             m.Property(m => m.Password).IsRequired();
             m.Property(m => m.isActive).HasDefaultValue(true);
             m.Property(m => m.createdAt).HasColumnType("timestamp without time zone");
