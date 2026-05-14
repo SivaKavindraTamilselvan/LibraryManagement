@@ -62,7 +62,7 @@ public class LibraryManagementContext : DbContext
         {
             mp.HasKey(mp => mp.ModeOfPaymentId).HasName("PK_Mode_Of_Payment");
             mp.HasIndex(mp => mp.ModeOfPaymentName).IsUnique();
-            mp.HasData(new ModeOfPayment() { ModeOfPaymentId = 1, ModeOfPaymentName = "COD" });
+            mp.HasData(new ModeOfPayment() { ModeOfPaymentId = 1, ModeOfPaymentName = "Cash" });
             mp.HasData(new ModeOfPayment() { ModeOfPaymentId = 2, ModeOfPaymentName = "UPI" });
             mp.HasData(new ModeOfPayment() { ModeOfPaymentId = 3, ModeOfPaymentName = "Credit_Card" });
             mp.HasData(new ModeOfPayment() { ModeOfPaymentId = 4, ModeOfPaymentName = "Debit_Card" });
@@ -79,7 +79,7 @@ public class LibraryManagementContext : DbContext
 
         modelBuilder.Entity<Member>(m =>
         {
-            m.HasKey(m => m.MemberId).HasName("PK_Memeber");
+            m.HasKey(m => m.MemberId).HasName("PK_Member");
             m.HasIndex(m => m.Email).IsUnique();
             m.HasIndex(m => m.PhoneNumber).IsUnique();
             m.Property(m => m.Email).IsRequired();
