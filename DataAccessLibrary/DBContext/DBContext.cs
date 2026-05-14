@@ -54,8 +54,18 @@ public class LibraryManagementContext : DbContext
             fc.HasKey(fc => fc.FineCategoryId).HasName("PK_Fine_Category");
             fc.HasIndex(fc => fc.FineCategoryName).IsUnique();
             fc.HasData(new FineCategory() { FineCategoryId = 1, FineCategoryName = "Lost" });
-            fc.HasData(new FineCategory() { FineCategoryId = 1, FineCategoryName = "Damaged" });
-            fc.HasData(new FineCategory() { FineCategoryId = 1, FineCategoryName = "OverDue" });
+            fc.HasData(new FineCategory() { FineCategoryId = 2, FineCategoryName = "Damaged" });
+            fc.HasData(new FineCategory() { FineCategoryId = 3, FineCategoryName = "OverDue" });
+        });
+
+        modelBuilder.Entity<ModeOfPayment>(mp =>
+        {
+            mp.HasKey(mp => mp.ModeOfPaymentId).HasName("PK_Mode_Of_Payment");
+            mp.HasIndex(mp => mp.ModeOfPaymentName).IsUnique();
+            mp.HasData(new ModeOfPayment() { ModeOfPaymentId = 1, ModeOfPaymentName = "COD" });
+            mp.HasData(new ModeOfPayment() { ModeOfPaymentId = 2, ModeOfPaymentName = "UPI" });
+            mp.HasData(new ModeOfPayment() { ModeOfPaymentId = 3, ModeOfPaymentName = "Credit_Card" });
+            mp.HasData(new ModeOfPayment() { ModeOfPaymentId = 4, ModeOfPaymentName = "Debit_Card" });
         });
     }
 }
