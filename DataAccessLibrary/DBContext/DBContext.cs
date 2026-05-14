@@ -95,27 +95,36 @@ public class LibraryManagementContext : DbContext
 
         modelBuilder.Entity<BookCategory>(bc =>
         {
-            bc.HasKey(bc=>bc.BookCategoryId).HasName("PK_Book_Category");
-            bc.HasIndex(bc=>bc.BookCategoryName).IsUnique();
-            bc.Property(bc=>bc.BookCategoryName).IsRequired();
+            bc.HasKey(bc => bc.BookCategoryId).HasName("PK_Book_Category");
+            bc.HasIndex(bc => bc.BookCategoryName).IsUnique();
+            bc.Property(bc => bc.BookCategoryName).IsRequired();
         });
 
         modelBuilder.Entity<Book>(b =>
         {
-            b.HasKey(b=>b.BookId).HasName("PK_Book");
-            b.Property(b=>b.BookTitle).IsRequired();
-            b.Property(b=>b.Author).IsRequired();
-            b.HasOne(b=>b.BookCategory).WithMany(bc=>bc.Books).HasForeignKey(b=>b.BookCategoryId).HasConstraintName("FK_Book_Category");
+            b.HasKey(b => b.BookId).HasName("PK_Book");
+            b.Property(b => b.BookTitle).IsRequired();
+            b.Property(b => b.Author).IsRequired();
+            b.HasOne(b => b.BookCategory).WithMany(bc => bc.Books).HasForeignKey(b => b.BookCategoryId).HasConstraintName("FK_Book_Category");
         });
 
         modelBuilder.Entity<BookISBN>(bi =>
         {
-            bi.HasKey(bi=>bi.BookISBNId).HasName("PK_Book_ISBN");
-            bi.Property(bi=>bi.ISBN).IsRequired();
-            bi.Property(bi=>bi.PublishedYear).IsRequired();
-            bi.Property(bi=>bi.Edition).IsRequired();
-            bi.HasIndex(bi=>bi.ISBN).IsUnique();
-            bi.HasOne(bi=>bi.Book).WithMany(b=>b.BookISBNs).HasForeignKey(bi=>bi.BookId).HasConstraintName("FK_Book_ISBN");
+            bi.HasKey(bi => bi.BookISBNId).HasName("PK_Book_ISBN");
+            bi.Property(bi => bi.ISBN).IsRequired();
+            bi.Property(bi => bi.PublishedYear).IsRequired();
+            bi.Property(bi => bi.Edition).IsRequired();
+            bi.HasIndex(bi => bi.ISBN).IsUnique();
+            bi.HasOne(bi => bi.Book).WithMany(b => b.BookISBNs).HasForeignKey(bi => bi.BookId).HasConstraintName("FK_Book_ISBN");
+        });
+
+        modelBuilder.Entity<BookCopy>(bc =>
+        {
+            bc.HasKey(bc => bc.BookCopyId).HasName("PK_Book_Copy");
+            bc.Property(bc => bc.CopyNumber).IsRequired();
+            bc.HasIndex(bc => bc.CopyNumber).IsUnique();
+            bc.HasOne(bc => bc.BookISBN).WithMany(b => b.BookCopies).HasForeignKey(bc => bc.BookISBNId).HasConstraintName("FK_Book_Copy");
+            bc.HasOne(bc => bc.BookStatus).WithMany(b => b.BookCopies).HasForeignKey(bc => bc.BookStatusId).HasConstraintName("FK_Book_Status");
         });
     }
 }
