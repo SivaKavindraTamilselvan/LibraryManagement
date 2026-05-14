@@ -72,9 +72,24 @@ public class LibraryManagementContext : DbContext
         {
             dl.HasKey(dl => dl.DamagedLevelId).HasName("PK_Damaged_Level");
             dl.HasIndex(dl => dl.DamagedLevelName).IsUnique();
-            dl.HasData(new DamagedLevel() { DamagedLevelId = 1, DamagedLevelName = "Little",FineAmount = 100 });
-            dl.HasData(new DamagedLevel() { DamagedLevelId = 1, DamagedLevelName = "Medium" ,FineAmount = 300});
-            dl.HasData(new DamagedLevel() { DamagedLevelId = 1, DamagedLevelName = "Hard" ,FineAmount = 500});
+            dl.HasData(new DamagedLevel() { DamagedLevelId = 1, DamagedLevelName = "Little", FineAmount = 100 });
+            dl.HasData(new DamagedLevel() { DamagedLevelId = 1, DamagedLevelName = "Medium", FineAmount = 300 });
+            dl.HasData(new DamagedLevel() { DamagedLevelId = 1, DamagedLevelName = "Hard", FineAmount = 500 });
+        });
+
+        modelBuilder.Entity<Member>(m =>
+        {
+            m.HasKey(m => m.MemberId).HasName("PK_Memeber");
+            m.HasIndex(m => m.Email).IsUnique();
+            m.HasIndex(m => m.PhoneNumber).IsUnique();
+            m.Property(m => m.Email).IsRequired();
+            m.Property(m => m.PhoneNumber).IsRequired();
+            m.Property(m => m.Password).IsRequired();
+            m.Property(m => m.isActive).HasDefaultValue(true);
+            m.Property(m => m.createdAt).HasColumnType("timestamp without time zone");
+            m.Property(m => m.updatedAt).HasColumnType("timestamp without time zone");
+            m.HasOne(m => m.MemberType).WithMany(mt => mt.Members).HasForeignKey(m => m.MemberTypeId).HasConstraintName("FK_Member_Type");
+            m.HasOne(m => m.Role).WithMany(r => r.Members).HasForeignKey(m => m.RoleId).HasConstraintName("FK_Member_Role");
         });
     }
 }
