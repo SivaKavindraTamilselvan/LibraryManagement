@@ -10,6 +10,11 @@ public class Borrowing
 
     public DateTime BorrowedDate {get;set;}
     public DateTime DueDate {get;set;}
-    public DateTime ReturnDate {get;set;}
-    public required BookStatus BookStatus {get;set;}
+    public DateTime? ReturnDate {get;set;}
+    public int BorrowingStatusId {get;set;}
+    public BorrowingStatus? BorrowingStatus {get;set;}
+
+    public DateTime createdAt {get;set;}
+    public DateTime updatedAt{get;set;}
+    public ICollection<Fine>? Fines {get;set;}
 }

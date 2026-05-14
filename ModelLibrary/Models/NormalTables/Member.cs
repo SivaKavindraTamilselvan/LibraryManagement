@@ -11,4 +11,12 @@ public class Member
     public int MemberTypeId {get;set;}
     public MemberType? MemberType {get;set;}
 
+    public int RoleId {get;set;}
+    public Role? Role {get;set;}
+
+    public DateTime createdAt {get;set;}
+    public DateTime updatedAt{get;set;}
+
+    public ICollection<DamagedBook>? DamagedBooks {get;set;}
+    public ICollection<Borrowing>? Borrowings {get;set;}
 }

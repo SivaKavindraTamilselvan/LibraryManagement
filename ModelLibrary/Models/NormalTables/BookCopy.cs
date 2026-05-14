@@ -4,7 +4,11 @@ public class BookCopy
 {
     public int BookCopyId {get;set;}
     public int BookISBNId {get;set;}
+    public BookISBN? BookISBN {get;set;}
     public string CopyNumber {get;set;} = string.Empty;
     public int BookStatusId {get;set;}
     public BookStatus? BookStatus {get;set;}
+
+    public ICollection<Borrowing>? Borrowings {get;set;}
+    public ICollection<DamagedBook>? DamagedBooks {get;set;}
 }
