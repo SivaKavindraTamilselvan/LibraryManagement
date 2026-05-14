@@ -17,9 +17,9 @@ public class LibraryManagementContext : DbContext
         modelBuilder.Entity<MemberType>(mt =>
         {
             mt.HasKey(mt => mt.MemberTypeId).HasName("PK_Member_Type_Id");
-            mt.HasData(new MemberType() { MemberTypeId = 1, MemberTypeName = "Basic", Number_Of_Books = 2, Limit_Days = 7 },
-            new MemberType() { MemberTypeId = 2, MemberTypeName = "Student", Number_Of_Books = 3, Limit_Days = 10 },
-            new MemberType() { MemberTypeId = 3, MemberTypeName = "Premium", Number_Of_Books = 5, Limit_Days = 15 });
+            mt.HasData(new MemberType() { MemberTypeId = 1, MemberTypeName = "Basic", NumberOfBooks = 2, LimitDays = 7 },
+            new MemberType() { MemberTypeId = 2, MemberTypeName = "Student", NumberOfBooks = 3, LimitDays = 10 },
+            new MemberType() { MemberTypeId = 3, MemberTypeName = "Premium", NumberOfBooks = 5, LimitDays = 15 });
         });
     }
 }
