@@ -29,5 +29,14 @@ public class LibraryManagementContext : DbContext
             new MemberType() { MemberTypeId = 2, MemberTypeName = "Student", NumberOfBooks = 3, LimitDays = 10 },
             new MemberType() { MemberTypeId = 3, MemberTypeName = "Premium", NumberOfBooks = 5, LimitDays = 15 });
         });
+
+        modelBuilder.Entity<BookStatus>(bs =>
+        {
+            bs.HasKey(bs=>bs.BookStatusId).HasName("PK_Book_Status");
+            bs.HasData(new BookStatus() {BookStatusId =1,BookStatusName = "Available"});
+            bs.HasData(new BookStatus() {BookStatusId =2,BookStatusName = "Unavailable"});
+            bs.HasData(new BookStatus() {BookStatusId =3,BookStatusName = "Lost"});
+            bs.HasData(new BookStatus() {BookStatusId =4,BookStatusName = "Damaged"});
+        });
     }
 }
