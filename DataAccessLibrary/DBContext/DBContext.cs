@@ -139,5 +139,17 @@ public class LibraryManagementContext : DbContext
             br.HasOne(br => br.BookCopy).WithMany(bc => bc.Borrowings).HasForeignKey(br => br.BookCopyId).HasConstraintName("FK_Borrowing_Book_Copy");
             br.HasOne(br => br.BorrowingStatus).WithMany(bc => bc.Borrowings).HasForeignKey(br => br.BorrowingStatusId).HasConstraintName("FK_Borrowing_Status");
         });
+
+        modelBuilder.Entity<Fine>(f =>
+        {
+            f.HasKey(f => f.FineId).HasName("PK_Fine");
+            f.Property(f => f.FineAmount).IsRequired();
+            f.Property(f => f.IsPaidFully).HasDefaultValue(false);
+            f.Property(f => f.createdAt).HasColumnType("timestamp without time zone");
+            f.Property(f => f.updatedAt).HasColumnType("timestamp without time zone");
+            f.HasOne(f => f.Borrowing).WithMany(br => br.Fines).HasForeignKey(f => f.BorrowingId).HasConstraintName("FK_Fine_Borrowing");
+            f.HasOne(f => f.FineCategory).WithMany(br => br.Fines).HasForeignKey(f => f.FineCategoryId).HasConstraintName("FK_Fine_Category");
+            f.HasOne(f => f.DamagedBook).WithOne(br => br.Fines).HasForeignKey<Fine>(f => f.DamagedBookId).HasConstraintName("FK_Fine_Damaged_Book");
+        });
     }
 }
