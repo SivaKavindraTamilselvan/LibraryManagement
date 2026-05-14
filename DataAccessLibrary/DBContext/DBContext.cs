@@ -99,5 +99,23 @@ public class LibraryManagementContext : DbContext
             bc.HasIndex(bc=>bc.BookCategoryName).IsUnique();
             bc.Property(bc=>bc.BookCategoryName).IsRequired();
         });
+
+        modelBuilder.Entity<Book>(b =>
+        {
+            b.HasKey(b=>b.BookId).HasName("PK_Book");
+            b.Property(b=>b.BookTitle).IsRequired();
+            b.Property(b=>b.Author).IsRequired();
+            b.HasOne(b=>b.BookCategory).WithMany(bc=>bc.Books).HasForeignKey(b=>b.BookCategoryId).HasConstraintName("FK_Book_Category");
+        });
+
+        modelBuilder.Entity<BookISBN>(bi =>
+        {
+            bi.HasKey(bi=>bi.BookISBNId).HasName("PK_Book_ISBN");
+            bi.Property(bi=>bi.ISBN).IsRequired();
+            bi.Property(bi=>bi.PublishedYear).IsRequired();
+            bi.Property(bi=>bi.Edition).IsRequired();
+            bi.HasIndex(bi=>bi.ISBN).IsUnique();
+            bi.HasOne(bi=>bi.Book).WithMany(b=>b.BookISBNs).HasForeignKey(bi=>bi.BookId).HasConstraintName("FK_Book_ISBN");
+        });
     }
 }
