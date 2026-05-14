@@ -7,4 +7,5 @@ public class Book
     public string Authot {get;set;} = string.Empty;
     public int BookingCategoryId {get;set;}
     public BookCategory? BookCategory {get;set;}
+    public ICollection<BookISBN>? BookISBNs {get;set;}
 }
