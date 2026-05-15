@@ -18,9 +18,11 @@ public partial class MemberManagement
             Console.WriteLine("Enter 1 To Add The Member");
             Console.WriteLine("Enter 2 To Get Member Details By Different Category");
             Console.WriteLine("Enter 3 To Update The Member Details");
+            Console.WriteLine("Enter 4 To Deactivate The Member");
+            Console.WriteLine("Enter 5 To Activate The Member");
 
             int typechoice;
-            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 3 || typechoice < 0)
+            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 5 || typechoice < 0)
             {
                 Console.WriteLine("Enter Vaild Input");
             }
@@ -46,6 +48,11 @@ public partial class MemberManagement
                     case 4:
                         {
                             DeactivateMemberManagementRoles();
+                            break;
+                        }
+                    case 5:
+                        {
+                            ActivateMemberManagementRoles();
                             break;
                         }
                     case 0:
