@@ -1,7 +1,14 @@
+using LibraryManagement.BuisnessLayerLibrary.Services;
+
 namespace LibraryManagement.PresentationLayer.Frontend;
 
-public partial class MemberManagement : AdminRole
+public partial class MemberManagement 
 {
+    protected readonly AdminService adminService;
+    public MemberManagement(AdminService _adminService)
+    {
+        adminService = _adminService;
+    }
     public void MemberManagementRoles()
     {
         while (true)

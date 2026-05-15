@@ -23,7 +23,7 @@ public class AdminRole
                 {
                     case 1:
                         {
-                            memberManagement.AddMember();
+                            memberManagement.MemberManagementRoles();
                             break;
                         }
                     case 2:

@@ -3,6 +3,6 @@ public partial class MemberManagement
 {
     public void AddMember()
     {
-        
+        var member = adminService.AddMemberService();
     }
 }
