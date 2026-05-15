@@ -57,11 +57,15 @@ public class AdminService : IAdminService
             Console.WriteLine("Enter 1 To Basic");
             Console.WriteLine("Enter 2 To Student");
             Console.WriteLine("Enter 3 To Premium");
-            while (!int.TryParse(Console.ReadLine(), out memberchoice) || memberchoice < 0 || memberchoice > 2)
+            while (!int.TryParse(Console.ReadLine(), out memberchoice) || memberchoice < 0 || memberchoice > 3)
             {
                 Console.WriteLine("Enter Vaild Input");
             }
             member.MemberTypeId = memberchoice;
+        }
+        else
+        {
+            member.MemberTypeId = null;
         }
 
         //user detailed added to the object
@@ -72,7 +76,7 @@ public class AdminService : IAdminService
         member.Password = FirstName + LastName + "123"; // initially added by the admin later can be changed by the user
         member.isActive = true;
         member.RoleId = typechoice;
-
+        member.createdAt = DateTime.Now;
         var createdMember = memberRepository.Create(member);
         if(createdMember == null)
         {
