@@ -1,5 +1,4 @@
-namespace LibraryManagement.PresentationLayer.Frontend.Admin;
-
+namespace LibraryManagement.PresentationLayer.Frontend;
 public partial class MemberManagement
 {
     public void AddMember()

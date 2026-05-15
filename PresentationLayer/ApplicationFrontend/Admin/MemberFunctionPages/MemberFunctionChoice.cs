@@ -18,7 +18,7 @@ public partial class MemberManagement : AdminRole
                 {
                     case 1:
                         {
-                            //AddUser();
+                            AddMember();
                             break;
                         }
                     case 2:
