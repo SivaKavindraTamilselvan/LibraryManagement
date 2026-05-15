@@ -3,9 +3,11 @@ namespace LibraryManagement.PresentationLayer.Frontend;
 public class AdminRole
 {
     protected readonly MemberManagement memberManagement;
-    public AdminRole(MemberManagement _memberManagement)
+    protected readonly BookManagement bookManagement;
+    public AdminRole(MemberManagement _memberManagement,BookManagement _bookManagement)
     {
         memberManagement = _memberManagement;
+        bookManagement = _bookManagement;
     }
     public void AdminRoles()
     {
@@ -30,7 +32,7 @@ public class AdminRole
                         }
                     case 2:
                         {
-                            //adminGetRole.AdminGetRoles();
+                            bookManagement.BookManagementRoles();
                             break;
                         }
                     case 3:

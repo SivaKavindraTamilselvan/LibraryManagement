@@ -12,8 +12,10 @@ public class Program
         BookCategoryRepository bookCategoryRepository = new BookCategoryRepository();
         BookRepository bookRepository = new BookRepository();
         AdminService adminService = new AdminService(memberRepository,bookRepository,bookCategoryRepository);
+
         MemberManagement memberManagement = new MemberManagement(adminService);
-        AdminRole adminRole = new AdminRole(memberManagement);
+        BookManagement bookManagement = new BookManagement(adminService);
+        AdminRole adminRole = new AdminRole(memberManagement,bookManagement);
         InitialPage initialPage = new InitialPage(adminRole);
         initialPage.RoleSelection();
     }

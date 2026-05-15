@@ -11,7 +11,7 @@ public partial class BookManagement
     {
         adminService = _adminService;
     }
-    public void MemberManagementRoles()
+    public void BookManagementRoles()
     {
         while (true)
         {
@@ -30,7 +30,7 @@ public partial class BookManagement
                 {
                     case 1:
                         {
-                            //AddMember();
+                            AddBook();
                             break;
                         }
                     case 2:
