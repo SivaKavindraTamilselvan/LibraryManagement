@@ -102,6 +102,11 @@ public class LibraryManagementContext : DbContext
             bc.HasKey(bc => bc.BookCategoryId).HasName("PK_Book_Category");
             bc.HasIndex(bc => bc.BookCategoryName).IsUnique();
             bc.Property(bc => bc.BookCategoryName).IsRequired();
+            bc.HasData(new BookCategory() { BookCategoryId = 1, BookCategoryName = "Science" });
+            bc.HasData(new BookCategory() { BookCategoryId = 2, BookCategoryName = "Fiction" });
+            bc.HasData(new BookCategory() {BookCategoryId = 3,BookCategoryName = "Non Fiction"});
+            bc.HasData(new BookCategory() { BookCategoryId = 4, BookCategoryName = "Horror" });
+
         });
 
         modelBuilder.Entity<Book>(b =>

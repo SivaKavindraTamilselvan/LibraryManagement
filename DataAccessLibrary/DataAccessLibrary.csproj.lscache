@@ -61,6 +61,8 @@ Migrations/
  20260514192840_InitialMigration.Designer.cs
  20260515053044_MemberNotNullAttributes.cs
  20260515053044_MemberNotNullAttributes.Designer.cs
+ 20260515085353_BookCategorySeedData.cs
+ 20260515085353_BookCategorySeedData.Designer.cs
  LibraryManagementContextModelSnapshot.cs
 obj/Debug/net10.0/
  .NETCoreApp,Version=v10.0.AssemblyAttributes.cs
