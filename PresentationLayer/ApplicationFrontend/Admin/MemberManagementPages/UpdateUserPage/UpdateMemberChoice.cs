@@ -9,10 +9,12 @@ public partial class MemberManagement
     {
         while (true)
         {
+            Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Enter 1 To Update The Member Type Details By Email");
             Console.WriteLine("Enter 2 To Update The Member Type Details By Phone Number");
             Console.WriteLine("Enter 3 To Update The Member Type Details By Member Id");
             Console.WriteLine("Enter 0 To Quit");
+            Console.WriteLine("------------------------------------------------");
 
             int typechoice;
             while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 3 || typechoice < 0)
@@ -34,14 +36,14 @@ public partial class MemberManagement
                         {
                             string phone = inputsCheck.PhoneNumberInputs();
                             int membertypeid = inputsCheck.IdInputs();
-                            UpdateTheMemberTypeByPhoneNumber(phone,membertypeid);
+                            UpdateTheMemberTypeByPhoneNumber(phone, membertypeid);
                             break;
                         }
                     case 3:
                         {
                             int memberid = inputsCheck.IdInputs();
                             int membertypeid = inputsCheck.IdInputs();
-                            UpdateTheMemberTypeByMemberId(memberid,membertypeid);
+                            UpdateTheMemberTypeByMemberId(memberid, membertypeid);
                             break;
                         }
                     case 0:

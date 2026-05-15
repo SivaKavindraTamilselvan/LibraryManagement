@@ -9,6 +9,7 @@ public partial class MemberManagement
     {
         while (true)
         {
+            Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Enter 1 To Get All Member Details");
             Console.WriteLine("Enter 2 To Get All The Member Details By Email");
             Console.WriteLine("Enter 3 To Get All The Member Details By Phone Number");
@@ -16,6 +17,7 @@ public partial class MemberManagement
             Console.WriteLine("Enter 5 To Get All The Member Details By Admin Role");
             Console.WriteLine("Enter 6 To Get All The Member Details By Member Id");
             Console.WriteLine("Enter 0 To Quit");
+            Console.WriteLine("------------------------------------------------");
 
             int typechoice;
             while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 6 || typechoice < 0)

@@ -15,11 +15,14 @@ public partial class MemberManagement
     {
         while (true)
         {
+            Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Enter 1 To Add The Member");
             Console.WriteLine("Enter 2 To Get Member Details By Different Category");
             Console.WriteLine("Enter 3 To Update The Member Details");
             Console.WriteLine("Enter 4 To Deactivate The Member");
             Console.WriteLine("Enter 5 To Activate The Member");
+            Console.WriteLine("Enter 0 To Quit");
+            Console.WriteLine("------------------------------------------------");
 
             int typechoice;
             while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 5 || typechoice < 0)

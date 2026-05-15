@@ -15,9 +15,12 @@ public partial class BookManagement
     {
         while (true)
         {
+            Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Enter 1 To Add The Book");
             Console.WriteLine("Enter 2 To Get Book Details By Different Category");
             Console.WriteLine("Enter 3 To Update The Book Details");
+            Console.WriteLine("Enter 0 To Quit");
+            Console.WriteLine("------------------------------------------------");
 
             int typechoice;
             while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 5 || typechoice < 0)
@@ -30,17 +33,17 @@ public partial class BookManagement
                 {
                     case 1:
                         {
-                            AddBook();
+                            AddBookManagementRoles();
                             break;
                         }
                     case 2:
                         {
-                            //GetMemberManagementRoles();
+                            //AddBookISBN();
                             break;
                         }
                     case 3:
                         {
-                            //UpdateMemberManagementRoles();
+                            //AddBookCopy();
                             break;
                         }
                     case 0:

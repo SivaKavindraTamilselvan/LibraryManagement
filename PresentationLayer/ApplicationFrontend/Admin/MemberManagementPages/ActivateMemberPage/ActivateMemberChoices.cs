@@ -9,10 +9,12 @@ public partial class MemberManagement
     {
         while (true)
         {
+            Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Enter 1 To activate The Member By Email");
             Console.WriteLine("Enter 2 To activate The Member By Phone Number");
             Console.WriteLine("Enter 3 To activate The Member By Member Id");
             Console.WriteLine("Enter 0 To Quit");
+            Console.WriteLine("------------------------------------------------");
 
             int typechoice;
             while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 3 || typechoice < 0)

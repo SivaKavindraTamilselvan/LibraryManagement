@@ -4,7 +4,7 @@ public class AdminRole
 {
     protected readonly MemberManagement memberManagement;
     protected readonly BookManagement bookManagement;
-    public AdminRole(MemberManagement _memberManagement,BookManagement _bookManagement)
+    public AdminRole(MemberManagement _memberManagement, BookManagement _bookManagement)
     {
         memberManagement = _memberManagement;
         bookManagement = _bookManagement;
@@ -13,9 +13,12 @@ public class AdminRole
     {
         while (true)
         {
+            Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Enter 1 For Member Management");
             Console.WriteLine("Enter 2 For Book Manegement");
             Console.WriteLine("Enter 0 To Quit");
+            Console.WriteLine("------------------------------------------------");
+
             int typechoice;
             while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 6 || typechoice < 0)
             {

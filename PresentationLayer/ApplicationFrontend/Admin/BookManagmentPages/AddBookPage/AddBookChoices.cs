@@ -9,10 +9,12 @@ public partial class BookManagement
     {
         while (true)
         {
+            Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Enter 1 To Add Book");
             Console.WriteLine("Enter 2 To Add Book With Different Published year, edition (new ISBN)");
             Console.WriteLine("Enter 3 To Add Book Copies");
             Console.WriteLine("Enter 0 To Quit");
+            Console.WriteLine("------------------------------------------------");
 
             int typechoice;
             while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 3 || typechoice < 0)

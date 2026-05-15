@@ -11,4 +11,9 @@ public class BookCopy
 
     public ICollection<Borrowing> Borrowings {get;set;} = new List<Borrowing>();
     public ICollection<DamagedBook> DamagedBooks {get;set;} = new List<DamagedBook>();
+
+    public override string ToString()
+    {
+        return $"BookISBNId : {BookISBNId}\nBookCopyNumber : {CopyNumber}\nBookStatusId : {BookStatusId}";
+    }
 }
