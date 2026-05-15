@@ -8,4 +8,8 @@ public class Book
     public int BookCategoryId {get;set;}
     public BookCategory? BookCategory {get;set;}
     public ICollection<BookISBN>? BookISBNs {get;set;}
+    public override string ToString()
+    {
+        return $"BookId : {BookId}\nBookTitle : {BookTitle}\nAuthor : {Author}\nBookCategoryId : {BookCategoryId}\nBookCategoryName : {BookCategory?.BookCategoryName}";
+    }
 }

@@ -13,6 +13,9 @@ public class LibraryManagementContext : DbContext
     }
     public DbSet<MemberType> MemberTypes { get; set; }
     public DbSet<Member> Member { get; set; }
+    public DbSet<Book> Book { get; set; }
+    public DbSet<BookCategory> BookCategory { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Role>(r =>

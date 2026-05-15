@@ -9,9 +9,12 @@ namespace LibraryManagement.BuisnessLayerLibrary.Services;
 public partial class AdminService : IAdminService
 {
     protected readonly MemberRepository memberRepository;
-    public AdminService(MemberRepository _memberRepository)
+    protected readonly BookRepository bookRepository;
+
+    public AdminService(MemberRepository _memberRepository,BookRepository _bookRepository)
     {
         memberRepository = _memberRepository;
+        bookRepository = _bookRepository;
     }
     InputsCheck inputsCheck = new InputsCheck();
     public Member? AddMemberService()
