@@ -12,7 +12,7 @@ public class LibraryManagementContext : DbContext
         optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=LibraryManagement;Username=sivakavindra;Password=SivaKavindra@280804");
     }
     public DbSet<MemberType> MemberTypes { get; set; }
-    public DbSet<Member> Members { get; set; }
+    public DbSet<Member> Member { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Role>(r =>
