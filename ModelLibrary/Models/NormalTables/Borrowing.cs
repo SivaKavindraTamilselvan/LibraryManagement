@@ -16,5 +16,5 @@ public class Borrowing
 
     public DateTime createdAt {get;set;}
     public DateTime updatedAt{get;set;}
-    public ICollection<Fine>? Fines {get;set;}
+    public ICollection<Fine> Fines {get;set;} = new List<Fine>();
 }

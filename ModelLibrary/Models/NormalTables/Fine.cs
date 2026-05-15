@@ -12,5 +12,5 @@ public class Fine
     public bool IsPaidFully {get;set;}
     public DateTime createdAt {get;set;}
     public DateTime updatedAt {get;set;}
-    public ICollection<Payment>? Payments {get;set;}
+    public ICollection<Payment> Payments {get;set;} = new List<Payment>();
 }

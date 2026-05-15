@@ -17,8 +17,8 @@ public class Member
     public DateTime createdAt {get;set;}
     public DateTime? updatedAt{get;set;}
 
-    public ICollection<DamagedBook>? DamagedBooks {get;set;}
-    public ICollection<Borrowing>? Borrowings {get;set;}
+    public ICollection<DamagedBook> DamagedBooks {get;set;} = new List<DamagedBook>();
+    public ICollection<Borrowing> Borrowings {get;set;} = new List<Borrowing>();
 
     public override string ToString()
     {
