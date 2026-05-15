@@ -13,7 +13,7 @@ public class InitialPage
         {
 
             Console.WriteLine("------------------------------------------------");
-            Console.WriteLine("Enter 1 For Company");
+            Console.WriteLine("Enter 1 For Library Admin");
             Console.WriteLine("Enter 2 For User");
             Console.WriteLine("Enter 0 To Quit");
             Console.WriteLine("------------------------------------------------");
@@ -28,7 +28,7 @@ public class InitialPage
                 {
                     case 1:
                         {
-                            //adminRole.AdminRoles();
+                            adminRole.AdminRoles();
                             break;
                         }
                     case 2:

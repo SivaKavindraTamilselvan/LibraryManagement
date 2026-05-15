@@ -2,6 +2,11 @@ namespace LibraryManagement.PresentationLayer.Frontend;
 
 public class AdminRole
 {
+    protected readonly MemberManagement memberManagement;
+    public AdminRole(MemberManagement _memberManagement)
+    {
+        memberManagement = _memberManagement;
+    }
     public void AdminRoles()
     {
         while (true)
@@ -18,7 +23,7 @@ public class AdminRole
                 {
                     case 1:
                         {
-                            //AddUser();
+                            memberManagement.AddMember();
                             break;
                         }
                     case 2:

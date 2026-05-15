@@ -5,7 +5,8 @@ public class Program
 {
     static void main(string[] args)
     {
-        AdminRole adminRole = new AdminRole();
+        MemberManagement memberManagement = new MemberManagement();
+        AdminRole adminRole = new AdminRole(memberManagement);
         InitialPage initialPage = new InitialPage(adminRole);
         initialPage.RoleSelection();
     }
