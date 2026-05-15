@@ -5,7 +5,7 @@ using NotificationAppDataAccessLibrary.Repositories;
 
 namespace LibraryManagement.BuisnessLayerLibrary.Services;
 
-public class AdminService : IAdminService
+public partial class AdminService : IAdminService
 {
     protected readonly MemberRepository memberRepository;
     public AdminService(MemberRepository _memberRepository)
