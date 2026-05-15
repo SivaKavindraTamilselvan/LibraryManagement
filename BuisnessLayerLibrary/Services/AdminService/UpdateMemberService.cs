@@ -13,6 +13,10 @@ public partial class AdminService : IAdminService
         {
             throw new InvalidMemberException("No user Found In With The Member Id");
         }
+        if(member.MemberTypeId == MemberTypeId)
+        {
+            throw new InvalidMemberException("Already The Member Type Is Same");
+        }
         member.MemberTypeId = MemberTypeId;
         var updatedMember = memberRepository.Update(id,member);
         return updatedMember;
@@ -24,6 +28,10 @@ public partial class AdminService : IAdminService
         {
             throw new InvalidMemberException("No user Found In With The Member Id");
         }
+        if(member.MemberTypeId == MemberTypeId)
+        {
+            throw new InvalidMemberException("Already The Member Type Is Same");
+        }
         member.MemberTypeId = MemberTypeId;
         var updatedMember = memberRepository.Update(member.MemberId,member);
         return updatedMember;
@@ -34,6 +42,10 @@ public partial class AdminService : IAdminService
         if(member == null)
         {
             throw new InvalidMemberException("No user Found In With The Member Id");
+        }
+        if(member.MemberTypeId == MemberTypeId)
+        {
+            throw new InvalidMemberException("Already The Member Type Is Same");
         }
         member.MemberTypeId = MemberTypeId;
         var updatedMember = memberRepository.Update(member.MemberId,member);
