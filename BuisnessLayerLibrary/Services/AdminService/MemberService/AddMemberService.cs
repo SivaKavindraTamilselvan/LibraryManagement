@@ -11,10 +11,13 @@ public partial class AdminService : IAdminService
     protected readonly MemberRepository memberRepository;
     protected readonly BookRepository bookRepository;
 
-    public AdminService(MemberRepository _memberRepository,BookRepository _bookRepository)
+    protected readonly BookCategoryRepository bookCategoryRepository;
+
+    public AdminService(MemberRepository _memberRepository, BookRepository _bookRepository,BookCategoryRepository _bookCategoryRepository)
     {
         memberRepository = _memberRepository;
         bookRepository = _bookRepository;
+        bookCategoryRepository = _bookCategoryRepository;
     }
     InputsCheck inputsCheck = new InputsCheck();
     public Member? AddMemberService()
