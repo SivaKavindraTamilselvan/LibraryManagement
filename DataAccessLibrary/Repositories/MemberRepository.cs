@@ -5,7 +5,7 @@ namespace NotificationAppDataAccessLibrary.Repositories;
 
 public class MemberRepository : AbstractRepository<int, Member>
 {
-    public override Member Get(int MemberId)
+    public override Member? Get(int MemberId)
     {
         var member = libraryManagementContext.Members.Where(m=>m.MemberId == MemberId).FirstOrDefault();
         return member;

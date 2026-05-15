@@ -1,5 +1,6 @@
 using LibraryManagement.BuisnessLayerLibrary.Inputs;
 using LibraryManagement.BuisnessLayerLibrary.Interfaces;
+using LibraryManagement.ModelLibrary.Exceptions;
 using LibraryManagement.ModelLibrary.Models;
 using NotificationAppDataAccessLibrary.Repositories;
 
@@ -34,12 +35,17 @@ public partial class AdminService : IAdminService
 
         Console.WriteLine("Enter Your Email");
         string Email = inputsCheck.EmailInputs();
-        /*
-        needed to implment email check for only one email registration
-        */
+        if (GetMemberByEmail(Email) != null)
+        {
+            throw new InvalidMemberException("Already the Email Is Registered. Try With Another Email");
+        }
 
         Console.WriteLine("Enter Your PhoneNumber");
         string PhoneNumber = inputsCheck.PhoneNumberInputs();
+        if (GetMemberByPhoneNumber(PhoneNumber) != null)
+        {
+            throw new InvalidMemberException("Already the PhoneNumber Is Registered. Try With Another PhoneNumber");
+        }
 
         Console.WriteLine("Enter The RoleType");
         Console.WriteLine("Enter 1 To Add Admin");
@@ -47,7 +53,7 @@ public partial class AdminService : IAdminService
         int typechoice;
         while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice < 0 || typechoice > 2)
         {
-            Console.WriteLine("Enter Vaild Input");
+            Console.WriteLine("Enter Vaild Role Type Input");
         }
 
         if (typechoice == 2)
@@ -59,7 +65,7 @@ public partial class AdminService : IAdminService
             Console.WriteLine("Enter 3 To Premium");
             while (!int.TryParse(Console.ReadLine(), out memberchoice) || memberchoice < 0 || memberchoice > 3)
             {
-                Console.WriteLine("Enter Vaild Input");
+                Console.WriteLine("Enter Vaild Member Type Input");
             }
             member.MemberTypeId = memberchoice;
         }
@@ -68,7 +74,7 @@ public partial class AdminService : IAdminService
             member.MemberTypeId = null;
         }
 
-        //user detailed added to the object
+        //member detailed added to the object
         member.FirstName = FirstName;
         member.LastName = LastName;
         member.Email = Email;
@@ -78,7 +84,7 @@ public partial class AdminService : IAdminService
         member.RoleId = typechoice;
         member.createdAt = DateTime.Now;
         var createdMember = memberRepository.Create(member);
-        if(createdMember == null)
+        if (createdMember == null)
         {
             return null;
         }

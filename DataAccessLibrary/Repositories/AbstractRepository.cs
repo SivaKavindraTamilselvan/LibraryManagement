@@ -11,21 +11,31 @@ public abstract class AbstractRepository<K, T> : IRepository<K, T> where T : cla
     {
         libraryManagementContext = new LibraryManagementContext();
     }
-    public abstract T Get(K key);
+    public abstract T? Get(K key);
 
     // Get the details of the tables by id
     public T Create(T item)
     {
-        
-            libraryManagementContext.Add(item);
-            libraryManagementContext.SaveChanges();
-            return item;
-    
-        
+
+        libraryManagementContext.Add(item);
+        libraryManagementContext.SaveChanges();
+        return item;
     }
 
     public List<T> GetAll()
     {
         return libraryManagementContext.Set<T>().ToList();
+    }
+
+    public T? Update(K key,T item)
+    {
+        var items = Get(key);
+        if(items == null)
+        {
+            return null;
+        }
+        libraryManagementContext.Update(item);
+        libraryManagementContext.SaveChanges();
+        return items;
     }
 }
