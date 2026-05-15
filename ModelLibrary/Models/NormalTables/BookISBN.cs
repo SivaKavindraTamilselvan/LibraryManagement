@@ -9,5 +9,10 @@ public class BookISBN
     public int BookId {get;set;}
     public Book? Book {get;set;}
     public ICollection<BookCopy>? BookCopies {get;set;}
+
+    public override string ToString()
+    {
+        return $"BookISBNId : {BookISBNId}\nPublished Year : {PublishedYear}\nEdition: {Edition}\nBookId : {BookId}";
+    }
     
 }

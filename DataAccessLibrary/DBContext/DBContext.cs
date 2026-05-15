@@ -15,6 +15,7 @@ public class LibraryManagementContext : DbContext
     public DbSet<Member> Member { get; set; }
     public DbSet<Book> Book { get; set; }
     public DbSet<BookCategory> BookCategory { get; set; }
+    public DbSet<BookISBN> BookISBN { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -104,7 +105,7 @@ public class LibraryManagementContext : DbContext
             bc.Property(bc => bc.BookCategoryName).IsRequired();
             bc.HasData(new BookCategory() { BookCategoryId = 1, BookCategoryName = "Science" });
             bc.HasData(new BookCategory() { BookCategoryId = 2, BookCategoryName = "Fiction" });
-            bc.HasData(new BookCategory() {BookCategoryId = 3,BookCategoryName = "Non Fiction"});
+            bc.HasData(new BookCategory() { BookCategoryId = 3, BookCategoryName = "Non Fiction" });
             bc.HasData(new BookCategory() { BookCategoryId = 4, BookCategoryName = "Horror" });
 
         });

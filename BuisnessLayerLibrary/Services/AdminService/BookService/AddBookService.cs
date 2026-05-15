@@ -29,10 +29,26 @@ public partial class AdminService
         book.BookTitle = BookTitle;
 
         var createdBook = bookRepository.Create(book);
-        if(createdBook == null)
+        if (createdBook == null)
         {
             throw new InvalidBookException("No Book Is Created");
         }
         return createdBook;
+    }
+
+    public BookISBN? AddBookISBN()
+    {
+        BookISBN bookISBN = new BookISBN();
+        // need to add validation
+        int year = Convert.ToInt32(Console.ReadLine());
+        int Edition = Convert.ToInt32(Console.ReadLine());
+        //need to check if book id is there
+        int bookId = inputsCheck.IdInputs();
+        bookISBN.PublishedYear= year;
+        bookISBN.Edition = Edition;
+        bookISBN.BookId = bookId;
+        bookISBN.ISBN = generateUniqueISBN.GenerateISBN();
+        var createdBookISBN = bookISBNRepository.Create(bookISBN);
+        return createdBookISBN;
     }
 }

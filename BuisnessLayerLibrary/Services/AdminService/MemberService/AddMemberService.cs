@@ -1,5 +1,6 @@
 using LibraryManagement.BuisnessLayerLibrary.Inputs;
 using LibraryManagement.BuisnessLayerLibrary.Interfaces;
+using LibraryManagement.DataAccessLibrary.UniqueISBN;
 using LibraryManagement.ModelLibrary.Exceptions;
 using LibraryManagement.ModelLibrary.Models;
 using NotificationAppDataAccessLibrary.Repositories;
@@ -10,14 +11,18 @@ public partial class AdminService : IAdminService
 {
     protected readonly MemberRepository memberRepository;
     protected readonly BookRepository bookRepository;
-
+    protected readonly BookISBNRepository bookISBNRepository;
     protected readonly BookCategoryRepository bookCategoryRepository;
+    protected readonly GenerateUniqueISBN generateUniqueISBN;
 
-    public AdminService(MemberRepository _memberRepository, BookRepository _bookRepository,BookCategoryRepository _bookCategoryRepository)
+
+    public AdminService(MemberRepository _memberRepository, BookRepository _bookRepository, BookCategoryRepository _bookCategoryRepository, BookISBNRepository _bookISBNRepository)
     {
         memberRepository = _memberRepository;
         bookRepository = _bookRepository;
         bookCategoryRepository = _bookCategoryRepository;
+        bookISBNRepository = _bookISBNRepository;
+        generateUniqueISBN = new GenerateUniqueISBN();
     }
     InputsCheck inputsCheck = new InputsCheck();
     public Member? AddMemberService()

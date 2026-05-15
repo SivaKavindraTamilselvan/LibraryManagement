@@ -12,4 +12,10 @@ public partial class BookManagement
        var book = adminService.AddBook();
        Console.WriteLine(book);
     }
+
+    public void AddBookISBN()
+    {
+        var book = adminService.AddBookISBN();
+        Console.WriteLine(book);
+    }
 }

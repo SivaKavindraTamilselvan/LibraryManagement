@@ -30,6 +30,7 @@ public partial class BookManagement
                         }
                     case 2:
                         {
+                            AddBookISBN();
                             break;
                         }
                     case 3:

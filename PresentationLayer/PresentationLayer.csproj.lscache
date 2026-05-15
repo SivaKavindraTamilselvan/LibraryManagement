@@ -57,8 +57,12 @@ TemporaryDependencyNodeTargetIdentifier=net10.0
 ApplicationFrontend/Admin/BookManagmentPages/AddBookPage/
  AddBook.cs
  AddBookChoices.cs
+ApplicationFrontend/Admin/BookManagmentPages/
+ BookManagementChoice.cs
+ GetBookPage/
+  GetBookChoice.cs
+  GetBookPage.cs
 ApplicationFrontend/Admin/
- BookManagmentPages/BookManagementChoice.cs
  MainAdminPage/MainAdminChoice.cs
  MemberManagementPages/ActivateMemberPage/
   ActivateMember.cs
