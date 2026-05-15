@@ -22,6 +22,6 @@ public class Member
 
     public override string ToString()
     {
-        return $"MemberId : {MemberId}";
+        return $"MemberId : {MemberId}\nFirsName : {FirstName}\nLastName : {LastName}\nEmail : {Email}\nPhoneNumber : {PhoneNumber}\nIsActive : {isActive}\nRole : {Role?.RoleName}\nMember Type : {MemberType?.MemberTypeName}\nCreated At : {createdAt}\nUpdated At : {updatedAt}";
     }
 }
