@@ -5,7 +5,8 @@ public class Program
 {
     static void main(string[] args)
     {
-        InitialPage initialPage = new InitialPage();
+        AdminRole adminRole = new AdminRole();
+        InitialPage initialPage = new InitialPage(adminRole);
         initialPage.RoleSelection();
     }
 }

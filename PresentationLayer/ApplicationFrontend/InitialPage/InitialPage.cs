@@ -2,6 +2,11 @@ namespace LibraryManagement.PresentationLayer.Frontend;
 
 public class InitialPage
 {
+    private readonly AdminRole adminRole;
+    public InitialPage(AdminRole _adminRole)
+    {
+        adminRole = _adminRole;
+    }
     public void RoleSelection()
     {
         while (true)

@@ -1,6 +1,6 @@
 namespace LibraryManagement.PresentationLayer.Frontend;
 
-public partial class AdminRole
+public class AdminRole
 {
     public void AdminRoles()
     {
