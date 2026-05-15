@@ -10,5 +10,20 @@ public partial class AdminService :IAdminService
         var memberList = memberRepository.GetAll();
         return memberList;
     }
+    public Member? GetMemberByEmail(string email)
+    {
+        var member = memberRepository.GetMemberByEmail(email);
+        return member;
+    }
 
+    public Member? GetMemberByPhoneNumber(string email)
+    {
+        var member = memberRepository.GetMemberByEmail(email);
+        return member;
+    }
+    public Member? GetMemberByRole(int RoleId)
+    {
+        var member = memberRepository.GetMemberByRole(RoleId);
+        return member;
+    }
 }

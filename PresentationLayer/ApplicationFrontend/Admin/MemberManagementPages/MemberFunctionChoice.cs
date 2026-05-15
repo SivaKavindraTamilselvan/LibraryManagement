@@ -1,9 +1,11 @@
+using LibraryManagement.BuisnessLayerLibrary.Inputs;
 using LibraryManagement.BuisnessLayerLibrary.Services;
 
 namespace LibraryManagement.PresentationLayer.Frontend;
 
 public partial class MemberManagement
 {
+    InputsCheck inputsCheck = new InputsCheck();
     protected readonly AdminService adminService;
     public MemberManagement(AdminService _adminService)
     {
@@ -17,9 +19,8 @@ public partial class MemberManagement
             Console.WriteLine("Enter 2 To Get All Member Details");
             Console.WriteLine("Enter 3 To Get All The Member Details By Email");
             Console.WriteLine("Enter 4 To Get All The Member Details By Phone Number");
-            Console.WriteLine("Enter 5 To Get All The Member Details By Role");
-
-            //adminChoices.DisplayAdminChoices();
+            Console.WriteLine("Enter 5 To Get All The Member Details By User Role");
+            Console.WriteLine("Enter 6 To Get All The Member Details By Admin Role");
             int typechoice;
             while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 6 || typechoice < 0)
             {
@@ -41,22 +42,24 @@ public partial class MemberManagement
                         }
                     case 3:
                         {
-                            //UpdateUser();
+                            string email = inputsCheck.EmailInputs();
+                            GetMemberByEmail(email);
                             break;
                         }
                     case 4:
                         {
-                            //adminDeleteRole.AdminDeleteRoles();
+                            string PhoneNumber = inputsCheck.PhoneNumberInputs();
+                            GetMemberByPhoneNumber(PhoneNumber);
                             break;
                         }
                     case 5:
                         {
-                            //adminSendNotificationRole.AdminSendNotificationRoles();
+                            GetMemberByRole(1);
                             break;
                         }
                     case 6:
                         {
-                            //adminGetNotificationRole.AdminGetNotificationRoles();
+                            GetMemberByRole(2);
                             break;
                         }
                     case 0:
