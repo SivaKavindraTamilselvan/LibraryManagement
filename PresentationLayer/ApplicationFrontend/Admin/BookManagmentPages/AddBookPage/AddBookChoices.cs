@@ -35,6 +35,7 @@ public partial class BookManagement
                         }
                     case 3:
                         {
+                            AddBookCopy();
                             break;
                         }
                     case 4:

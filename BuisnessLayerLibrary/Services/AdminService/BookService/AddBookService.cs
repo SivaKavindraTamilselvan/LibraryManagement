@@ -47,8 +47,22 @@ public partial class AdminService
         bookISBN.PublishedYear= year;
         bookISBN.Edition = Edition;
         bookISBN.BookId = bookId;
-        bookISBN.ISBN = generateUniqueISBN.GenerateISBN();
+        bookISBN.ISBN = generateUnique.GenerateISBN();
         var createdBookISBN = bookISBNRepository.Create(bookISBN);
+        return createdBookISBN;
+    }
+    public BookCopy? AddBookCopy()
+    {
+        BookCopy bookISBN = new BookCopy();
+        // need to add validation
+        int ISBN = inputsCheck.IdInputs();
+        //need to check if book id is there
+        int bookStatusId = inputsCheck.IdInputs();
+        //string isbnNumber = bookISBNRepository.Get(ISBN);
+        bookISBN.CopyNumber = generateUnique.GenerateCopy();
+        bookISBN.BookStatusId = bookStatusId;
+        bookISBN.BookISBNId = ISBN;
+        var createdBookISBN = bookCopyRepository.Create(bookISBN);
         return createdBookISBN;
     }
 }

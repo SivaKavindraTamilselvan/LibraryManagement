@@ -55,7 +55,7 @@ TemporaryDependencyNodeTargetIdentifier=net10.0
 
 [sourceFiles]
 DBContext/DBContext.cs
-GenerateISBN/GenerateUniqueISBN.cs
+GenerateNumber/GenerateUnique.cs
 Interface/IRepository.cs
 Migrations/
  20260514192840_InitialMigration.cs
@@ -72,6 +72,7 @@ obj/Debug/net10.0/
 Repositories/
  AbstractRepository.cs
  BookCategoryRepository.cs
+ BookCopyRepository.cs
  BookISBNRepository.cs
  BookRepository.cs
  MemberRepository.cs

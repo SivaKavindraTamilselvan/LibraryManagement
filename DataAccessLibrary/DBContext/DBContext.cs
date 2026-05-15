@@ -16,6 +16,7 @@ public class LibraryManagementContext : DbContext
     public DbSet<Book> Book { get; set; }
     public DbSet<BookCategory> BookCategory { get; set; }
     public DbSet<BookISBN> BookISBN { get; set; }
+    public DbSet<BookCopy> BookCopy { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -12,8 +12,8 @@ public class Program
         BookCategoryRepository bookCategoryRepository = new BookCategoryRepository();
         BookRepository bookRepository = new BookRepository();
         BookISBNRepository bookISBNRepository = new BookISBNRepository();
-
-        AdminService adminService = new AdminService(memberRepository,bookRepository,bookCategoryRepository,bookISBNRepository);
+        BookCopyRepository bookCopyRepository = new BookCopyRepository();
+        AdminService adminService = new AdminService(memberRepository,bookRepository,bookCategoryRepository,bookISBNRepository,bookCopyRepository);
 
         MemberManagement memberManagement = new MemberManagement(adminService);
         BookManagement bookManagement = new BookManagement(adminService);

@@ -2,10 +2,10 @@ using LibraryManagement.DataAccessLibrary.DBContext;
 
 namespace LibraryManagement.DataAccessLibrary.UniqueISBN;
 
-public class GenerateUniqueISBN
+public class GenerateUnique
 {
     protected readonly LibraryManagementContext libraryManagementContext;
-    public GenerateUniqueISBN()
+    public GenerateUnique()
     {
         libraryManagementContext = new LibraryManagementContext();
     }
@@ -27,5 +27,24 @@ public class GenerateUniqueISBN
         } while (libraryManagementContext.BookISBN.Any(b => b.ISBN == isbn));
 
         return isbn;
+    }
+    public string GenerateCopy()
+    {
+        Random random = new Random();
+
+        string copy;
+
+        do
+        {
+            copy = "";
+
+            for (int i = 0; i < 8; i++)
+            {
+                copy += random.Next(0, 10);
+            }
+
+        } while (libraryManagementContext.BookCopy.Any(b => b.CopyNumber == copy));
+
+        return copy;
     }
 }

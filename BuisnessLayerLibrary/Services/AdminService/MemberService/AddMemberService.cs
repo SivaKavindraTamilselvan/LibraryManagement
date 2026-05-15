@@ -13,16 +13,19 @@ public partial class AdminService : IAdminService
     protected readonly BookRepository bookRepository;
     protected readonly BookISBNRepository bookISBNRepository;
     protected readonly BookCategoryRepository bookCategoryRepository;
-    protected readonly GenerateUniqueISBN generateUniqueISBN;
+    protected readonly BookCopyRepository bookCopyRepository;
+
+    protected readonly GenerateUnique generateUnique;
 
 
-    public AdminService(MemberRepository _memberRepository, BookRepository _bookRepository, BookCategoryRepository _bookCategoryRepository, BookISBNRepository _bookISBNRepository)
+    public AdminService(MemberRepository _memberRepository, BookRepository _bookRepository, BookCategoryRepository _bookCategoryRepository, BookISBNRepository _bookISBNRepository,BookCopyRepository _bookCopyRepository)
     {
         memberRepository = _memberRepository;
         bookRepository = _bookRepository;
         bookCategoryRepository = _bookCategoryRepository;
         bookISBNRepository = _bookISBNRepository;
-        generateUniqueISBN = new GenerateUniqueISBN();
+        bookCopyRepository = _bookCopyRepository;
+        generateUnique = new GenerateUnique();
     }
     InputsCheck inputsCheck = new InputsCheck();
     public Member? AddMemberService()

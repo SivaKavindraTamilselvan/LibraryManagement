@@ -18,4 +18,10 @@ public partial class BookManagement
         var book = adminService.AddBookISBN();
         Console.WriteLine(book);
     }
+
+    public void AddBookCopy()
+    {
+        var book = adminService.AddBookCopy();
+        Console.WriteLine(book);
+    }
 }
