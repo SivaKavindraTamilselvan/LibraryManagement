@@ -1,11 +1,17 @@
 using LibraryManagement.BuisnessLayerLibrary.Inputs;
 using LibraryManagement.BuisnessLayerLibrary.Interfaces;
 using LibraryManagement.ModelLibrary.Models;
+using NotificationAppDataAccessLibrary.Repositories;
 
 namespace LibraryManagement.BuisnessLayerLibrary.Services;
 
 public class AdminService : IAdminService
 {
+    protected readonly MemberRepository memberRepository;
+    public AdminService(MemberRepository _memberRepository)
+    {
+        memberRepository = _memberRepository;
+    }
     InputsCheck inputsCheck = new InputsCheck();
     public Member? AddMemberService()
     {
@@ -66,6 +72,12 @@ public class AdminService : IAdminService
         member.Password = FirstName + LastName + "123"; // initially added by the admin later can be changed by the user
         member.isActive = true;
         member.RoleId = typechoice;
-        return null;
+
+        var createdMember = memberRepository.Create(member);
+        if(createdMember == null)
+        {
+            return null;
+        }
+        return createdMember;
     }
 }

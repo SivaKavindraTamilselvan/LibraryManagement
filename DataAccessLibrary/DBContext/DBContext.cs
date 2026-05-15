@@ -9,7 +9,7 @@ public class LibraryManagementContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         Env.Load();
-        optionsBuilder.UseNpgsql(Environment.GetEnvironmentVariable("ConnectionString"));
+        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=LibraryManagement;Username=sivakavindra;Password=SivaKavindra@280804");
     }
     public DbSet<MemberType> MemberTypes { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)

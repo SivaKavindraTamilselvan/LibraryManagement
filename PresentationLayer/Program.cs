@@ -1,12 +1,14 @@
 ﻿using LibraryManagement.BuisnessLayerLibrary.Services;
 using LibraryManagement.PresentationLayer.Frontend;
+using NotificationAppDataAccessLibrary.Repositories;
 
 namespace LibraryManagement.PresentationLayer;
 public class Program
 {
-    static void main(string[] args)
+    static void Main(string[] args)
     {
-        AdminService adminService = new AdminService();
+        MemberRepository memberRepository = new MemberRepository();
+        AdminService adminService = new AdminService(memberRepository);
         MemberManagement memberManagement = new MemberManagement(adminService);
         AdminRole adminRole = new AdminRole(memberManagement);
         InitialPage initialPage = new InitialPage(adminRole);

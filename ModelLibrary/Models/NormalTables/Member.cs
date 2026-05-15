@@ -19,4 +19,9 @@ public class Member
 
     public ICollection<DamagedBook>? DamagedBooks {get;set;}
     public ICollection<Borrowing>? Borrowings {get;set;}
+
+    public override string ToString()
+    {
+        return $"MemberId : {MemberId}";
+    }
 }
