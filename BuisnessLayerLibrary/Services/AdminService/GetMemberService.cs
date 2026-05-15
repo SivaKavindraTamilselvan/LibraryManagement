@@ -26,4 +26,10 @@ public partial class AdminService :IAdminService
         var member = memberRepository.GetMemberByRole(RoleId);
         return member;
     }
+
+    public Member? GetMemberById(int MemberId)
+    {
+        var member = memberRepository.Get(MemberId);
+        return member;
+    }
 }

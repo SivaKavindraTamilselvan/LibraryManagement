@@ -11,6 +11,7 @@ public abstract class AbstractRepository<K, T> : IRepository<K, T> where T : cla
     {
         libraryManagementContext = new LibraryManagementContext();
     }
+    public abstract T Get(K key);
 
     // Get the details of the tables by id
     public T Create(T item)

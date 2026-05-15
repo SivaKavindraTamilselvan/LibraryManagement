@@ -21,6 +21,8 @@ public partial class MemberManagement
             Console.WriteLine("Enter 4 To Get All The Member Details By Phone Number");
             Console.WriteLine("Enter 5 To Get All The Member Details By User Role");
             Console.WriteLine("Enter 6 To Get All The Member Details By Admin Role");
+            Console.WriteLine("Enter 7 To Get All The Member Details By Member Id");
+
             int typechoice;
             while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 6 || typechoice < 0)
             {
@@ -60,6 +62,12 @@ public partial class MemberManagement
                     case 6:
                         {
                             GetMemberByRole(2);
+                            break;
+                        }
+                    case 7:
+                        {
+                            int id = inputsCheck.IdInputs();
+                            GetMemberById(id);
                             break;
                         }
                     case 0:
