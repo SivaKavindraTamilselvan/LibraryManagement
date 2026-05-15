@@ -8,7 +8,7 @@ public class InputsCheck
     {
         string email = Console.ReadLine() ?? string.Empty;
         //loop until valid entry is entered
-        while(true)
+        while (true)
         {
             try
             {
@@ -16,7 +16,7 @@ public class InputsCheck
                 EmailValidation.isValidEmail(email);
                 return email;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 Console.WriteLine("Enter Valid Email Address Again");
@@ -36,7 +36,7 @@ public class InputsCheck
                 PhoneNumberValidation.isValidPhoneNumber(phone);
                 return phone;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 Console.WriteLine("Enter Valid Phone Number Again");
@@ -54,5 +54,24 @@ public class InputsCheck
             Console.WriteLine("Enter Vaild Input");
         }
         return id;
+    }
+    public int YearInputs()
+    {
+        Console.WriteLine("Enter the Year");
+        int year = Convert.ToInt32(Console.ReadLine());
+        while (true)
+        {
+            try
+            {
+                YearValidation.isValidYear(year);
+                return year;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Enter Valid Year Again");
+                year = Convert.ToInt32(Console.ReadLine());
+            }
+        }
     }
 }

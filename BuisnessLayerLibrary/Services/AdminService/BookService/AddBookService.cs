@@ -39,12 +39,20 @@ public partial class AdminService
     public BookISBN? AddBookISBN()
     {
         BookISBN bookISBN = new BookISBN();
-        // need to add validation
-        int year = Convert.ToInt32(Console.ReadLine());
-        int Edition = Convert.ToInt32(Console.ReadLine());
-        //need to check if book id is there
+        int year = inputsCheck.YearInputs();
+
+        Console.WriteLine("Enter The Edition");
+        int Edition;
+        while (!int.TryParse(Console.ReadLine(), out Edition) || Edition < 0)
+        {
+            Console.WriteLine("Enter The Valid Edition Number");
+        }
         int bookId = inputsCheck.IdInputs();
-        bookISBN.PublishedYear= year;
+        if (bookRepository.Get(bookId) == null)
+        {
+            throw new InvalidBookException("Book is Not Found In The List");
+        }
+        bookISBN.PublishedYear = year;
         bookISBN.Edition = Edition;
         bookISBN.BookId = bookId;
         bookISBN.ISBN = generateUnique.GenerateISBN();
@@ -55,10 +63,18 @@ public partial class AdminService
     {
         BookCopy bookISBN = new BookCopy();
         // need to add validation
+        Console.WriteLine("Enter The ISBN Book ID");
         int ISBN = inputsCheck.IdInputs();
-        //need to check if book id is there
-        int bookStatusId = inputsCheck.IdInputs();
-        //string isbnNumber = bookISBNRepository.Get(ISBN);
+        if (bookISBNRepository.Get(ISBN) == null)
+        {
+            throw new InvalidBookException("Book is Not Found In The List");
+        }
+        Console.WriteLine("Enter The Book Status ID");
+        int bookStatusId;
+        while(!int.TryParse(Console.ReadLine(),out bookStatusId) || bookStatusId<0 || bookStatusId>5)
+        {
+            Console.WriteLine("Enter Valid Book Status ID");
+        }
         bookISBN.CopyNumber = generateUnique.GenerateCopy();
         bookISBN.BookStatusId = bookStatusId;
         bookISBN.BookISBNId = ISBN;

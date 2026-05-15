@@ -61,6 +61,7 @@ Exceptions/
  InvalidMemberException.cs
  PasswordException.cs
  PhoneNumberExceptions.cs
+ YearException.cs
 Models/MasterTables/
  BookStatus.cs
  BorrwingStatus.cs
