@@ -12,6 +12,7 @@ public partial class MemberManagement
             Console.WriteLine("Enter 1 To Update The Member Type Details By Email");
             Console.WriteLine("Enter 2 To Update The Member Type Details By Phone Number");
             Console.WriteLine("Enter 3 To Update The Member Type Details By Member Id");
+            Console.WriteLine("Enter 0 To Quit");
 
             int typechoice;
             while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 3 || typechoice < 0)

@@ -11,7 +11,9 @@ public class AdminRole
     {
         while (true)
         {
-            //adminChoices.DisplayAdminChoices();
+            Console.WriteLine("Enter 1 For Member Management");
+            Console.WriteLine("Enter 2 For Book Manegement");
+            Console.WriteLine("Enter 0 To Quit");
             int typechoice;
             while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 6 || typechoice < 0)
             {

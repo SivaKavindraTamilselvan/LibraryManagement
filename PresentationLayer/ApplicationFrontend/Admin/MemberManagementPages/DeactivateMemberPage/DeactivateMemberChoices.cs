@@ -12,6 +12,7 @@ public partial class MemberManagement
             Console.WriteLine("Enter 1 To Deactivate The Member By Email");
             Console.WriteLine("Enter 2 To Deactivate The Member By Phone Number");
             Console.WriteLine("Enter 3 To Deactivate The Member By Member Id");
+            Console.WriteLine("Enter 0 To Quit");
 
             int typechoice;
             while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 3 || typechoice < 0)
