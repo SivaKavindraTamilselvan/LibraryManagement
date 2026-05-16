@@ -61,6 +61,9 @@ obj/Debug/net10.0/
  .NETCoreApp,Version=v10.0.AssemblyAttributes.cs
  BuisnessLayerLibrary.AssemblyInfo.cs
  BuisnessLayerLibrary.GlobalUsings.g.cs
+Objects/
+ Managment.cs
+ Repository.cs
 Services/AdminService/
  BookCategoryService/AddCategory.cs
  BookService/

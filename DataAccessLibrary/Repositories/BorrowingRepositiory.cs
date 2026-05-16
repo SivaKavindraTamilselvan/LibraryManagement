@@ -43,10 +43,10 @@ public class BorrowingRepository : AbstractRepository<int, Borrowing>
         using var transaction = context.Database.BeginTransaction();
         try
         {
-            context.Database.ExecuteSqlInterpolated($"CALL check_borrowing_rules({memberId},{bookId})");
+            //context.Database.ExecuteSqlInterpolated($"CALL check_borrowing_rules({memberId},{bookId})");
             transaction.Commit();
-            var borrowing = context.Borrowing.AsNoTracking().Where(b => b.MemberId == memberId).OrderByDescending(b => b.BorrowedDate).FirstOrDefault();
-            return borrowing;
+            //var borrowing = context.Borrowing.AsNoTracking().Where(b => b.MemberId == memberId).OrderByDescending(b => b.BorrowedDate).FirstOrDefault();
+            //return borrowing;
         }
         catch (PostgresException ex)
         {

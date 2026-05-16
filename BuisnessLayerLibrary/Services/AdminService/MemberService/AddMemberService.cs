@@ -1,5 +1,6 @@
 using LibraryManagement.BuisnessLayerLibrary.Inputs;
 using LibraryManagement.BuisnessLayerLibrary.Interfaces;
+using LibraryManagement.DataAccessLibrary.Object;
 using LibraryManagement.DataAccessLibrary.UniqueISBN;
 using LibraryManagement.ModelLibrary.Exceptions;
 using LibraryManagement.ModelLibrary.Models;
@@ -18,14 +19,14 @@ public partial class AdminService : IAdminService
     protected readonly GenerateUnique generateUnique;
 
 
-    public AdminService(MemberRepository _memberRepository, BookRepository _bookRepository, BookCategoryRepository _bookCategoryRepository, BookISBNRepository _bookISBNRepository, BookCopyRepository _bookCopyRepository,BorrowingRepository _borrowingRepository)
+    public AdminService(RepositoryManagment repositoryManagment)
     {
-        memberRepository = _memberRepository;
-        bookRepository = _bookRepository;
-        bookCategoryRepository = _bookCategoryRepository;
-        bookISBNRepository = _bookISBNRepository;
-        bookCopyRepository = _bookCopyRepository;
-        borrowingRepository = _borrowingRepository;
+        memberRepository = repositoryManagment.memberRepository;
+        bookRepository = repositoryManagment.bookRepository;
+        bookCategoryRepository = repositoryManagment.bookCategoryRepository;
+        bookISBNRepository = repositoryManagment.bookISBNRepository;
+        bookCopyRepository = repositoryManagment.bookCopyRepository;
+        borrowingRepository = repositoryManagment.borrowingRepository;
         generateUnique = new GenerateUnique();
     }
     InputsCheck inputsCheck = new InputsCheck();

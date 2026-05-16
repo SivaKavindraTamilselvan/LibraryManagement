@@ -66,7 +66,8 @@ ApplicationFrontend/Admin/BorrowingManagmentPages/
  AddBorrowing.cs
  BorrowingManagentChoice.cs
 ApplicationFrontend/Admin/
- MainAdminPage/MainAdminChoice.cs
+ FineManagmentPage/FineManagmentChoice.cs
+ MainAdminChoice.cs
  MemberManagementPages/ActivateMemberPage/
   ActivateMember.cs
   ActivateMemberChoices.cs
@@ -82,6 +83,7 @@ ApplicationFrontend/Admin/
   UpdateUserPage/
    UpdateMemberChoice.cs
    UpdateMemberPage.cs
+ ReportManagmentPage/ReportManagmentChoice.cs
  ReturnManagmentPage/
   ReturnBook.cs
   ReturnManagmentChoice.cs
@@ -92,6 +94,7 @@ obj/Debug/net10.0/
  .NETCoreApp,Version=v10.0.AssemblyAttributes.cs
  PresentationLayer.AssemblyInfo.cs
  PresentationLayer.GlobalUsings.g.cs
+Objects/Managment.cs
 Program.cs
 
 [metadataReferences]

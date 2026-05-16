@@ -84,7 +84,10 @@ Repositories/
  BookISBNRepository.cs
  BookRepository.cs
  BorrowingRepositiory.cs
+ DamagedBookRepository.cs
+ FineRepository.cs
  MemberRepository.cs
+ PaymentRepository.cs
 
 [metadataReferences]
 ../ModelLibrary/obj/Debug/net10.0/ref/ModelLibrary.dll
