@@ -20,4 +20,9 @@ public class BookRepository : AbstractRepository<int, Book>
         var books = libraryManagementContext.Book.Where(b => b.Author == author).Include(bc=>bc.BookCategory).Include(bi => bi.BookISBNs).ThenInclude(bc => bc.BookCopies).ToList();
         return books;
     }
+    public List<Book>? GetAllBooks()
+    {
+        var book = libraryManagementContext.Book.Include(b => b.BookCategory).Include(bi=>bi.BookISBNs).ThenInclude(bc=>bc.BookCopies).ThenInclude(bs=>bs.BookStatus).ToList();
+        return book;
+    }
 }

@@ -9,9 +9,9 @@ public class BookISBNRepository : AbstractRepository<int, BookISBN>
         var book = libraryManagementContext.BookISBN.Where(b=>b.BookISBNId == key).FirstOrDefault();
         return book;
     }
-    public BookISBN? GetBookByISBNNumber(string number)
+    public List<BookISBN>? GetBookByISBNNumber(string number)
     {
-        var book = libraryManagementContext.BookISBN.Include(bn=>bn.Book).Where(b=>b.ISBN == number).FirstOrDefault();
+        var book = libraryManagementContext.BookISBN.Include(bn=>bn.Book).Include(bc=>bc.BookCopies).Where(b=>b.ISBN == number).ToList();
         return book;
     }
 }

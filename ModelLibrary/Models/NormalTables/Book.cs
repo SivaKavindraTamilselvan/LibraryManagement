@@ -22,7 +22,7 @@ public class Book
 
     public string GetAllBooks()
     {
-        string isbnDetails = BookISBNs.Any() ? string.Join("\n\n=========== Basic ISBN Details ===========\n\n", BookISBNs.Select(b => b.GetAllBookISBN())) : "No ISBN Available";
-        return GetBooksByCategory() + "\n\n=========== Basic ISBN Details ===========\n\n" + isbnDetails + "\n\n===========================================\n\n";
+        string isbnDetails = BookISBNs.Any() ? string.Join("\n\n", BookISBNs.Select(b => b.GetAllBookISBN())) : "No Book ISBN Available";
+        return GetBooksByCategory() + "\n\n\n" + isbnDetails;
     }
 }

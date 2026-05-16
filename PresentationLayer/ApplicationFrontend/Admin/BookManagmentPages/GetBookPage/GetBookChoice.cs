@@ -8,12 +8,16 @@ public partial class BookManagement
         {
             Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Enter 1 To Get All Book Details");
-            Console.WriteLine("Enter 2 To Get All Book Details By BookTitle");
-            Console.WriteLine("Enter 3 To Get All Book Details By Author");
-            Console.WriteLine("Enter 4 To Get All Book Details By ISBN Number");
-            Console.WriteLine("Enter 5 To Get All Book Details By Copy Number");
-            Console.WriteLine("Enter 6 To Get Book By Category Id");
-            Console.WriteLine("Enter 7 To Get Book By Book Id");
+            Console.WriteLine("Enter 2 To Get Book By Category Id");
+            Console.WriteLine("Enter 3 To Get Book By Book Id");
+            Console.WriteLine("Enter 4 To Get All Book Details By BookTitle");
+            Console.WriteLine("Enter 5 To Get All Book Details By Author");
+            Console.WriteLine("Enter 6 To Get All Book Details By ISBN Number");
+            Console.WriteLine("Enter 7 To Get All Book Details By Copy Number");
+            Console.WriteLine("Enter 8 To Get All The Books By Status");
+            Console.WriteLine("Enter 9 To Get The Number Of The Books By Category");
+            Console.WriteLine("Enter 10 To Get The Number Of The Books By Book Title");
+            Console.WriteLine("Enter 11 To Get The Number Of The Books By ISBN");
             Console.WriteLine("Enter 0 To Quit");
             Console.WriteLine("------------------------------------------------");
 
@@ -33,42 +37,48 @@ public partial class BookManagement
                         }
                     case 2:
                         {
+                            int id = inputsCheck.IdInputs();
+                            GetBookByCategoryId(id);
+                            break;
+                        }
+                    case 3:
+                        {
+                            int id = inputsCheck.IdInputs();
+                            GetBookByBookId(id);
+                            break;
+                        }
+                    case 4:
+                        {
                             Console.WriteLine("Enter The Book Title");
                             string title = Console.ReadLine() ?? "";
                             GetBookByBookTitle(title);
                             break;
                         }
-                    case 3:
+                    case 5:
                         {
                             Console.WriteLine("Enter The Book Author");
                             string author = Console.ReadLine() ?? "";
                             GetBookByBookAuthor(author);
                             break;
                         }
-                    case 4:
+                    case 6:
                         {
                             Console.WriteLine("Enter The Book ISBN");
                             string isbn = Console.ReadLine() ?? "";
                             GetBookByBookISBNNumber(isbn);
                             break;
                         }
-                    case 5:
+                    case 7:
                         {
                             Console.WriteLine("Enter The Book Copy Number");
                             string copy = Console.ReadLine() ?? "";
                             GetBookByBookCopyNumber(copy);
                             break;
                         }
-                    case 6:
+                    case 8:
                         {
-                            int id = inputsCheck.IdInputs();
-                            GetBookByCategoryId(id);
-                            break;
-                        }
-                    case 7:
-                        {
-                            int id = inputsCheck.IdInputs();
-                            GetBookByBookId(id);
+                            Console.WriteLine("Enter The Status Id");
+                            
                             break;
                         }
                     case 0:

@@ -23,7 +23,15 @@ public class BookCopy
     }
     public string GetAllBookCopy()
     {
-        string book = ToString() + "\n" + $"BookISBNNumber : {BookISBN?.ISBN}" + $"BookStatus : {BookStatus?.BookStatusName}";
+        string book = ToString() + "\n" + $"BookISBNNumber : {BookISBN?.ISBN}\n" + $"BookStatus : {BookStatus?.BookStatusName}";
+        return book;
+    }
+
+    public string GetAllBookCopyByCopyNumber()
+    {
+        string book = ToString() + "\n" + $"BookISBNNumber : {BookISBN?.ISBN}\n" + $"BookStatus : {BookStatus?.BookStatusName}\n";
+        book = book + $"BookPublishedYear : {BookISBN?.PublishedYear}\nEdition : {BookISBN?.Edition}";
+        book = book + $"BookTitle : {BookISBN?.Book?.BookTitle}\nBookAuthor : {BookISBN?.Book?.Author}";
         return book;
     }
 }

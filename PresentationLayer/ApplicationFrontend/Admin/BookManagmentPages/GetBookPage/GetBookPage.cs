@@ -14,7 +14,7 @@ public partial class BookManagement
         }
         foreach (var book in bookList)
         {
-            Console.WriteLine(book);
+            Console.WriteLine(book.GetAllBooks());
         }
     }
 
@@ -36,7 +36,7 @@ public partial class BookManagement
         }
         foreach (var book in booklist)
         {
-            Console.WriteLine(book);
+            Console.WriteLine(book.GetAllBooks());
         }
     }
 
@@ -49,18 +49,21 @@ public partial class BookManagement
         }
         foreach (var book in booklist)
         {
-            Console.WriteLine(book);
+            Console.WriteLine(book.GetAllBooks());
         }
     }
 
     public void GetBookByBookISBNNumber(string isbn)
     {
-        var book = adminService.GetBookByISBNNumber(isbn);
-        if (book == null)
+        var booklist = adminService.GetBookByISBNNumber(isbn);
+        if (booklist == null)
         {
             throw new InvalidBookException("No Book Found In The List");
         }
-        Console.WriteLine(book);
+        foreach (var book in booklist)
+        {
+            Console.WriteLine(book.GetAllBookISBN());
+        }
     }
 
     public void GetBookByBookCopyNumber(string copy)
@@ -70,7 +73,7 @@ public partial class BookManagement
         {
             throw new InvalidBookException("No Book Found In The List");
         }
-        Console.WriteLine(book);
+        Console.WriteLine(book.GetAllBookCopyByCopyNumber());
     }
 
     public void GetBookByCategoryId(int id)
@@ -83,6 +86,18 @@ public partial class BookManagement
         foreach (var book in bookList)
         {
             Console.WriteLine(book.GetCategoryByBook());
+        }
+    }
+    public void GetBookByStatus(int id)
+    {
+        var bookList = adminService.GetBookByStatus(id);
+        if (bookList == null)
+        {
+            throw new InvalidBookException("No Book Found In The List");
+        }
+        foreach (var book in bookList)
+        {
+            Console.WriteLine(book);
         }
     }
 }
