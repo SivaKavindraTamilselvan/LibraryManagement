@@ -12,7 +12,7 @@ public class BookISBN
 
     public override string ToString()
     {
-        return $"BookISBNId : {BookISBNId}\nPublished Year : {PublishedYear}\nEdition: {Edition}\nBookId : {BookId}";
+        return $"BookISBNId : {BookISBNId}\nBookISBN : {ISBN}\nPublished Year : {PublishedYear}\nEdition: {Edition}\nBookId : {BookId}\nBookName : {Book?.BookTitle}";
     }
     
 }

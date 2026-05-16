@@ -1,4 +1,5 @@
 using LibraryManagement.ModelLibrary.Models;
+using Microsoft.EntityFrameworkCore;
 using NotificationAppDataAccessLibrary.Repositories;
 
 public class BookCategoryRepository : AbstractRepository<int, BookCategory>
@@ -7,5 +8,10 @@ public class BookCategoryRepository : AbstractRepository<int, BookCategory>
     {
         var bookCategory = libraryManagementContext.BookCategory.Where(b=>b.BookCategoryId == key).FirstOrDefault();
         return bookCategory;
+    }
+    public List<BookCategory>? GetBookByCategory(int id)
+    {
+        var booklist = libraryManagementContext.BookCategory.Where(b=>b.BookCategoryId==id).Include(b=>b.Books).ToList();
+        return booklist;
     }
 }

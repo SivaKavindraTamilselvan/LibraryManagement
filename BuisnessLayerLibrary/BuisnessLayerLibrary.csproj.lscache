@@ -63,7 +63,10 @@ obj/Debug/net10.0/
  BuisnessLayerLibrary.GlobalUsings.g.cs
 Services/AdminService/
  BookCategoryService/AddCategory.cs
- BookService/AddBookService.cs
+ BookService/
+  AddBookService.cs
+  GetBookService.cs
+  UpdateBookService.cs
  MemberService/
   ActivateMemberService.cs
   AddMemberService.cs

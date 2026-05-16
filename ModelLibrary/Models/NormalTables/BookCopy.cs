@@ -14,6 +14,6 @@ public class BookCopy
 
     public override string ToString()
     {
-        return $"BookISBNId : {BookISBNId}\nBookCopyNumber : {CopyNumber}\nBookStatusId : {BookStatusId}";
+        return $"BookISBNId : {BookISBNId}\nBookISBNNumber : {BookISBN?.ISBN}\nBookCopyNumber : {CopyNumber}\nBookStatusId : {BookStatusId}\nBookStatus : {BookStatus?.BookStatusName}";
     }
 }

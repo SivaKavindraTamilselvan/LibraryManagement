@@ -8,4 +8,10 @@ public class BookCopyRepository : AbstractRepository<int, BookCopy>
         var book = libraryManagementContext.BookCopy.Where(b=>b.BookCopyId == key).FirstOrDefault();
         return book;
     }
+
+    public BookCopy? GetBookByCopyNumber(string CopyNumber)
+    {
+        var book = libraryManagementContext.BookCopy.Where(b=>b.CopyNumber == CopyNumber).FirstOrDefault();
+        return book;
+    }
 }

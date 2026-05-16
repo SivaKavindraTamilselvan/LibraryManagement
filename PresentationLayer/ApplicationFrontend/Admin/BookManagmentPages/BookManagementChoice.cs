@@ -38,7 +38,7 @@ public partial class BookManagement
                         }
                     case 2:
                         {
-                            //AddBookISBN();
+                            GetBookManagementRoles();
                             break;
                         }
                     case 3:

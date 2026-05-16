@@ -10,9 +10,10 @@ public partial class BookManagement
             Console.WriteLine("Enter 1 To Get All Book Details");
             Console.WriteLine("Enter 2 To Get All Book Details By BookTitle");
             Console.WriteLine("Enter 3 To Get All Book Details By Author");
-            Console.WriteLine("Enter 4 To Get All Book Details By ISBN ID");
-            Console.WriteLine("Enter 5 To Get All Book Details By Status");
-            Console.WriteLine("Enter 6 To Get All The Member Details By Member Id");
+            Console.WriteLine("Enter 4 To Get All Book Details By ISBN Number");
+            Console.WriteLine("Enter 5 To Get All Book Details By Copy Number");
+            Console.WriteLine("Enter 6 To Get Book By Category Id");
+            Console.WriteLine("Enter 7 To Get Book By Book Id");
             Console.WriteLine("Enter 0 To Quit");
             Console.WriteLine("------------------------------------------------");
 
@@ -27,35 +28,47 @@ public partial class BookManagement
                 {
                     case 1:
                         {
-                            //GetAllMembers();
+                            GetAllBook();
                             break;
                         }
                     case 2:
                         {
-                            string email = inputsCheck.EmailInputs();
-                            //GetMemberByEmail(email);
+                            Console.WriteLine("Enter The Book Title");
+                            string title = Console.ReadLine() ?? "";
+                            GetBookByBookTitle(title);
                             break;
                         }
                     case 3:
                         {
-                            string PhoneNumber = inputsCheck.PhoneNumberInputs();
-                            //GetMemberByPhoneNumber(PhoneNumber);
+                            Console.WriteLine("Enter The Book Author");
+                            string author = Console.ReadLine() ?? "";
+                            GetBookByBookAuthor(author);
                             break;
                         }
                     case 4:
                         {
-                            //GetMemberByRole(1);
+                            Console.WriteLine("Enter The Book ISBN");
+                            string isbn = Console.ReadLine() ?? "";
+                            GetBookByBookISBNNumber(isbn);
                             break;
                         }
                     case 5:
                         {
-                            //GetMemberByRole(2);
+                            Console.WriteLine("Enter The Book Copy Number");
+                            string copy = Console.ReadLine() ?? "";
+                            GetBookByBookCopyNumber(copy);
                             break;
                         }
                     case 6:
                         {
                             int id = inputsCheck.IdInputs();
-                            //GetMemberById(id);
+                            GetBookByCategoryId(id);
+                            break;
+                        }
+                    case 7:
+                        {
+                            int id = inputsCheck.IdInputs();
+                            GetBookByBookId(id);
                             break;
                         }
                     case 0:
