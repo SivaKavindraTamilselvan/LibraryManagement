@@ -82,7 +82,12 @@ ApplicationFrontend/Admin/
   UpdateUserPage/
    UpdateMemberChoice.cs
    UpdateMemberPage.cs
-ApplicationFrontend/InitialPage/InitialPage.cs
+ ReturnManagmentPage/
+  ReturnBook.cs
+  ReturnManagmentChoice.cs
+ApplicationFrontend/
+ InitialPage/InitialPage.cs
+ User/GetManagmentPage/AddPayment.cs
 obj/Debug/net10.0/
  .NETCoreApp,Version=v10.0.AssemblyAttributes.cs
  PresentationLayer.AssemblyInfo.cs

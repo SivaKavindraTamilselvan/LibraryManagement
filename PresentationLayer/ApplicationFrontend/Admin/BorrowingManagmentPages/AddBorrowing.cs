@@ -7,6 +7,7 @@ public partial class BorrowingManagement
 {
     public void AddBorrowing()
     {
-        adminService.AddBorrowing();
+        var borrowing = adminService.AddBorrowing();
+        Console.WriteLine(borrowing);
     }
 }

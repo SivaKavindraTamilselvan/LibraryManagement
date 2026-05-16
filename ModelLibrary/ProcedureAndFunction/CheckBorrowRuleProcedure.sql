@@ -78,8 +78,8 @@ IF selected_book_copy_id IS NULL THEN
 RAISE EXCEPTION 'No Available Book Copy Found';
 END IF;
 
-INSERT INTO "Borrowing"("MemberId","BookCopyId","BorrowedDate","BorrowingStatusId","createdAt")
-VALUES(member_id,selected_book_copy_id,NOW(),1,NOW());
+INSERT INTO "Borrowing"("MemberId","BookCopyId","BorrowedDate","DueDate","BorrowingStatusId","createdAt")
+VALUES(member_id,selected_book_copy_id,NOW(),NOW() + make_interval(days => borrow_days),1,NOW());
 
 UPDATE "BookCopy" SET "BookStatusId" = 2 
 WHERE "BookCopyId" = selected_book_copy_id;
