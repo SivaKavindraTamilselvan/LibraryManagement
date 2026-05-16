@@ -68,6 +68,10 @@ Migrations/
  20260515100107_ListToTables.Designer.cs
  20260516171043_BorrowingUpdateDate.cs
  20260516171043_BorrowingUpdateDate.Designer.cs
+ 20260516180424_BookCopyModel.cs
+ 20260516180424_BookCopyModel.Designer.cs
+ 20260516180606_BookCopyModelUndo.cs
+ 20260516180606_BookCopyModelUndo.Designer.cs
  LibraryManagementContextModelSnapshot.cs
 obj/Debug/net10.0/
  .NETCoreApp,Version=v10.0.AssemblyAttributes.cs

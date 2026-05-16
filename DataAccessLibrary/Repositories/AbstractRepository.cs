@@ -1,10 +1,9 @@
 using LibraryManagement.BuisnessLayerLibrary.Interfaces;
 using LibraryManagement.DataAccessLibrary.DBContext;
-using Microsoft.EntityFrameworkCore;
 
 namespace NotificationAppDataAccessLibrary.Repositories;
 
-public abstract class AbstractRepository<K, T> : IRepository<K, T> where T : class, new() where K : notnull
+public abstract class AbstractRepository<K, T> : IRepository<K, T> where T : class where K : notnull
 {
     protected readonly LibraryManagementContext libraryManagementContext;
     public AbstractRepository()

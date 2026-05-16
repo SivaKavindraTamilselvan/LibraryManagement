@@ -13,13 +13,13 @@ public class BookCopyRepository : AbstractRepository<int, BookCopy>
 
     public BookCopy? GetBookByCopyNumber(string CopyNumber)
     {
-        var book = libraryManagementContext.BookCopy.Include(bs=>bs.BookISBN).ThenInclude(b=>b.Book).Include(bs=>bs.BookStatus).Where(b=>b.CopyNumber == CopyNumber).FirstOrDefault();
+        var book = libraryManagementContext.BookCopy.Include(bs=>bs.BookISBN).ThenInclude(b=>b!.Book).Include(bs=>bs.BookStatus).Where(b=>b.CopyNumber == CopyNumber).FirstOrDefault();
         return book;
     }
 
     public List<BookCopy>? GetBookByStatus(int id)
     {
-        var book = libraryManagementContext.BookCopy.Include(b=>b.BookISBN).ThenInclude(b=>b.Book).Include(bs=>bs.BookStatus).Where(b=>b.BookStatusId == id).ToList();
+        var book = libraryManagementContext.BookCopy.Include(b=>b.BookISBN).ThenInclude(b=>b!.Book).Include(bs=>bs.BookStatus).Where(b=>b.BookStatusId == id).ToList();
         return null;
     }
 }
