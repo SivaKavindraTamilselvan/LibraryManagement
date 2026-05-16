@@ -13,11 +13,13 @@ public class Program
         BookRepository bookRepository = new BookRepository();
         BookISBNRepository bookISBNRepository = new BookISBNRepository();
         BookCopyRepository bookCopyRepository = new BookCopyRepository();
-        AdminService adminService = new AdminService(memberRepository,bookRepository,bookCategoryRepository,bookISBNRepository,bookCopyRepository);
+        BorrowingRepository borrowingRepository = new BorrowingRepository();
+        AdminService adminService = new AdminService(memberRepository,bookRepository,bookCategoryRepository,bookISBNRepository,bookCopyRepository,borrowingRepository);
 
         MemberManagement memberManagement = new MemberManagement(adminService);
         BookManagement bookManagement = new BookManagement(adminService);
-        AdminRole adminRole = new AdminRole(memberManagement,bookManagement);
+        BorrowingManagement borrowingManagement = new BorrowingManagement(adminService);
+        AdminRole adminRole = new AdminRole(memberManagement,bookManagement,borrowingManagement);
         InitialPage initialPage = new InitialPage(adminRole);
         initialPage.RoleSelection();
     }

@@ -1,6 +1,7 @@
 using LibraryManagement.ModelLibrary.Models;
 using Microsoft.EntityFrameworkCore;
-using NotificationAppDataAccessLibrary.Repositories;
+
+namespace NotificationAppDataAccessLibrary.Repositories;
 
 public class BookCopyRepository : AbstractRepository<int, BookCopy>
 {

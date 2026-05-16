@@ -62,6 +62,9 @@ ApplicationFrontend/Admin/BookManagmentPages/
  GetBookPage/
   GetBookChoice.cs
   GetBookPage.cs
+ApplicationFrontend/Admin/BorrowingManagmentPages/
+ AddBorrowing.cs
+ BorrowingManagentChoice.cs
 ApplicationFrontend/Admin/
  MainAdminPage/MainAdminChoice.cs
  MemberManagementPages/ActivateMemberPage/

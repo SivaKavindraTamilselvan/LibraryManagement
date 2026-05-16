@@ -66,6 +66,8 @@ Migrations/
  20260515085353_BookCategorySeedData.Designer.cs
  20260515100107_ListToTables.cs
  20260515100107_ListToTables.Designer.cs
+ 20260516171043_BorrowingUpdateDate.cs
+ 20260516171043_BorrowingUpdateDate.Designer.cs
  LibraryManagementContextModelSnapshot.cs
 obj/Debug/net10.0/
  .NETCoreApp,Version=v10.0.AssemblyAttributes.cs
@@ -77,6 +79,7 @@ Repositories/
  BookCopyRepository.cs
  BookISBNRepository.cs
  BookRepository.cs
+ BorrowingRepositiory.cs
  MemberRepository.cs
 
 [metadataReferences]

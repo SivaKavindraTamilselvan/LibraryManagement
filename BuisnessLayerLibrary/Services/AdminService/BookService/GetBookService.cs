@@ -47,4 +47,10 @@ public partial class AdminService
         //var booklist = bookCategoryRepository.GetBookByStatus(id);
         return null;
     }
+
+    public Book? GetBookIdByTitle(string title)
+    {
+        var book = bookRepository.GetBookIdByTitle(title);
+        return book;
+    }
 }

@@ -15,6 +15,11 @@ public class Borrowing
     public BorrowingStatus? BorrowingStatus {get;set;}
 
     public DateTime createdAt {get;set;}
-    public DateTime updatedAt{get;set;}
+    public DateTime? updatedAt{get;set;}
     public ICollection<Fine> Fines {get;set;} = new List<Fine>();
+
+    public override string ToString()
+    {
+        return $"BorrowingId : {BorrowingId}\nMemberId : {MemberId}\nBookCopyID : {BookCopyId}\nBorrowedDate : {BorrowedDate}\nDueDate : {DueDate}\nReturnDate : {ReturnDate}";
+    }
 }

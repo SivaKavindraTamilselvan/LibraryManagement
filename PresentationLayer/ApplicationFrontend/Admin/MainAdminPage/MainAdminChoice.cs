@@ -4,10 +4,12 @@ public class AdminRole
 {
     protected readonly MemberManagement memberManagement;
     protected readonly BookManagement bookManagement;
-    public AdminRole(MemberManagement _memberManagement, BookManagement _bookManagement)
+    protected readonly BorrowingManagement borrowingManagement;
+    public AdminRole(MemberManagement _memberManagement, BookManagement _bookManagement,BorrowingManagement _borrowingManagement)
     {
         memberManagement = _memberManagement;
         bookManagement = _bookManagement;
+        borrowingManagement = _borrowingManagement;
     }
     public void AdminRoles()
     {
@@ -41,7 +43,7 @@ public class AdminRole
                         }
                     case 3:
                         {
-                            //UpdateUser();
+                            borrowingManagement.BorrowingManagementRoles();
                             break;
                         }
                     case 4:
