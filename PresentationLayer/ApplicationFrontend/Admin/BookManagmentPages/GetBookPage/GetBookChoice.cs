@@ -18,7 +18,7 @@ public partial class BookManagement
             Console.WriteLine("------------------------------------------------");
 
             int typechoice;
-            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 6 || typechoice < 0)
+            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 7 || typechoice < 0)
             {
                 Console.WriteLine("Enter Vaild Input");
             }

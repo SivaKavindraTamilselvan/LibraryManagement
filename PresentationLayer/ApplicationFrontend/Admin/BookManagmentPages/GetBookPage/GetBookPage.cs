@@ -25,7 +25,7 @@ public partial class BookManagement
         {
             throw new InvalidBookException("No Book Found In The List");
         }
-        Console.WriteLine(book);
+        Console.WriteLine(book.GetAllBooks());
     }
     public void GetBookByBookTitle(string title)
     {

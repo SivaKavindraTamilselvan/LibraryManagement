@@ -2,18 +2,28 @@ namespace LibraryManagement.ModelLibrary.Models;
 
 public class BookCopy
 {
-    public int BookCopyId {get;set;}
-    public int BookISBNId {get;set;}
-    public BookISBN? BookISBN {get;set;}
-    public string CopyNumber {get;set;} = string.Empty;
-    public int BookStatusId {get;set;}
-    public BookStatus? BookStatus {get;set;}
+    public int BookCopyId { get; set; }
+    public int BookISBNId { get; set; }
+    public BookISBN? BookISBN { get; set; }
+    public string CopyNumber { get; set; } = string.Empty;
+    public int BookStatusId { get; set; }
+    public BookStatus? BookStatus { get; set; }
 
-    public ICollection<Borrowing> Borrowings {get;set;} = new List<Borrowing>();
-    public ICollection<DamagedBook> DamagedBooks {get;set;} = new List<DamagedBook>();
+    public ICollection<Borrowing> Borrowings { get; set; } = new List<Borrowing>();
+    public ICollection<DamagedBook> DamagedBooks { get; set; } = new List<DamagedBook>();
 
     public override string ToString()
     {
-        return $"BookISBNId : {BookISBNId}\nBookISBNNumber : {BookISBN?.ISBN}\nBookCopyNumber : {CopyNumber}\nBookStatusId : {BookStatusId}\nBookStatus : {BookStatus?.BookStatusName}";
+        return $"BookCopyID : {BookCopyId}\nBookCopyNumber : {CopyNumber}";
+    }
+    public string GetAllBookCopyByStatus()
+    {
+        string book = ToString() + "\n" + $"BookStatus : {BookStatus?.BookStatusName}";
+        return book;
+    }
+    public string GetAllBookCopy()
+    {
+        string book = ToString() + "\n" + $"BookISBNNumber : {BookISBN?.ISBN}" + $"BookStatus : {BookStatus?.BookStatusName}";
+        return book;
     }
 }

@@ -6,7 +6,7 @@ public class BookRepository : AbstractRepository<int, Book>
 {
     public override Book? Get(int key)
     {
-        var book = libraryManagementContext.Book.Include(b => b.BookCategory).Where(b => b.BookId == key).FirstOrDefault();
+        var book = libraryManagementContext.Book.Include(b => b.BookCategory).Include(bi=>bi.BookISBNs).ThenInclude(bc=>bc.BookCopies).ThenInclude(bs=>bs.BookStatus).Where(b => b.BookId == key).FirstOrDefault();
         return book;
     }
     public List<Book>? GetBookByTitle(string title)
