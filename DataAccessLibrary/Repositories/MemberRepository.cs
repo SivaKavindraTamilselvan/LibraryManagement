@@ -1,6 +1,8 @@
 
+using LibraryManagement.DataAccessLibrary.DBContext;
 using LibraryManagement.ModelLibrary.Models;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 namespace NotificationAppDataAccessLibrary.Repositories;
 
@@ -33,4 +35,28 @@ public class MemberRepository : AbstractRepository<int, Member>
         var member = libraryManagementContext.Member.Include(r=>r.Role).Include(mt=>mt.MemberType).Where(m=>m.RoleId == RoleId).ToList();
         return member;
     }
+
+    public Member? DeactivateMember(int memberId)
+    {
+        using var context = new LibraryManagementContext();
+        using var transaction = context.Database.BeginTransaction();
+        try
+        {
+            context.Database.ExecuteSqlInterpolated($"CALL deactivate_member({memberId})");
+            transaction.Commit();
+            var member = context.Member.AsNoTracking().Where(b => b.MemberId == memberId).FirstOrDefault();
+            return member;
+        }
+        catch (PostgresException ex)
+        {
+            Console.WriteLine(ex.MessageText);
+        }
+        catch (Exception ex)
+        {
+            transaction.Rollback();
+            Console.WriteLine(ex.Message);
+        }
+        return null;
+    }
+
 }

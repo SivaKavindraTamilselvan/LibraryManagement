@@ -9,7 +9,7 @@ public partial class MemberManagement
         var member = adminService.DeactivateTheMemberByMemberId(id);
         if(member == null)
         {
-            throw new InvalidMemberException($"Member Not Updated. Enter Valid Details");
+            throw new InvalidMemberException($"Member Not Updated");
         }
         Console.WriteLine(member);
     }
@@ -18,7 +18,7 @@ public partial class MemberManagement
         var member = adminService.DeactivateTheMemberByEmail(email);
         if(member == null)
         {
-            throw new InvalidMemberException($"Member Not Updated. Enter Valid Details");
+            throw new InvalidMemberException($"Member Not Updated");
         }
         Console.WriteLine(member);
     }
@@ -27,7 +27,7 @@ public partial class MemberManagement
         var member = adminService.DeactivateTheMemberByPhoneNumber(PhoneNumber);
         if(member == null)
         {
-            throw new InvalidMemberException($"Member Not Updated. Enter Valid Details");
+            throw new InvalidMemberException($"Member Not Updated");
         }
         Console.WriteLine(member);
     }

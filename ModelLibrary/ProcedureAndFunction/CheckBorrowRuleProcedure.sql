@@ -45,9 +45,8 @@ IF current_borrowing >= max_books THEN
 RAISE EXCEPTION 'Borrowing limit reached';
 END IF;
 
-SELECT COALESCE(SUM(f."FineAmount") - COALESCE(SUM(p."AmountPaid"),0),0)
-INTO unpaid_fines FROM "Fine" f LEFT JOIN "Payment" p
-ON f."FineId" = p."FineId" JOIN "Borrowing" b
+SELECT COALESCE(SUM(f."FineAmount" - COALESCE((SELECT SUM(p."AmountPaid")FROM "Payment" p WHERE p."FineId" = f."FineId"),0)),0) INTO unpaid_fines
+FROM "Fine" f JOIN "Borrowing" b
 ON f."BorrowingId" = b."BorrowingId"
 WHERE b."MemberId" = member_id;
 
