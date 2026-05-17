@@ -22,7 +22,7 @@ public partial class ReturnManagement
             Console.WriteLine("------------------------------------------------");
 
             int typechoice;
-            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 4 || typechoice < 0)
+            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 2 || typechoice < 0)
             {
                 Console.WriteLine("Enter Vaild Input");
             }
@@ -37,17 +37,7 @@ public partial class ReturnManagement
                         }
                     case 2:
                         {
-                            //GetMemberManagementRoles();
-                            break;
-                        }
-                    case 3:
-                        {
-                            //UpdateMemberManagementRoles();
-                            break;
-                        }
-                    case 4:
-                        {
-                            //DeactivateMemberManagementRoles();
+                            GetReturn();
                             break;
                         }
                     case 0:

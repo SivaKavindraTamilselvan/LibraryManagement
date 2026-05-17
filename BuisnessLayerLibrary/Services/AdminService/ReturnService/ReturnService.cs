@@ -10,7 +10,6 @@ public partial class AdminService
     {
         Console.WriteLine("Enter The Borrowing Id");
         int borrowId = inputsCheck.IdInputs();
-        var borrowing = borrowingRepository.Get(borrowId);
         Console.WriteLine("Enter The Borrowing Status Id");
         int bookStatus = inputsCheck.IdInputs();
         int damagedLevel = 0;
@@ -20,7 +19,13 @@ public partial class AdminService
             damagedLevel = inputsCheck.IdInputs();
         }
         bool lost = bookStatus == 3? true : false;
+        //every validation are done here
         var updatedborrowing = borrowingRepository.ReturnBorrowing(borrowId,lost,damagedLevel);
         return updatedborrowing;
+    }
+
+    public List<Borrowing> PendingReturn()
+    {
+        return borrowingRepository.GetPendingReturn();
     }
 }

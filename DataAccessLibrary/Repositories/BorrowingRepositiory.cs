@@ -120,4 +120,10 @@ public class BorrowingRepository : AbstractRepository<int, Borrowing>
         return borrowing;
     }
 
+    public List<Borrowing> GetPendingReturn()
+    {
+        var borrowing = libraryManagementContext.Borrowing.Include(m => m.Member).Include(b => b.BookCopy).Where(b => b.ReturnDate == null).ToList();
+        return borrowing;
+    }
+
 }
