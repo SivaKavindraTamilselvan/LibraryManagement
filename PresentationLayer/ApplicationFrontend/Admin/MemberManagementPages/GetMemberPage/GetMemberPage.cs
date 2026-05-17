@@ -8,7 +8,7 @@ public partial class MemberManagement
     {
         Console.WriteLine("\n\n================ All Member Details ================\n");
         var memberList = adminService.GetAllMembers();
-        if (memberList == null)
+        if (memberList.Count == 0)
         {
             throw new InvalidMemberException("No members are Found in the list");
         }

@@ -14,7 +14,7 @@ public class MemberRepository : AbstractRepository<int, Member>
         return member;
     }
 
-    public List<Member>? GetAllMembers()
+    public List<Member> GetAllMembers()
     {
         var member = libraryManagementContext.Member.Include(r=>r.Role).Include(mt=>mt.MemberType).ToList();
         return member;
@@ -30,7 +30,7 @@ public class MemberRepository : AbstractRepository<int, Member>
         return member;
     }
 
-    public List<Member>? GetMemberByRole(int RoleId)
+    public List<Member> GetMemberByRole(int RoleId)
     {
         var member = libraryManagementContext.Member.Include(r=>r.Role).Include(mt=>mt.MemberType).Where(m=>m.RoleId == RoleId).ToList();
         return member;

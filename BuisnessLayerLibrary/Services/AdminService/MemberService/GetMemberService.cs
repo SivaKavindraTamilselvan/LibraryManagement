@@ -5,7 +5,7 @@ namespace LibraryManagement.BuisnessLayerLibrary.Services;
 
 public partial class AdminService :IAdminService
 {
-    public List<Member>? GetAllMembers()
+    public List<Member> GetAllMembers()
     {
         var memberList = memberRepository.GetAllMembers();
         return memberList;
@@ -21,7 +21,7 @@ public partial class AdminService :IAdminService
         var member = memberRepository.GetMemberByPhoneNumber(email);
         return member;
     }
-    public List<Member>? GetMemberByRole(int RoleId)
+    public List<Member> GetMemberByRole(int RoleId)
     {
         var member = memberRepository.GetMemberByRole(RoleId);
         return member;
