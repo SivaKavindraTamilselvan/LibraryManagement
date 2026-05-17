@@ -4,6 +4,7 @@ public partial class FineManagement
 {
     public void AddPayment()
     {
-        
+        var fine = adminService.AddPayment();
+        Console.WriteLine(fine);
     }
 }

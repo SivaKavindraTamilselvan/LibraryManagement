@@ -19,6 +19,7 @@ public class LibraryManagementContext : DbContext
     public DbSet<BookCopy> BookCopy { get; set; }
     public DbSet<BookStatus> BookStatus { get; set; }
     public DbSet<Borrowing> Borrowing { get; set; }
+    public DbSet<Payment> Payment { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Role>(r =>

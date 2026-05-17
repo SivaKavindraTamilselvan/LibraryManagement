@@ -10,4 +10,9 @@ public class Payment
     public ModeOfPayment? ModeOfPayment {get;set;}
     public DateTime PaymentDate {get;set;}
     public DateTime createdAt {get;set;}
+
+    public override string ToString()
+    {
+        return $"PaymentId : {PaymentId}\nFineId : {FineId}\nAmountPaid : {AmountPaid}\nModeOfPaymentId : {ModeOfPaymentId}\nModeOfPayment : {ModeOfPayment?.ModeOfPaymentName}\nPaymentDate : {PaymentDate}";
+    }
 }

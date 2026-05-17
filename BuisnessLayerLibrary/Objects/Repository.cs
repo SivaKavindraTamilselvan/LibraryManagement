@@ -13,7 +13,6 @@ public class RepositoryManagment
     public DamagedBookRepository damagedBookRepository {get;set;}
     public FineRepository fineRepository {get;set;}
     public PaymentRepository paymentRepository {get;set;}
-
     public RepositoryManagment()
     {
         memberRepository = new MemberRepository();

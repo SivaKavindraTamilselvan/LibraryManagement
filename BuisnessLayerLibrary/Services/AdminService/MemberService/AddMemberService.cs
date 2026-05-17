@@ -17,6 +17,9 @@ public partial class AdminService : IAdminService
     protected readonly BookCopyRepository bookCopyRepository;
     protected readonly BorrowingRepository borrowingRepository;
     protected readonly GenerateUnique generateUnique;
+    protected readonly DamagedBookRepository damagedBookRepository;
+    protected readonly FineRepository fineRepository;
+    protected readonly PaymentRepository paymentRepository;
 
 
     public AdminService(RepositoryManagment repositoryManagment)
@@ -27,6 +30,9 @@ public partial class AdminService : IAdminService
         bookISBNRepository = repositoryManagment.bookISBNRepository;
         bookCopyRepository = repositoryManagment.bookCopyRepository;
         borrowingRepository = repositoryManagment.borrowingRepository;
+        damagedBookRepository = repositoryManagment.damagedBookRepository;
+        fineRepository = repositoryManagment.fineRepository;
+        paymentRepository = repositoryManagment.paymentRepository;
         generateUnique = new GenerateUnique();
     }
     InputsCheck inputsCheck = new InputsCheck();
