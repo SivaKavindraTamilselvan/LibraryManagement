@@ -1,9 +1,9 @@
-CREATE OR REPLACE PROCEDURE pay_fine(fine_id INT,fine_amount DECIMAL,mode_of_payment int)
+CREATE OR REPLACE PROCEDURE pay_fine(fine_id INT,fine_amount NUMERIC,mode_of_payment int)
 LANGUAGE plpgsql
 AS $$
 
 DECLARE 
-actual_fine_amount DECIMAL;
+actual_fine_amount NUMERIC;
 
 BEGIN
 IF NOT EXISTS (SELECT 1 FROM "Fine" WHERE "FineId" = fine_id)
@@ -20,14 +20,14 @@ WHERE f."FineId" = fine_id
 GROUP BY f."FineAmount";
 
 IF fine_amount > actual_fine_amount THEN
-
+RAISE EXCEPTION 'Payment exceeds remaining fine amount';
 END IF;
 
 INSERT INTO "Payment"("FineId","AmountPaid","ModeOfPaymentId","PaymentDate","createdAt")
 VALUES(fine_id,fine_amount,mode_of_payment,NOW(),NOW());
-RAISE EXCEPTION 'Payment exceeds remaining fine amount';
+
 IF fine_amount = actual_fine_amount THEN
-UPDATE "Fine" SET "isPaidFully" = true
+UPDATE "Fine" SET "IsPaidFully" = true
 WHERE "FineId" = fine_id;
 END IF;
 
