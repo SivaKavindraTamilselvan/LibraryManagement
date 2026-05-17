@@ -19,6 +19,8 @@ public partial class AdminService
             Console.WriteLine("Enter The Damaged Level");
             damagedLevel = inputsCheck.IdInputs();
         }
-        return borrowing;
+        bool lost = bookStatus == 3? true : false;
+        var updatedborrowing = borrowingRepository.ReturnBorrowing(borrowId,lost,damagedLevel);
+        return updatedborrowing;
     }
 }

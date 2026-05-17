@@ -74,7 +74,7 @@ public class AdminRole
                     case 5:
                         {
                             Console.WriteLine("\n\n================== Fine Management ==================\n\n");
-                            fineManagement.ReturnManagementRoles();
+                            fineManagement.FineManagementRoles();
                             Console.WriteLine("\n\n======================================================\n\n");
                             break;
                         }

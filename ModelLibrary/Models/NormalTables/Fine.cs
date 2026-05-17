@@ -9,8 +9,8 @@ public class Fine
     public int? DamagedBookId {get;set;}
     public DamagedBook? DamagedBook {get;set;}
     public decimal FineAmount {get;set;}
-    public bool IsPaidFully {get;set;}
+    public bool IsPaidFully {get;set;} = false;
     public DateTime createdAt {get;set;}
-    public DateTime updatedAt {get;set;}
+    public DateTime? updatedAt {get;set;}
     public ICollection<Payment> Payments {get;set;} = new List<Payment>();
 }

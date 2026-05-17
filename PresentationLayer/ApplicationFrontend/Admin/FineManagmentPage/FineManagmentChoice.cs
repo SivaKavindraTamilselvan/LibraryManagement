@@ -11,12 +11,12 @@ public partial class FineManagement
     {
         adminService = _adminService;
     }
-    public void ReturnManagementRoles()
+    public void FineManagementRoles()
     {
         while (true)
         {
             Console.WriteLine("------------------------------------------------");
-            Console.WriteLine("Enter 1 To Return The Book");
+            Console.WriteLine("Enter 1 To Pay The Fine Book");
             Console.WriteLine("Enter 2 To Get Borrowing Details By Different Category");
             Console.WriteLine("Enter 3 To Update The Borrowing Details Status");
             Console.WriteLine("Enter 4 To Update The Borrowing Details Return Date");
@@ -34,7 +34,7 @@ public partial class FineManagement
                 {
                     case 1:
                         {
-                            //AddReturn();
+                            AddPayment();
                             break;
                         }
                     case 2:

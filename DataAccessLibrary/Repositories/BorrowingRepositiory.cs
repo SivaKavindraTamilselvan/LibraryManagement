@@ -37,16 +37,23 @@ public class BorrowingRepository : AbstractRepository<int, Borrowing>
         return null;
     }
 
-    public Borrowing? ReturnBorrowing(int borrowId, int statusId, int damagedLevel)
+    public Borrowing? ReturnBorrowing(int borrowId, bool lost, int damagedLevel)
     {
         using var context = new LibraryManagementContext();
         using var transaction = context.Database.BeginTransaction();
         try
         {
-            //context.Database.ExecuteSqlInterpolated($"CALL check_borrowing_rules({memberId},{bookId})");
+            if (damagedLevel == 0)
+            {
+                context.Database.ExecuteSqlInterpolated($"CALL return_book({borrowId},{lost})");
+            }
+            else
+            {
+                context.Database.ExecuteSqlInterpolated($"CALL return_book({borrowId},{lost},{damagedLevel})");
+            }
             transaction.Commit();
-            //var borrowing = context.Borrowing.AsNoTracking().Where(b => b.MemberId == memberId).OrderByDescending(b => b.BorrowedDate).FirstOrDefault();
-            //return borrowing;
+            var borrowing = context.Borrowing.AsNoTracking().Where(b => b.BorrowingId == borrowId).FirstOrDefault();
+            return borrowing;
         }
         catch (PostgresException ex)
         {
@@ -60,5 +67,5 @@ public class BorrowingRepository : AbstractRepository<int, Borrowing>
         return null;
     }
 
-    
+
 }

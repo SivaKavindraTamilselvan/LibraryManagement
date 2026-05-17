@@ -5,6 +5,7 @@ DECLARE
 book_copy_id INT;
 fine_amount DECIMAL;
 member_id INT;
+new_damaged_book_id INT;
 BEGIN
 
 IF NOT EXISTS (SELECT 1 FROM "Borrowing" WHERE "BorrowingId" = borrow_id) THEN
@@ -37,10 +38,12 @@ END IF;
 IF damaged_id IS NOT NULL THEN
 SELECT "FineAmount" INTO fine_amount FROM "DamagedLevel"
 WHERE "DamagedLevelId" = damaged_id;
-INSERT INTO "Fine"("BorrowingId","FineCategoryId","DamagedLevelId","FineAmount","createdAt") 
-VALUES(borrow_id,2,damaged_id,fine_amount,NOW());
 INSERT INTO "DamagedBook"("MemberId","BookCopyId","DamagedLevelId","createdAt")
-VALUES(member_id,book_copy_id,damaged_id,NOW());
+VALUES(member_id,book_copy_id,damaged_id,NOW())
+RETURNING "DamagedBookId" INTO new_damaged_book_id;
+INSERT INTO "Fine"("BorrowingId","FineCategoryId","DamagedBookId","FineAmount","createdAt") 
+VALUES(borrow_id,2,new_damaged_book_id,fine_amount,NOW());
+
 END IF;
 
 IF lost THEN

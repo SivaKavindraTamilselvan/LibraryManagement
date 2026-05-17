@@ -46,7 +46,7 @@ public partial class MemberManagement
     {
         Console.WriteLine("\n\n============== Member Details By Role =============\n");
         var memberList = adminService.GetMemberByRole(RoleId);
-        if (memberList == null)
+        if (memberList.Count == 0)
         {
             throw new InvalidMemberException($"Member Not Found With the Role");
         }
