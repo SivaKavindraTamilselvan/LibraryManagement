@@ -5,19 +5,21 @@ namespace LibraryManagement.PresentationLayer.Frontend;
 
 public partial class BorrowingManagement
 {
-    InputsCheck inputsCheck = new InputsCheck();
-    protected readonly AdminService adminService;
-    public BorrowingManagement(AdminService _adminService)
-    {
-        adminService = _adminService;
-    }
-    public void BorrowingManagementRoles()
+    public void GetBorrowingManagementRoles()
     {
         while (true)
         {
             Console.WriteLine("------------------------------------------------");
-            Console.WriteLine("Enter 1 To Add Borrowing");
-            Console.WriteLine("Enter 2 To Get Borrowing Details By Different Category");
+            Console.WriteLine("Enter 1 To Get Borrowing Details By Borrowing Id");
+            Console.WriteLine("Enter 2 To Get Borrowing Details By Member Id");
+            Console.WriteLine("Enter 3 To Get Borrowing Details By Member Email");
+            Console.WriteLine("Enter 4 To Get Borrowing Details By Borrowing Status");
+            Console.WriteLine("Enter 5 To Get Borrowing Details By Borrowing Date");
+            Console.WriteLine("Enter 6 To Get Borrowing Details By Return Date");
+            Console.WriteLine("Enter 7 To Get Borrowing Details By Due Date");
+            Console.WriteLine("Enter 8 To Get Borrowing Details That Have The Due Date Tomorrow");
+            Console.WriteLine("Enter 9 To Get Borrowing Details By Book Title");
+            Console.WriteLine("Enter 10 To Get Borrowing Details By Book Copy Id");
             Console.WriteLine("Enter 0 To Quit");
             Console.WriteLine("------------------------------------------------");
 

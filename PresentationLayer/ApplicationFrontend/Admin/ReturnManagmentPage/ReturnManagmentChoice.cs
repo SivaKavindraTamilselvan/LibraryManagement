@@ -17,9 +17,7 @@ public partial class ReturnManagement
         {
             Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Enter 1 To Return The Book");
-            Console.WriteLine("Enter 2 To Get Borrowing Details By Different Category");
-            Console.WriteLine("Enter 3 To Update The Borrowing Details Status");
-            Console.WriteLine("Enter 4 To Update The Borrowing Details Return Date");
+            Console.WriteLine("Enter 2 To Get All The Book Details That Is Not Yet Returned");
             Console.WriteLine("Enter 0 To Quit");
             Console.WriteLine("------------------------------------------------");
 

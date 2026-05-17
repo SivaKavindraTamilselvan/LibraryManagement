@@ -17,9 +17,7 @@ public partial class FineManagement
         {
             Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Enter 1 To Pay The Fine Book");
-            Console.WriteLine("Enter 2 To Get Borrowing Details By Different Category");
-            Console.WriteLine("Enter 3 To Update The Borrowing Details Status");
-            Console.WriteLine("Enter 4 To Update The Borrowing Details Return Date");
+            Console.WriteLine("Enter 2 To Get All Pending Fine");
             Console.WriteLine("Enter 0 To Quit");
             Console.WriteLine("------------------------------------------------");
 

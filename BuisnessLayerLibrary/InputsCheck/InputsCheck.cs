@@ -7,6 +7,7 @@ public class InputsCheck
     public string EmailInputs()
     {
         string email = Console.ReadLine() ?? string.Empty;
+        email = email.ToLower();
         //loop until valid entry is entered
         while (true)
         {
@@ -77,6 +78,7 @@ public class InputsCheck
     public string NameInput()
     {
         string name = Console.ReadLine() ?? "";
+        name = name.ToLower();
         while (true)
         {
             try

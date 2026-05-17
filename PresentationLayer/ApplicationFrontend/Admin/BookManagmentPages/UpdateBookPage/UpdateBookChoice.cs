@@ -2,23 +2,16 @@ namespace LibraryManagement.PresentationLayer.Frontend;
 
 public partial class BookManagement
 {
-    public void GetBookManagementRoles()
+    public void UpdateBookManagementRoles()
     {
         while (true)
         {
             Console.WriteLine("------------------------------------------------");
-            Console.WriteLine("Enter 1 To Get All Book Details");
-            Console.WriteLine("Enter 2 To Get Book By Category Id");
-            Console.WriteLine("Enter 3 To Get Book By Book Id");
-            Console.WriteLine("Enter 4 To Get All Book Details By BookTitle");
-            Console.WriteLine("Enter 5 To Get All Book Details By Author");
-            Console.WriteLine("Enter 6 To Get All Book Details By ISBN Number");
-            Console.WriteLine("Enter 7 To Get All Book Details By Copy Number");
-            Console.WriteLine("Enter 8 To Get All The Books By Status");
-            //display by the each status
-            Console.WriteLine("Enter 9 To Get The Number Of The Books By Category");
-            Console.WriteLine("Enter 10 To Get The Number Of The Books By Book Title");
-            Console.WriteLine("Enter 11 To Get The Number Of The Books By ISBN");
+            Console.WriteLine("Enter 1 To Update Basic Book Title");
+            Console.WriteLine("Enter 2 To Update Basic Book Author");
+            Console.WriteLine("Enter 3 To Update Book Status");
+            Console.WriteLine("Enter 4 To Update Book Published Year");
+            Console.WriteLine("Enter 5 To Update Book Edition");
             Console.WriteLine("Enter 0 To Quit");
             Console.WriteLine("------------------------------------------------");
 

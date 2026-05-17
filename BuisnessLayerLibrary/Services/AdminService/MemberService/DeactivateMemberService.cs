@@ -33,6 +33,7 @@ public partial class AdminService : IAdminService
             throw new InvalidMemberException("Already The Member Is Deactivated");
         }
         member.isActive = false;
+        //GetActiveBorrowing
         var updatedMember = memberRepository.Update(member.MemberId,member);
         return updatedMember;
     }
