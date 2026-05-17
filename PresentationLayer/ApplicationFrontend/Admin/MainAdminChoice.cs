@@ -28,8 +28,8 @@ public class AdminRole
             Console.WriteLine("Enter 2 For Book Manegment");
             Console.WriteLine("Enter 3 For Borrowing Managment");
             Console.WriteLine("Enter 4 For Return Managment");
-            Console.WriteLine("Enter 5 For Report Managment");
-            Console.WriteLine("Enter 7 For Fine Managment");
+            Console.WriteLine("Enter 5 For Fine Managment");
+            Console.WriteLine("Enter 6 For Report Managment");
             Console.WriteLine("Enter 0 To Quit");
             Console.WriteLine("------------------------------------------------");
 
@@ -44,32 +44,45 @@ public class AdminRole
                 {
                     case 1:
                         {
+                            Console.WriteLine("\n\n================= Member Management =================\n\n");
                             memberManagement.MemberManagementRoles();
+                            Console.WriteLine("\n\n======================================================\n\n");
                             break;
                         }
                     case 2:
                         {
+                            Console.WriteLine("\n\n================== Book Management ==================\n\n");
                             bookManagement.BookManagementRoles();
+                            Console.WriteLine("\n\n======================================================\n\n");
                             break;
                         }
                     case 3:
                         {
+                            Console.WriteLine("\n\n============= Borrowing Book Management =============\n\n");
                             borrowingManagement.BorrowingManagementRoles();
+                            Console.WriteLine("\n\n======================================================\n\n");
                             break;
                         }
                     case 4:
                         {
-                            //adminDeleteRole.AdminDeleteRoles();
+                            Console.WriteLine("\n\n============== Return Book Management ==============\n\n");
+                            returnManagement.ReturnManagementRoles();
+                            Console.WriteLine("\n\n=====================================================\n\n");
+
                             break;
                         }
                     case 5:
                         {
-                            //adminSendNotificationRole.AdminSendNotificationRoles();
+                            Console.WriteLine("\n\n================== Fine Management ==================\n\n");
+                            fineManagement.ReturnManagementRoles();
+                            Console.WriteLine("\n\n======================================================\n\n");
                             break;
                         }
                     case 6:
                         {
-                            //adminGetNotificationRole.AdminGetNotificationRoles();
+                            Console.WriteLine("\n\n================= Report Management =================\n\n");
+                            reportManagement.ReturnManagementRoles();
+                            Console.WriteLine("\n\n======================================================\n\n");
                             break;
                         }
                     case 0:

@@ -7,7 +7,7 @@ public partial class AdminService :IAdminService
 {
     public List<Member>? GetAllMembers()
     {
-        var memberList = memberRepository.GetAll();
+        var memberList = memberRepository.GetAllMembers();
         return memberList;
     }
     public Member? GetMemberByEmail(string email)
@@ -18,10 +18,10 @@ public partial class AdminService :IAdminService
 
     public Member? GetMemberByPhoneNumber(string email)
     {
-        var member = memberRepository.GetMemberByEmail(email);
+        var member = memberRepository.GetMemberByPhoneNumber(email);
         return member;
     }
-    public Member? GetMemberByRole(int RoleId)
+    public List<Member>? GetMemberByRole(int RoleId)
     {
         var member = memberRepository.GetMemberByRole(RoleId);
         return member;

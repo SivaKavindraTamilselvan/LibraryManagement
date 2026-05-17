@@ -16,10 +16,12 @@ public partial class ReportManagement
         while (true)
         {
             Console.WriteLine("------------------------------------------------");
-            Console.WriteLine("Enter 1 To Return The Book");
-            Console.WriteLine("Enter 2 To Get Borrowing Details By Different Category");
-            Console.WriteLine("Enter 3 To Update The Borrowing Details Status");
-            Console.WriteLine("Enter 4 To Update The Borrowing Details Return Date");
+            Console.WriteLine("Enter 1 To Get The Report Of The Book Borrowed");
+            Console.WriteLine("Enter 2 To Get The Report Of The OverDue Book");
+            Console.WriteLine("Enter 3 To Get The Report Of The Members With Pending Fine");
+            Console.WriteLine("Enter 4 To Get The Report Of The Available Books");
+            Console.WriteLine("Enter 5 To Get The Report Of The Member History");
+            Console.WriteLine("Enter 6 To Get The Report Of The Book History");            
             Console.WriteLine("Enter 0 To Quit");
             Console.WriteLine("------------------------------------------------");
 

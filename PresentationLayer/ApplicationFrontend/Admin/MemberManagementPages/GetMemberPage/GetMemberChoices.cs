@@ -13,8 +13,8 @@ public partial class MemberManagement
             Console.WriteLine("Enter 1 To Get All Member Details");
             Console.WriteLine("Enter 2 To Get All The Member Details By Email");
             Console.WriteLine("Enter 3 To Get All The Member Details By Phone Number");
-            Console.WriteLine("Enter 4 To Get All The Member Details By User Role");
-            Console.WriteLine("Enter 5 To Get All The Member Details By Admin Role");
+            Console.WriteLine("Enter 4 To Get All The Member Details By Admin Role");
+            Console.WriteLine("Enter 5 To Get All The Member Details By User Role");
             Console.WriteLine("Enter 6 To Get All The Member Details By Member Id");
             Console.WriteLine("Enter 0 To Quit");
             Console.WriteLine("------------------------------------------------");
@@ -35,12 +35,14 @@ public partial class MemberManagement
                         }
                     case 2:
                         {
+                            Console.WriteLine("Enter The Email To Get The Member");
                             string email = inputsCheck.EmailInputs();
                             GetMemberByEmail(email);
                             break;
                         }
                     case 3:
                         {
+                            Console.WriteLine("Enter The Phone Number To Get The Member");
                             string PhoneNumber = inputsCheck.PhoneNumberInputs();
                             GetMemberByPhoneNumber(PhoneNumber);
                             break;
@@ -57,6 +59,7 @@ public partial class MemberManagement
                         }
                     case 6:
                         {
+                            Console.WriteLine("Enter The Member Id");
                             int id = inputsCheck.IdInputs();
                             GetMemberById(id);
                             break;

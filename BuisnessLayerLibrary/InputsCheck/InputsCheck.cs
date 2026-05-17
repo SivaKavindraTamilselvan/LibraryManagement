@@ -74,4 +74,22 @@ public class InputsCheck
             }
         }
     }
+    public string NameInput()
+    {
+        string name = Console.ReadLine() ?? "";
+        while (true)
+        {
+            try
+            {
+                NameValidation.isValidName(name);
+                return name;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Enter Valid Name Again");
+                name = Console.ReadLine() ?? "";
+            }
+        }
+    }
 }
