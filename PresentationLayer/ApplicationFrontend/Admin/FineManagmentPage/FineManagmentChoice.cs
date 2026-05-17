@@ -17,12 +17,12 @@ public partial class FineManagement
         {
             Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Enter 1 To Pay The Fine Book");
-            Console.WriteLine("Enter 2 To Get All Pending Fine");
+            //Console.WriteLine("Enter 2 To Get All Pending Fine"); added in the report management
             Console.WriteLine("Enter 0 To Quit");
             Console.WriteLine("------------------------------------------------");
 
             int typechoice;
-            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 4 || typechoice < 0)
+            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 1 || typechoice < 0)
             {
                 Console.WriteLine("Enter Vaild Input");
             }
@@ -34,22 +34,7 @@ public partial class FineManagement
                         {
                             AddPayment();
                             break;
-                        }
-                    case 2:
-                        {
-                            //GetMemberManagementRoles();
-                            break;
-                        }
-                    case 3:
-                        {
-                            //UpdateMemberManagementRoles();
-                            break;
-                        }
-                    case 4:
-                        {
-                            //DeactivateMemberManagementRoles();
-                            break;
-                        }
+                        } 
                     case 0:
                         {
                             return;
