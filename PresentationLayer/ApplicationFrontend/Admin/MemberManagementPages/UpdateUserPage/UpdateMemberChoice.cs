@@ -27,23 +27,35 @@ public partial class MemberManagement
                 {
                     case 1:
                         {
+                            Console.WriteLine("\n\n================ Update Member ID Details By Member ID ================\n");
+                            Console.WriteLine("Enter The Email To Update The Member");
                             string email = inputsCheck.EmailInputs();
+                            Console.WriteLine("Enter The Member Type ID To Update");
                             int membertypeid = inputsCheck.IdInputs();
                             UpdateTheMemberTypeByEmail(email, membertypeid);
+                            Console.WriteLine("\n\n======================================================================\n");
                             break;
                         }
                     case 2:
                         {
+                            Console.WriteLine("\n\n================= Update Member ID Details By Email =================\n");
+                            Console.WriteLine("Enter The Phone Number To Update The Member");
                             string phone = inputsCheck.PhoneNumberInputs();
+                            Console.WriteLine("Enter The Member Type ID To Update");
                             int membertypeid = inputsCheck.IdInputs();
                             UpdateTheMemberTypeByPhoneNumber(phone, membertypeid);
+                            Console.WriteLine("\n\n======================================================================\n");
                             break;
                         }
                     case 3:
                         {
+                            Console.WriteLine("\n\n================ Update Member ID Details By PhoneNumber ================\n");
+                            Console.WriteLine("Enter The Member ID To Update The Member");
                             int memberid = inputsCheck.IdInputs();
+                            Console.WriteLine("Enter The Member Type ID To Update");
                             int membertypeid = inputsCheck.IdInputs();
                             UpdateTheMemberTypeByMemberId(memberid, membertypeid);
+                            Console.WriteLine("\n\n======================================================================\n");
                             break;
                         }
                     case 0:
@@ -55,6 +67,7 @@ public partial class MemberManagement
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                Console.WriteLine("\n\n======================================================================\n");
             }
         }
     }

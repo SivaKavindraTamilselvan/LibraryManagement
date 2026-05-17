@@ -12,6 +12,7 @@ public partial class MemberManagement
             throw new InvalidMemberException($"Member Not Updated. Enter Valid Details");
         }
         Console.WriteLine(member);
+        
     }
     public void UpdateTheMemberTypeByEmail(string email,int MemberTypeId)
     {

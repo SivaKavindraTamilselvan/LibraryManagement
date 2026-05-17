@@ -27,20 +27,29 @@ public partial class MemberManagement
                 {
                     case 1:
                         {
+                            Console.WriteLine("\n\n================ Deactivate The Member By Email ================\n");
+                            Console.WriteLine("Enter The Email To Deactivate The Member");
                             string email = inputsCheck.EmailInputs();
                             DeactivateTheMemberByEmail(email);
+                            Console.WriteLine("\n\n==================================================================\n");
                             break;
                         }
                     case 2:
                         {
+                            Console.WriteLine("\n\n============= Deactivate The Member By Phone Number =============\n");
+                            Console.WriteLine("Enter The Phone Number To Deactivate The Member");
                             string phone = inputsCheck.PhoneNumberInputs();
                             DeactivateTheMemberByPhoneNumber(phone);
+                            Console.WriteLine("\n\n==================================================================\n");
                             break;
                         }
                     case 3:
                         {
+                            Console.WriteLine("\n\n============= Deactivate The Member By Member Id =============\n");
+                            Console.WriteLine("Enter The Member Id To Deactivate The Member");
                             int memberid = inputsCheck.IdInputs();
                             DeactivateTheMemberByMemberId(memberid);
+                            Console.WriteLine("\n\n==================================================================\n");
                             break;
                         }
                     case 0:
@@ -52,6 +61,7 @@ public partial class MemberManagement
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                Console.WriteLine("\n\n==================================================================\n");
             }
         }
     }

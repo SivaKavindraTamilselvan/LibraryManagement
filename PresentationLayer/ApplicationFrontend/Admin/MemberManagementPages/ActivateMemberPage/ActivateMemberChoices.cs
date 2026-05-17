@@ -27,20 +27,26 @@ public partial class MemberManagement
                 {
                     case 1:
                         {
+                            Console.WriteLine("\n\n================ Activate The Member By Email ================\n");
                             string email = inputsCheck.EmailInputs();
                             ActivateTheMemberByEmail(email);
+                            Console.WriteLine("\n\n==================================================================\n");
                             break;
                         }
                     case 2:
                         {
+                            Console.WriteLine("\n\n============= Activate The Member By Phone Number =============\n");
                             string phone = inputsCheck.PhoneNumberInputs();
                             ActivateTheMemberByPhoneNumber(phone);
+                            Console.WriteLine("\n\n==================================================================\n");
                             break;
                         }
                     case 3:
                         {
+                            Console.WriteLine("\n\n============= Activate The Member By Member Id =============\n");
                             int memberid = inputsCheck.IdInputs();
                             ActivateTheMemberByMemberId(memberid);
+                            Console.WriteLine("\n\n==================================================================\n");
                             break;
                         }
                     case 0:
@@ -52,6 +58,7 @@ public partial class MemberManagement
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                Console.WriteLine("\n\n==================================================================\n");
             }
         }
     }
