@@ -23,7 +23,21 @@ public partial class AdminService
             Console.WriteLine("Invalid Book Title.Book Title Should Not be Empty.Enter Valid Name");
             Author = Console.ReadLine() ?? "";
         }
+        var categoryList = bookCategoryRepository.GetAll();
+        Console.WriteLine("\nThis Is The List Of The Catgory That Can Be Added");
+        foreach (var category in categoryList)
+        {
+            Console.WriteLine("---------------------------\n");
+            Console.WriteLine(category);
+            Console.WriteLine("\n---------------------------");
+        }
+        Console.WriteLine("\nEnter The Category Id");
         int categoryId = inputsCheck.IdInputs();
+        var catgory = bookCategoryRepository.Get(categoryId);
+        if (catgory == null)
+        {
+            throw new InvalidBookException("Book Category Is Not Found. So Book Not Added");
+        }
         book.BookCategoryId = categoryId;
         book.Author = Author;
         book.BookTitle = BookTitle;
@@ -47,6 +61,17 @@ public partial class AdminService
         {
             Console.WriteLine("Enter The Valid Edition Number");
         }
+        var bookList = bookRepository.GetAllBooks();
+        if (bookList.Count == 0)
+        {
+            throw new InvalidBookException("No Book Is Found In The Basic Book. Added That Initally");
+        }
+        Console.WriteLine("\nThis Is The List Of The Books That Can Be Added");
+        foreach (var book in bookList)
+        {
+            Console.WriteLine(book.GetBooksByCategory());
+        }
+        Console.WriteLine("\nEnter The Book Id");
         int bookId = inputsCheck.IdInputs();
         if (bookRepository.Get(bookId) == null)
         {
@@ -62,7 +87,18 @@ public partial class AdminService
     public BookCopy? AddBookCopy()
     {
         BookCopy bookISBN = new BookCopy();
-        // need to add validation
+        var bookList = bookISBNRepository.GetAll();
+        if (bookList.Count == 0)
+        {
+            throw new InvalidBookException("No Book Is Found In The Basic Book. Added That Initally");
+        }
+        Console.WriteLine("\nThis Is The List Of The Book ISBN That Can Be Added");
+        foreach (var book in bookList)
+        {
+            Console.WriteLine("-------------------------");
+            Console.WriteLine(book);
+            Console.WriteLine("-------------------------");
+        }
         Console.WriteLine("Enter The ISBN Book ID");
         int ISBN = inputsCheck.IdInputs();
         if (bookISBNRepository.Get(ISBN) == null)
@@ -71,7 +107,7 @@ public partial class AdminService
         }
         Console.WriteLine("Enter The Book Status ID");
         int bookStatusId;
-        while(!int.TryParse(Console.ReadLine(),out bookStatusId) || bookStatusId<0 || bookStatusId>5)
+        while (!int.TryParse(Console.ReadLine(), out bookStatusId) || bookStatusId < 0 || bookStatusId > 5)
         {
             Console.WriteLine("Enter Valid Book Status ID");
         }

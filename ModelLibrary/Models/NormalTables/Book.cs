@@ -10,14 +10,14 @@ public class Book
     public ICollection<BookISBN> BookISBNs { get; set; } = new List<BookISBN>();
     public override string ToString()
     {
-        return $"BookId : {BookId}\nBookTitle : {BookTitle}\nAuthor : {Author}";
+        string basicBookDetails = "--------- Basic Book Details ---------";
+        return basicBookDetails + "\n\n" + $"BookId : {BookId}\nBookTitle : {BookTitle}\nAuthor : {Author}";
     }
 
     public string GetBooksByCategory()
     {
-        string basicBookDetails = "--------- Basic Book Details ---------";
         string book = ToString() + "\n" + $"BookCategoryId : {BookCategoryId}\nBookCategoryName : {BookCategory?.BookCategoryName}";
-        return basicBookDetails + "\n\n" + book;
+        return "\n\n" + book;
     }
 
     public string GetAllBooks()
