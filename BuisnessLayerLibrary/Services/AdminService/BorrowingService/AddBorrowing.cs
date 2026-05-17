@@ -8,6 +8,7 @@ public partial class AdminService
 {
     public Borrowing? AddBorrowing()
     {
+        Console.WriteLine("\n\n================ Enter The Details To Borrow The Book =================\n\n");
         Console.WriteLine("Enter The Member Id");
         int memberId = inputsCheck.IdInputs();
         Console.WriteLine("Enter The Book Title To Borrow");

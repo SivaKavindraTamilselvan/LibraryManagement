@@ -106,9 +106,4 @@ public partial class BookManagement
         }
         Console.WriteLine("\n====================================================\n\n");
     }
-
-    public void GetAllCategory()
-    {
-        
-    }
 }

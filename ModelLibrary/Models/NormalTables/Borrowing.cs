@@ -20,6 +20,7 @@ public class Borrowing
 
     public override string ToString()
     {
-        return $"BorrowingId : {BorrowingId}\nMemberId : {MemberId}\nBookCopyID : {BookCopyId}\nBorrowedDate : {BorrowedDate}\nDueDate : {DueDate}\nReturnDate : {ReturnDate}";
+        string basic = "--------- BorrowingDetails ---------";
+        return basic +"\n\n" + $"BorrowingId : {BorrowingId}\nMemberId : {MemberId}\nMemberEmail : {Member?.Email}\nBookCopyID : {BookCopyId}\nBookCopyNumber : {BookCopy?.CopyNumber}\nBorrowedDate : {BorrowedDate}\nDueDate : {DueDate}\nReturnDate : {ReturnDate}";
     }
 }

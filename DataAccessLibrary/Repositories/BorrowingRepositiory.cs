@@ -10,7 +10,7 @@ public class BorrowingRepository : AbstractRepository<int, Borrowing>
 {
     public override Borrowing? Get(int BorrowingId)
     {
-        var borrowing = libraryManagementContext.Borrowing.Where(b => b.BorrowingId == BorrowingId).FirstOrDefault();
+        var borrowing = libraryManagementContext.Borrowing.Include(m => m.Member).Include(b => b.BookCopy).Where(b => b.BorrowingId == BorrowingId).FirstOrDefault();
         return borrowing;
     }
 
@@ -67,5 +67,57 @@ public class BorrowingRepository : AbstractRepository<int, Borrowing>
         return null;
     }
 
+    public List<Borrowing> GetBorrowingByMemberId(int memberId)
+    {
+        var borrowing = libraryManagementContext.Borrowing.Include(m => m.Member).Include(b => b.BookCopy).Where(b => b.MemberId == memberId).ToList();
+        return borrowing;
+    }
+
+    public List<Borrowing> GetBorrowingByMemberEmail(string email)
+    {
+        var borrowing = libraryManagementContext.Borrowing.Include(m => m.Member).Include(b => b.BookCopy).Where(b => b.Member != null && b.Member.Email == email).ToList();
+        return borrowing;
+    }
+
+    public List<Borrowing> GetBorrowingByBorrowingStatus(int id)
+    {
+        var borrowing = libraryManagementContext.Borrowing.Include(m => m.Member).Include(b => b.BookCopy).Where(b => b.BorrowingStatusId == id).ToList();
+        return borrowing;
+    }
+
+    public List<Borrowing> GetBorrowingByBorrowingBorrowdate(DateTime dateTime)
+    {
+        var borrowing = libraryManagementContext.Borrowing.Include(m => m.Member).Include(b => b.BookCopy).Where(b => b.BorrowedDate.Date == dateTime.Date).ToList();
+        return borrowing;
+    }
+
+    public List<Borrowing> GetBorrowingByBorrowingDuedate(DateTime dateTime)
+    {
+        var borrowing = libraryManagementContext.Borrowing.Include(m => m.Member).Include(b => b.BookCopy).Where(b => b.DueDate.Date == dateTime.Date).ToList();
+        return borrowing;
+    }
+    public List<Borrowing> GetBorrowingByBorrowingReturndate(DateTime dateTime)
+    {
+        var borrowing = libraryManagementContext.Borrowing.Include(m => m.Member).Include(b => b.BookCopy).Where(b => b.ReturnDate.HasValue && b.ReturnDate.Value.Date == dateTime.Date).ToList();
+        return borrowing;
+    }
+
+    public List<Borrowing> GetBorrowingByBorrowingDueByTommorrow()
+    {
+        var borrowing = libraryManagementContext.Borrowing.Include(m => m.Member).Include(b => b.BookCopy).Where(b => b.ReturnDate == DateTime.Now.AddDays(1)).ToList();
+        return borrowing;
+    }
+
+    public List<Borrowing> GetBorrowingByBorrowingByTitle(string title)
+    {
+        var borrowing = libraryManagementContext.Borrowing.Include(m => m.Member).Include(b => b.BookCopy).ThenInclude(bi => bi!.BookISBN).ThenInclude(b => b!.Book).Where(b => b.BookCopy!.BookISBN!.Book!.BookTitle == title).ToList();
+        return borrowing;
+    }
+
+    public List<Borrowing> GetBorrowingByBorrowingByBookCopyId(int id)
+    {
+        var borrowing = libraryManagementContext.Borrowing.Include(m => m.Member).Include(b => b.BookCopy).Where(b => b.BookCopyId == id).ToList();
+        return borrowing;
+    }
 
 }

@@ -8,6 +8,7 @@ public partial class BorrowingManagement
     public void AddBorrowing()
     {
         var borrowing = adminService.AddBorrowing();
+        Console.WriteLine("\n\n----------------- Borrowimg Details -----------------\n\n");
         Console.WriteLine(borrowing);
     }
 }

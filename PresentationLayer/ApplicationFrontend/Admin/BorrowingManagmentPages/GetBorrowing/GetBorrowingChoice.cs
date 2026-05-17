@@ -24,7 +24,7 @@ public partial class BorrowingManagement
             Console.WriteLine("------------------------------------------------");
 
             int typechoice;
-            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 4 || typechoice < 0)
+            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 10 || typechoice < 0)
             {
                 Console.WriteLine("Enter Vaild Input");
             }
@@ -34,26 +34,57 @@ public partial class BorrowingManagement
                 {
                     case 1:
                         {
-                            AddBorrowing();
+                            GetBorrowingById();
                             break;
                         }
                     case 2:
                         {
-                            //GetMemberManagementRoles();
+                            GetBorrowingByMemberId();
                             break;
                         }
                     case 3:
                         {
-                            //UpdateMemberManagementRoles();
+                            GetBorrowingByMemberEmail();
                             break;
                         }
                     case 4:
                         {
-                            //DeactivateMemberManagementRoles();
+                            GetBorrowingByStatus();
+                            break;
+                        }
+                    case 5:
+                        {
+                            GetBorrowingByBorrowingBorrowdate();
+                            break;
+                        }
+                    case 6:
+                        {
+                            GetBorrowingByBorrowingReturnDate();
+                            break;
+                        }
+                    case 7:
+                        {
+                            GetBorrowingByBorrowingDuedate();
+                            break;
+                        }
+                    case 8:
+                        {
+                            GetBorrowingTmrw();
+                            break;
+                        }
+                    case 9:
+                        {
+                            GetBorrowingByBookTitle();
+                            break;
+                        }
+                    case 10:
+                        {
+                            GetBorrowingByBookCopyId();
                             break;
                         }
                     case 0:
                         {
+
                             return;
                         }
                 }
