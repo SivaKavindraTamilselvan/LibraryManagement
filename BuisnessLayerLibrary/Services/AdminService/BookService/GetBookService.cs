@@ -1,3 +1,4 @@
+using LibraryManagement.ModelLibrary.Exceptions;
 using LibraryManagement.ModelLibrary.Models;
 
 namespace LibraryManagement.BuisnessLayerLibrary.Services;
@@ -31,7 +32,7 @@ public partial class AdminService
         return book;
     }
 
-    public BookCopy GetBookByCopyNumber(string CopyNumber)
+    public BookCopy? GetBookByCopyNumber(string CopyNumber)
     {
         var book = bookCopyRepository.GetBookByCopyNumber(CopyNumber);
         return book;
@@ -44,13 +45,31 @@ public partial class AdminService
 
     public List<BookCopy> GetBookByStatus(int id)
     {
-        //var booklist = bookCategoryRepository.GetBookByStatus(id);
-        return null;
+        var booklist = bookCopyRepository.GetBookByStatus(id);
+        return booklist;
     }
 
     public Book? GetBookIdByTitle(string title)
     {
         var book = bookRepository.GetBookIdByTitle(title);
         return book;
+    }
+
+    public int GetNumberOfBookByCategory(int id)
+    {
+        return bookCategoryRepository.GetNumberOfBookByCategory(id);
+    }
+    public int GetNumberOfBookByBookTitle(string title)
+    {
+        var book = bookRepository.GetBookIdByTitle(title);
+        if(book == null)
+        {
+            throw new InvalidBookException("No Book Is Found With The Title");
+        }
+        return bookRepository.GetNumberOfBookByBookTitle(book.BookId);
+    }
+    public int GetNumberOfBookByISBN(string isbn)
+    {
+        return bookRepository.GetNumberOfBookByISBN(isbn);
     }
 }

@@ -27,7 +27,7 @@ public partial class MemberManagement
             throw new InvalidMemberException($"Member Not Found With the Email : {email}");
         }
         Console.WriteLine(member);
-        Console.WriteLine("\n====================================================\n\n");
+        
     }
 
     public void GetMemberByPhoneNumber(string PhoneNumber)

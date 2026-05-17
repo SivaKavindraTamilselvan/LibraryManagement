@@ -8,7 +8,7 @@ public partial class BookManagement
     public void GetAllBook()
     {
         var bookList = adminService.GetAllBooks();
-        if (bookList == null)
+        if (bookList.Count == 0)
         {
             throw new InvalidBookException("No Book Found In The List");
         }
@@ -30,7 +30,7 @@ public partial class BookManagement
     public void GetBookByBookTitle(string title)
     {
         var booklist = adminService.GetBookByBookTitle(title);
-        if (booklist == null)
+        if (booklist.Count == 0)
         {
             throw new InvalidBookException("No Book Found In The List");
         }
@@ -43,7 +43,7 @@ public partial class BookManagement
     public void GetBookByBookAuthor(string author)
     {
         var booklist = adminService.GetBookByBookAuthor(author);
-        if (booklist == null)
+        if (booklist.Count == 0)
         {
             throw new InvalidBookException("No Book Found In The List");
         }
@@ -56,7 +56,7 @@ public partial class BookManagement
     public void GetBookByBookISBNNumber(string isbn)
     {
         var booklist = adminService.GetBookByISBNNumber(isbn);
-        if (booklist == null)
+        if (booklist.Count == 0)
         {
             throw new InvalidBookException("No Book Found In The List");
         }
@@ -78,8 +78,9 @@ public partial class BookManagement
 
     public void GetBookByCategoryId(int id)
     {
+        Console.WriteLine("\n\n============== Book Details By Category ID ==============\n");
         var bookList = adminService.GetBookByCategory(id);
-        if (bookList == null)
+        if (bookList.Count == 0)
         {
             throw new InvalidBookException("No Book Found In The List");
         }
@@ -87,17 +88,27 @@ public partial class BookManagement
         {
             Console.WriteLine(book.GetCategoryByBook());
         }
+        Console.WriteLine("\n====================================================\n\n");
     }
     public void GetBookByStatus(int id)
     {
+        Console.WriteLine("\n\n============== Book Details By Status ==============\n");
         var bookList = adminService.GetBookByStatus(id);
-        if (bookList == null)
+        if (bookList.Count == 0)
         {
             throw new InvalidBookException("No Book Found In The List");
         }
         foreach (var book in bookList)
         {
+            Console.WriteLine("----------------------------------");
             Console.WriteLine(book);
+            Console.WriteLine("----------------------------------");
         }
+        Console.WriteLine("\n====================================================\n\n");
+    }
+
+    public void GetAllCategory()
+    {
+        
     }
 }

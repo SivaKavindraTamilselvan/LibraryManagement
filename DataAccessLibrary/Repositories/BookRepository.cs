@@ -1,5 +1,7 @@
+using LibraryManagement.DataAccessLibrary.DBContext;
 using LibraryManagement.ModelLibrary.Models;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 namespace NotificationAppDataAccessLibrary.Repositories;
 
@@ -7,29 +9,72 @@ public class BookRepository : AbstractRepository<int, Book>
 {
     public override Book? Get(int key)
     {
-        var book = libraryManagementContext.Book.Include(b => b.BookCategory).Include(bi=>bi.BookISBNs).ThenInclude(bc=>bc.BookCopies).ThenInclude(bs=>bs.BookStatus).Where(b => b.BookId == key).FirstOrDefault();
+        var book = libraryManagementContext.Book.Include(b => b.BookCategory).Include(bi => bi.BookISBNs).ThenInclude(bc => bc.BookCopies).ThenInclude(bs => bs.BookStatus).Where(b => b.BookId == key).FirstOrDefault();
         return book;
     }
     public List<Book> GetBookByTitle(string title)
     {
-        var books = libraryManagementContext.Book.Where(b => b.BookTitle == title).Include(bc=>bc.BookCategory).Include(bi => bi.BookISBNs).ThenInclude(bc => bc.BookCopies).ToList();
+        var books = libraryManagementContext.Book.Where(b => b.BookTitle == title).Include(bc => bc.BookCategory).Include(bi => bi.BookISBNs).ThenInclude(bc => bc.BookCopies).ThenInclude(bs => bs.BookStatus).ToList();
         return books;
     }
 
     public List<Book> GetBookByAuthor(string author)
     {
-        var books = libraryManagementContext.Book.Where(b => b.Author == author).Include(bc=>bc.BookCategory).Include(bi => bi.BookISBNs).ThenInclude(bc => bc.BookCopies).ToList();
+        var books = libraryManagementContext.Book.Where(b => b.Author == author).Include(bc => bc.BookCategory).Include(bi => bi.BookISBNs).ThenInclude(bc => bc.BookCopies).ThenInclude(bs => bs.BookStatus).ToList();
         return books;
     }
     public List<Book> GetAllBooks()
     {
-        var book = libraryManagementContext.Book.Include(b => b.BookCategory).Include(bi=>bi.BookISBNs).ThenInclude(bc=>bc.BookCopies).ThenInclude(bs=>bs.BookStatus).ToList();
+        var book = libraryManagementContext.Book.Include(b => b.BookCategory).Include(bi => bi.BookISBNs).ThenInclude(bc => bc.BookCopies).ThenInclude(bs => bs.BookStatus).ToList();
         return book;
     }
 
     public Book? GetBookIdByTitle(string title)
     {
-        var book = libraryManagementContext.Book.Where(b=>b.BookTitle == title).FirstOrDefault();
+        var book = libraryManagementContext.Book.Where(b => b.BookTitle == title).FirstOrDefault();
         return book;
+    }
+
+    public int GetNumberOfBookByBookTitle(int id)
+    {
+        using var context = new LibraryManagementContext();
+        using var transaction = context.Database.BeginTransaction();
+        try
+        {
+            int count = context.Database.SqlQuery<int>($"SELECT get_number_of_books_by_book({id}) AS \"Value\"").FirstOrDefault();
+            transaction.Commit();
+            return count;
+        }
+        catch (PostgresException ex)
+        {
+            Console.WriteLine(ex.MessageText);
+        }
+        catch (Exception ex)
+        {
+            transaction.Rollback();
+            Console.WriteLine(ex.Message);
+        }
+        return 0;
+    }
+    public int GetNumberOfBookByISBN(string isbn)
+    {
+        using var context = new LibraryManagementContext();
+        using var transaction = context.Database.BeginTransaction();
+        try
+        {
+            int count = context.Database.SqlQuery<int>($"SELECT get_number_of_books_by_isbn({isbn}) AS \"Value\"").FirstOrDefault();
+            transaction.Commit();
+            return count;
+        }
+        catch (PostgresException ex)
+        {
+            Console.WriteLine(ex.MessageText);
+        }
+        catch (Exception ex)
+        {
+            transaction.Rollback();
+            Console.WriteLine(ex.Message);
+        }
+        return 0;
     }
 }

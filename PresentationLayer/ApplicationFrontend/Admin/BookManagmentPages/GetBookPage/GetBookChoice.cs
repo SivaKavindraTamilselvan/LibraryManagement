@@ -23,7 +23,7 @@ public partial class BookManagement
             Console.WriteLine("------------------------------------------------");
 
             int typechoice;
-            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 7 || typechoice < 0)
+            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 11 || typechoice < 0)
             {
                 Console.WriteLine("Enter Vaild Input");
             }
@@ -38,12 +38,14 @@ public partial class BookManagement
                         }
                     case 2:
                         {
+                            Console.WriteLine("Enter The Category Id To Display The Books");
                             int id = inputsCheck.IdInputs();
                             GetBookByCategoryId(id);
                             break;
                         }
                     case 3:
                         {
+                            Console.WriteLine("Enter The Book Id To Display The Books");
                             int id = inputsCheck.IdInputs();
                             GetBookByBookId(id);
                             break;
@@ -78,8 +80,37 @@ public partial class BookManagement
                         }
                     case 8:
                         {
-                            Console.WriteLine("Enter The Status Id");
-                            
+                            Console.WriteLine("Enter The Status Id\n");
+                            Console.WriteLine("Enter 1 For Available");
+                            Console.WriteLine("Enter 2 For UnAvailable");
+                            Console.WriteLine("Enter 3 For Lost");
+                            Console.WriteLine("Enter 4 For Damaged");
+                            int id = inputsCheck.IdInputs();
+                            GetBookByStatus(id);
+                            break;
+                        }
+                    case 9:
+                        {
+                            Console.WriteLine("Enter The Category Id To Display The Books");
+                            int id = inputsCheck.IdInputs();
+                            Console.WriteLine("The Number Of Books In The Category Id");
+                            Console.WriteLine(adminService.GetNumberOfBookByCategory(id));
+                            break;
+                        }
+                    case 10:
+                        {
+                            Console.WriteLine("Enter The Book Title To Display The Books");
+                            string title = Console.ReadLine()??"";
+                            Console.WriteLine("The Number Of Books In The Book Title");
+                            Console.WriteLine(adminService.GetNumberOfBookByBookTitle(title));
+                            break;
+                        }
+                    case 11:
+                        {
+                            Console.WriteLine("Enter The ISBN To Display The Books");
+                            string isbn = Console.ReadLine()??"";
+                            Console.WriteLine("The Number Of Books In The ISBN Number");
+                            Console.WriteLine(adminService.GetNumberOfBookByISBN(isbn));
                             break;
                         }
                     case 0:
