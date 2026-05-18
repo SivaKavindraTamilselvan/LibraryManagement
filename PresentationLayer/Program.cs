@@ -15,7 +15,11 @@ public class Program
         MangmentManager mangmentManager = new MangmentManager(adminService);
 
         AdminRole adminRole = new AdminRole(mangmentManager);
-        InitialPage initialPage = new InitialPage(adminRole);
+
+        UserService userService = new UserService(repositoryManagment);
+        UserRole userRole = new UserRole(userService);
+
+        InitialPage initialPage = new InitialPage(adminRole,userRole);
         initialPage.RoleSelection();
     }
 }

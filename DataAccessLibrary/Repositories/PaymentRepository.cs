@@ -35,4 +35,10 @@ public class PaymentRepository : AbstractRepository<int, Payment>
         }
         return null;
     }
+
+    public List<Payment> GetPaymentsById(int id)
+    {
+        var payments = libraryManagementContext.Payment.Include(mp=>mp.ModeOfPayment).Include(f=>f.Fine).ThenInclude(br=>br.Borrowing).Where(m=>m.Fine!.Borrowing!.MemberId == id).ToList();
+        return payments;
+    }
 }

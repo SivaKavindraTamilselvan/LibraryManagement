@@ -3,9 +3,11 @@ namespace LibraryManagement.PresentationLayer.Frontend;
 public class InitialPage
 {
     private readonly AdminRole adminRole;
-    public InitialPage(AdminRole _adminRole)
+     private readonly UserRole userRole;
+    public InitialPage(AdminRole _adminRole,UserRole _userRole)
     {
         adminRole = _adminRole;
+        userRole = _userRole;
     }
     public void RoleSelection()
     {
@@ -33,7 +35,7 @@ public class InitialPage
                         }
                     case 2:
                         {
-                            //userRole.UserRoles();
+                            userRole.UserRoles();
                             break;
                         }
                     case 0:
