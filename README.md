@@ -21,6 +21,9 @@ Ensure All The Packages are of same version to void any of the conflicts or any 
 
 ## CREATE THE ER DIAGRAM
 
+<img width="1198" height="2423" alt="image" src="https://github.com/user-attachments/assets/b8d636c9-829e-4ec4-a58b-e3e0680a6c64" />
+
+
 The Model Library is created with master and the normal tables
 
 Master Tables
