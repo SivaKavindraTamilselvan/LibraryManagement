@@ -13,4 +13,8 @@ public class Fine
     public DateTime createdAt {get;set;}
     public DateTime? updatedAt {get;set;}
     public ICollection<Payment> Payments {get;set;} = new List<Payment>();
+    public override string ToString()
+    {
+        return $"FineId : {FineId}\nBorrowingId : {BorrowingId}\nFineCategoryId : {FineCategoryId}\nFineAmount : {FineAmount}\nIsPaidFully :{IsPaidFully}";
+    }
 }

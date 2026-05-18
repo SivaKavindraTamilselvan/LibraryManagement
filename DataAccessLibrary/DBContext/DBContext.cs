@@ -19,8 +19,8 @@ public class LibraryManagementContext : DbContext
     public DbSet<BookCopy> BookCopy { get; set; }
     public DbSet<BookStatus> BookStatus { get; set; }
     public DbSet<Borrowing> Borrowing { get; set; }
-    public DbSet<Fine> Fines {get;set;}
-    public DbSet<DamagedBook> damagedBooks {get;set;}
+    public DbSet<Fine> Fine {get;set;}
+    public DbSet<DamagedBook> DamagedBook {get;set;}
     public DbSet<Payment> Payment { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

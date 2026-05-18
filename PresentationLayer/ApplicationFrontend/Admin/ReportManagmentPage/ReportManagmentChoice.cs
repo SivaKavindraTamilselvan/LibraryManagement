@@ -26,7 +26,7 @@ public partial class ReportManagement
             Console.WriteLine("------------------------------------------------");
 
             int typechoice;
-            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 4 || typechoice < 0)
+            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 6 || typechoice < 0)
             {
                 Console.WriteLine("Enter Vaild Input");
             }
@@ -36,22 +36,32 @@ public partial class ReportManagement
                 {
                     case 1:
                         {
-                            //AddReturn();
+                            GetReportOfBookBorrowed();
                             break;
                         }
                     case 2:
                         {
-                            //GetMemberManagementRoles();
+                            GetReportOfOverDueBook();
                             break;
                         }
                     case 3:
                         {
-                            //UpdateMemberManagementRoles();
+                            GetReportOfMemberWithPendingFine();
                             break;
                         }
                     case 4:
                         {
-                            //DeactivateMemberManagementRoles();
+                            GetReportOfAvailableBooks();
+                            break;
+                        }
+                    case 5:
+                        {
+                            GetReportOfMemberHistory();
+                            break;
+                        }
+                    case 6:
+                        {
+                            GetAllBooksReport();
                             break;
                         }
                     case 0:

@@ -58,5 +58,4 @@ public class MemberRepository : AbstractRepository<int, Member>
         }
         return null;
     }
-
 }
