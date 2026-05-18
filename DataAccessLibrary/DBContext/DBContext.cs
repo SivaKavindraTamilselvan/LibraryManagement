@@ -21,6 +21,7 @@ public class LibraryManagementContext : DbContext
     public DbSet<Borrowing> Borrowing { get; set; }
     public DbSet<Fine> Fine {get;set;}
     public DbSet<DamagedBook> DamagedBook {get;set;}
+    public DbSet<DamagedLevel> DamagedLevel {get;set;}
     public DbSet<Payment> Payment { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

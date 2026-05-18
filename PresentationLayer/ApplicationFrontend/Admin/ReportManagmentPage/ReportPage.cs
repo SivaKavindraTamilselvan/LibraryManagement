@@ -8,7 +8,7 @@ public partial class ReportManagement
     public void GetReportOfBookBorrowed()
     {
         var bookList = adminService.GetBorrowingByBorrowingStatus(1);
-        if(bookList.Count == 0)
+        if (bookList.Count == 0)
         {
             throw new InvalidBorrowingException("No Book Is Borrowed Now");
         }
@@ -20,7 +20,7 @@ public partial class ReportManagement
     public void GetReportOfOverDueBook()
     {
         var bookList = adminService.GetReportOfOverDueBook();
-        if(bookList.Count == 0)
+        if (bookList.Count == 0)
         {
             throw new InvalidBorrowingException("No Book Is Over Due Now");
         }
@@ -39,6 +39,32 @@ public partial class ReportManagement
         foreach (var f in fine)
         {
             Console.WriteLine(f);
+        }
+    }
+
+    public void GetReportOfPaymentHistory()
+    {
+        var payments = adminService.GetReportOfPaymentHistory();
+        if (payments.Count == 0)
+        {
+            throw new InvalidBorrowingException("No Payment Is Found");
+        }
+        foreach (var payment in payments)
+        {
+            Console.WriteLine(payment);
+        }
+    }
+
+    public void GetReportOfDamagedBook()
+    {
+        var bookList = adminService.GetReportOfDamagedBook();
+        if (bookList.Count == 0)
+        {
+            throw new InvalidBorrowingException("No Pending Fine Is Found");
+        }
+        foreach (var book in bookList)
+        {
+            Console.WriteLine(book);
         }
     }
 

@@ -21,12 +21,14 @@ public partial class ReportManagement
             Console.WriteLine("Enter 3 To Get The Report Of The Members With Pending Fine");
             Console.WriteLine("Enter 4 To Get The Report Of The Available Books");
             Console.WriteLine("Enter 5 To Get The Report Of The Member History");
-            Console.WriteLine("Enter 6 To Get The Report Of The Book History");            
+            Console.WriteLine("Enter 6 To Get The Report Of The Book History");   
+            Console.WriteLine("Enter 7 To Get All The Payment History");
+            Console.WriteLine("Enter 8 To Get The Damaged Book Details");         
             Console.WriteLine("Enter 0 To Quit");
             Console.WriteLine("------------------------------------------------");
 
             int typechoice;
-            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 6 || typechoice < 0)
+            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 8 || typechoice < 0)
             {
                 Console.WriteLine("Enter Vaild Input");
             }
@@ -62,6 +64,16 @@ public partial class ReportManagement
                     case 6:
                         {
                             GetAllBooksReport();
+                            break;
+                        }
+                    case 7:
+                        {
+                            GetReportOfPaymentHistory();
+                            break;
+                        }
+                    case 8:
+                        {
+                            GetReportOfDamagedBook();
                             break;
                         }
                     case 0:

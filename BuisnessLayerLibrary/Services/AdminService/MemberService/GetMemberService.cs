@@ -3,7 +3,7 @@ using LibraryManagement.ModelLibrary.Models;
 
 namespace LibraryManagement.BuisnessLayerLibrary.Services;
 
-public partial class AdminService :IAdminService
+public partial class AdminService 
 {
     public List<Member> GetAllMembers()
     {

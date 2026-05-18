@@ -12,4 +12,9 @@ public class DamagedBook
     public DateTime createdAt { get; set; }
     public Fine? Fines { get; set; }
 
+    public override string ToString()
+    {
+        return $"DamagedBookId : {DamagedBookId}\nMemberId : {MemberId}\nBookCopyId : {BookCopyId}\nDamagedLevelId : {DamagedLevelId}";
+    }
+
 }

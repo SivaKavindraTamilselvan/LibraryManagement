@@ -26,4 +26,16 @@ public partial class AdminService
         var bookList = bookRepository.GetAllBooksReport(id);
         return bookList;
     }
+    public List<Payment> GetReportOfPaymentHistory()
+    {
+        var payments = paymentRepository.GetAllPayments();
+        return payments;
+    }
+
+    public List<DamagedBook> GetReportOfDamagedBook()
+    {
+        var damagedBooks = damagedBookRepository.GetAllDamagedBook();
+        return damagedBooks;
+    }
+
 }

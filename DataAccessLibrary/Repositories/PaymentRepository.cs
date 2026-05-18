@@ -9,7 +9,7 @@ public class PaymentRepository : AbstractRepository<int, Payment>
 {
     public override Payment? Get(int key)
     {
-        //var book = libraryManagementContext.Book.Include(b => b.BookCategory).Include(bi=>bi.BookISBNs).ThenInclude(bc=>bc.BookCopies).ThenInclude(bs=>bs.BookStatus).Where(b => b.BookId == key).FirstOrDefault();
+        var payment = libraryManagementContext.Payment.Include(mp => mp.ModeOfPayment).Where(b => b.PaymentId == key).FirstOrDefault();
         return null;
     }
 
@@ -38,7 +38,13 @@ public class PaymentRepository : AbstractRepository<int, Payment>
 
     public List<Payment> GetPaymentsById(int id)
     {
-        var payments = libraryManagementContext.Payment.Include(mp=>mp.ModeOfPayment).Include(f=>f.Fine).ThenInclude(br=>br!.Borrowing).Where(m=>m.Fine!.Borrowing!.MemberId == id).ToList();
+        var payments = libraryManagementContext.Payment.Include(mp => mp.ModeOfPayment).Include(f => f.Fine).ThenInclude(br => br!.Borrowing).Where(m => m.Fine!.Borrowing!.MemberId == id).ToList();
+        return payments;
+    }
+
+    public List<Payment> GetAllPayments()
+    {
+        var payments = libraryManagementContext.Payment.Include(mp => mp.ModeOfPayment).Include(f => f.Fine).ThenInclude(br => br!.Borrowing).ToList();
         return payments;
     }
 }

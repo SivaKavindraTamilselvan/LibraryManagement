@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace LibraryManagement.BuisnessLayerLibrary.Services;
 
-public partial class AdminService : IAdminService
+public partial class AdminService 
 {
     public Member? DeactivateTheMemberByMemberId(int id)
     {
