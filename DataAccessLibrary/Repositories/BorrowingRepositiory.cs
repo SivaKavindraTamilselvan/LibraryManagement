@@ -122,13 +122,13 @@ public class BorrowingRepository : AbstractRepository<int, Borrowing>
 
     public List<Borrowing> GetPendingReturn()
     {
-        var borrowing = libraryManagementContext.Borrowing.Include(m=>m.Member).ThenInclude(mt=>mt.MemberType).Include(m => m.Member).Include(b => b.BookCopy).Where(b => b.ReturnDate == null).ToList();
+        var borrowing = libraryManagementContext.Borrowing.Include(m=>m.Member).ThenInclude(mt=>mt!.MemberType).Include(m => m.Member).Include(b => b.BookCopy).Where(b => b.ReturnDate == null).ToList();
         return borrowing;
     }
 
     public List<Borrowing> GetOverDueBooks()
     {
-        var borrowing = libraryManagementContext.Borrowing.Include(m=>m.Member).ThenInclude(mt=>mt.MemberType).Include(m=>m.Member).ThenInclude(r=>r.Role).Include(bc=>bc.BookCopy).ThenInclude(bi=>bi.BookISBN).ThenInclude(b=>b.Book).Include(br=>br.BorrowingStatus).Where(br=>br.ReturnDate == null && br.DueDate.Date < DateTime.Now.Date).ToList();
+        var borrowing = libraryManagementContext.Borrowing.Include(m=>m.Member).ThenInclude(mt=>mt!.MemberType).Include(m=>m.Member).ThenInclude(r=>r!.Role).Include(bc=>bc.BookCopy).ThenInclude(bi=>bi!.BookISBN).ThenInclude(b=>b!.Book).Include(br=>br.BorrowingStatus).Where(br=>br.ReturnDate == null && br.DueDate.Date < DateTime.Now.Date).ToList();
         return borrowing;
     }
 
