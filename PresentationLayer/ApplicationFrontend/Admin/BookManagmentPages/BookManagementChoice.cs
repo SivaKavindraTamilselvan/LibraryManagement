@@ -18,12 +18,12 @@ public partial class BookManagement
             Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Enter 1 To Add The Book");
             Console.WriteLine("Enter 2 To Get Book Details By Different Category");
-            Console.WriteLine("Enter 3 To Update The Book Details");
+            //Console.WriteLine("Enter 3 To Update The Book Details");
             Console.WriteLine("Enter 0 To Quit");
             Console.WriteLine("------------------------------------------------");
 
             int typechoice;
-            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 5 || typechoice < 0)
+            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 2 || typechoice < 0)
             {
                 Console.WriteLine("Enter Vaild Input");
             }
@@ -39,11 +39,6 @@ public partial class BookManagement
                     case 2:
                         {
                             GetBookManagementRoles();
-                            break;
-                        }
-                    case 3:
-                        {
-                            //AddBookCopy();
                             break;
                         }
                     case 0:
