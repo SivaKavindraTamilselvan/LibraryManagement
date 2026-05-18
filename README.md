@@ -611,3 +611,33 @@ Get Borrowing
 ## SCREENSHOTS 
 
 ## MasterTable
+
+Every Datas In The Master Table Are added as the seed data in the master table
+
+Role
+
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/c386a856-5eec-40e9-b680-a612af0e8026" />
+
+MemberType
+
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/454d8cee-cf83-4a52-a23b-82ac6afd81ca" />
+
+Book Status
+
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/4fc57b24-b766-4ce3-ba80-52ae413cd242" />
+
+Borrowing Status
+
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/f7bc3d2f-dc26-4091-abb7-bf6d2fa05619" />
+
+DamagedLevel
+
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/338af222-78d9-4b51-b034-c9c16bc71729" />
+
+FineCategory
+
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/212ba95c-9759-42ea-bfa4-203a64aca5f9" />
+
+Mode Of Payment
+
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/8655b53c-1ce7-40a4-864d-0857998d2111" />
