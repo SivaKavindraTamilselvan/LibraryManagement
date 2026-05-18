@@ -110,28 +110,28 @@ public partial class ReportManagement
 
             foreach (var copy in isbn.BookCopies)
             {
-                Console.WriteLine($"\n   Book Copy Id : {copy.BookCopyId}");
-                Console.WriteLine($"   Book Status : {copy.BookStatus?.BookStatusName}");
+                Console.WriteLine($"\nBook Copy Id : {copy.BookCopyId}");
+                Console.WriteLine($"Book Status : {copy.BookStatus?.BookStatusName}");
 
                 foreach (var borrowing in copy.Borrowings)
                 {
-                    Console.WriteLine($"\n      Borrowing Id : {borrowing.BorrowingId}");
-                    Console.WriteLine($"      Member Id : {borrowing.MemberId}");
-                    Console.WriteLine($"      Borrowed Date : {borrowing.BorrowedDate}");
-                    Console.WriteLine($"      Due Date : {borrowing.DueDate}");
-                    Console.WriteLine($"      Return Date : {borrowing.ReturnDate}");
-                    Console.WriteLine($"      Borrowing Status : {borrowing.BorrowingStatus?.BorrowingStatusName}");
+                    Console.WriteLine($"\nBorrowing Id : {borrowing.BorrowingId}");
+                    Console.WriteLine($"Member Id : {borrowing.MemberId}");
+                    Console.WriteLine($"Borrowed Date : {borrowing.BorrowedDate}");
+                    Console.WriteLine($"Due Date : {borrowing.DueDate}");
+                    Console.WriteLine($"Return Date : {borrowing.ReturnDate}");
+                    Console.WriteLine($"Borrowing Status : {borrowing.BorrowingStatus?.BorrowingStatusName}");
 
                     foreach (var fine in borrowing.Fines)
                     {
-                        Console.WriteLine($"\n         Fine Id : {fine.FineId}");
-                        Console.WriteLine($"         Fine Amount : {fine.FineAmount}");
-                        Console.WriteLine($"         Fine Category : {fine.FineCategory?.FineCategoryName}");
+                        Console.WriteLine($"\nFine Id : {fine.FineId}");
+                        Console.WriteLine($"Fine Amount : {fine.FineAmount}");
+                        Console.WriteLine($"Fine Category : {fine.FineCategory?.FineCategoryName}");
 
                         if (fine.DamagedBook != null)
                         {
-                            Console.WriteLine($"         Damaged Book Id : {fine.DamagedBook.DamagedBookId}");
-                            Console.WriteLine($"         Damage Level : {fine.DamagedBook.DamagedLevel?.DamagedLevelName}");
+                            Console.WriteLine($"Damaged Book Id : {fine.DamagedBook.DamagedBookId}");
+                            Console.WriteLine($"Damage Level : {fine.DamagedBook.DamagedLevel?.DamagedLevelName}");
                         }
                     }
                 }

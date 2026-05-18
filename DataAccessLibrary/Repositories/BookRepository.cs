@@ -80,33 +80,11 @@ public class BookRepository : AbstractRepository<int, Book>
 
     public Book? GetAllBooksReport(int id)
     {
-        var book = libraryManagementContext.Book
-            .Include(b => b.BookCategory)
-
-            .Include(bi => bi.BookISBNs)
-                .ThenInclude(bc => bc.BookCopies)
-                    .ThenInclude(bs => bs.BookStatus)
-
-            .Include(bi => bi.BookISBNs)
-                .ThenInclude(bc => bc.BookCopies)
-                    .ThenInclude(br => br.Borrowings)
-                        .ThenInclude(br => br.BorrowingStatus)
-
-            .Include(bi => bi.BookISBNs)
-                .ThenInclude(bc => bc.BookCopies)
-                    .ThenInclude(br => br.Borrowings)
-                        .ThenInclude(f => f.Fines)
-                            .ThenInclude(fc => fc.FineCategory)
-
-            .Include(bi => bi.BookISBNs)
-                .ThenInclude(bc => bc.BookCopies)
-                    .ThenInclude(br => br.Borrowings)
-                        .ThenInclude(f => f.Fines)
-                            .ThenInclude(d => d.DamagedBook)
-                                .ThenInclude(dl => dl!.DamagedLevel)
-
-            .FirstOrDefault(b => b.BookId == id);
-
+        var book = libraryManagementContext.Book.Include(b => b.BookCategory).Include(bi => bi.BookISBNs).ThenInclude(bc => bc.BookCopies).ThenInclude(bs => bs.BookStatus)
+        .Include(bi => bi.BookISBNs).ThenInclude(bc => bc.BookCopies).ThenInclude(br => br.Borrowings).ThenInclude(br => br.BorrowingStatus)
+        .Include(bi => bi.BookISBNs).ThenInclude(bc => bc.BookCopies).ThenInclude(br => br.Borrowings).ThenInclude(f => f.Fines).ThenInclude(fc => fc.FineCategory)
+        .Include(bi => bi.BookISBNs).ThenInclude(bc => bc.BookCopies).ThenInclude(br => br.Borrowings).ThenInclude(f => f.Fines).ThenInclude(d => d.DamagedBook).ThenInclude(dl => dl!.DamagedLevel)
+        .FirstOrDefault(b => b.BookId == id);
         return book;
     }
 }
