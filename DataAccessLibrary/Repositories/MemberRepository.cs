@@ -6,6 +6,9 @@ using Npgsql;
 
 namespace NotificationAppDataAccessLibrary.Repositories;
 
+// memebr repo for getting the details based on the filters
+// usage of procedure and linq
+
 public class MemberRepository : AbstractRepository<int, Member>
 {
     public override Member? Get(int MemberId)

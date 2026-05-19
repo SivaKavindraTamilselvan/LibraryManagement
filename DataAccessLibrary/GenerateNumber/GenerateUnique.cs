@@ -4,6 +4,7 @@ namespace LibraryManagement.DataAccessLibrary.UniqueISBN;
 
 public class GenerateUnique
 {
+    // used to generate the unique numbers
     protected readonly LibraryManagementContext libraryManagementContext;
     public GenerateUnique()
     {

@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace NotificationAppDataAccessLibrary.Repositories;
 
+// book isbn repo for getting the details based on the filters
+// usage of  linq
+
 public class BookISBNRepository : AbstractRepository<int, BookISBN>
 {
     public override BookISBN? Get(int key)

@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace NotificationAppDataAccessLibrary.Repositories;
 
+// book copy repo for getting the details based on the filters
+// usage of linq
+
 public class BookCopyRepository : AbstractRepository<int, BookCopy>
 {
     public override BookCopy? Get(int key)

@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace LibraryManagement.BuisnessLayerLibrary.Services;
 
+// decativate the member
+// if member already deactivated exception is raised
 public partial class AdminService 
 {
     public Member? DeactivateTheMemberByMemberId(int id)

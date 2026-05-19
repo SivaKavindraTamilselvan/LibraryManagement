@@ -3,6 +3,7 @@ using LibraryManagement.ModelLibrary.Models;
 namespace LibraryManagement.BuisnessLayerLibrary.Services;
 public partial class AdminService
 {
+    // to add the book category
     public BookCategory AddBookCategory()
     {
         BookCategory category = new BookCategory();

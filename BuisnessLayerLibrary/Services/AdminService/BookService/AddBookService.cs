@@ -5,11 +5,13 @@ namespace LibraryManagement.BuisnessLayerLibrary.Services;
 
 public partial class AdminService
 {
+    // add the basic book details into the book table
     public Book? AddBook()
     {
         Book book = new Book();
         Console.WriteLine("Enter The Book Title");
         string BookTitle = Console.ReadLine() ?? "";
+        // to check the book title not empty
         while (BookTitle.Trim() == "")
         {
             Console.WriteLine("Invalid Book Title.Book Title Should Not be Empty.Enter Valid Name");
@@ -17,6 +19,7 @@ public partial class AdminService
         }
 
         Console.WriteLine("Enter The Book Author");
+        // to check the book author not empty
         string Author = Console.ReadLine() ?? "";
         while (Author.Trim() == "")
         {
@@ -24,6 +27,7 @@ public partial class AdminService
             Author = Console.ReadLine() ?? "";
         }
         var categoryList = bookCategoryRepository.GetAll();
+        //list all the category to choose
         Console.WriteLine("\nThis Is The List Of The Catgory That Can Be Added");
         foreach (var category in categoryList)
         {
@@ -34,6 +38,7 @@ public partial class AdminService
         Console.WriteLine("\nEnter The Category Id");
         int categoryId = inputsCheck.IdInputs();
         var catgory = bookCategoryRepository.Get(categoryId);
+        // through the exception if there is no category id like that in the table
         if (catgory == null)
         {
             throw new InvalidBookException("Book Category Is Not Found. So Book Not Added");
@@ -42,7 +47,9 @@ public partial class AdminService
         book.Author = Author;
         book.BookTitle = BookTitle;
 
+        //pass to repo to create the book
         var createdBook = bookRepository.Create(book);
+        //if not created through exception
         if (createdBook == null)
         {
             throw new InvalidBookException("No Book Is Created");
@@ -50,11 +57,12 @@ public partial class AdminService
         return createdBook;
     }
 
+    // add book isbn details to the book created
     public BookISBN? AddBookISBN()
     {
         BookISBN bookISBN = new BookISBN();
         int year = inputsCheck.YearInputs();
-
+        // check the inputs and validations
         Console.WriteLine("Enter The Edition");
         int Edition;
         while (!int.TryParse(Console.ReadLine(), out Edition) || Edition < 0)
@@ -80,10 +88,14 @@ public partial class AdminService
         bookISBN.PublishedYear = year;
         bookISBN.Edition = Edition;
         bookISBN.BookId = bookId;
+        // generate random unique ISBN Number by system itself
         bookISBN.ISBN = generateUnique.GenerateISBN();
+        // pass to the repo to create the book
         var createdBookISBN = bookISBNRepository.Create(bookISBN);
         return createdBookISBN;
     }
+
+    // add the book copies to the book isbn created
     public BookCopy? AddBookCopy()
     {
         BookCopy bookISBN = new BookCopy();

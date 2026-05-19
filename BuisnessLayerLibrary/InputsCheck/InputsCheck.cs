@@ -25,6 +25,8 @@ public class InputsCheck
             }
         }
     }
+
+    //phone number inputs are checked and validated
     public string PhoneNumberInputs()
     {
         string phone = Console.ReadLine() ?? string.Empty;
@@ -45,6 +47,8 @@ public class InputsCheck
             }
         }
     }
+
+    // id inputs are checked to enter only numbers
     public int IdInputs()
     {
         Console.WriteLine("Enter Id");
@@ -56,6 +60,8 @@ public class InputsCheck
         }
         return id;
     }
+
+    // check the year inputs to check the validation of the year
     public int YearInputs()
     {
         Console.WriteLine("Enter the Year");
@@ -75,6 +81,8 @@ public class InputsCheck
             }
         }
     }
+
+    // validation of the name
     public string NameInput()
     {
         string name = Console.ReadLine() ?? "";

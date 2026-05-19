@@ -3,6 +3,7 @@ using LibraryManagement.ModelLibrary.Models;
 
 namespace LibraryManagement.BuisnessLayerLibrary.Services;
 
+// get member service
 public partial class AdminService 
 {
     public List<Member> GetAllMembers()

@@ -5,6 +5,10 @@ using NotificationAppDataAccessLibrary.Repositories;
 
 namespace LibraryManagement.BuisnessLayerLibrary.Services;
 
+// user services
+// only to view the details
+// the adding, fine collection everything will be done by admin
+// to avoid unwanted fine entry
 public partial class UserService
 {
     protected readonly MemberRepository memberRepository;

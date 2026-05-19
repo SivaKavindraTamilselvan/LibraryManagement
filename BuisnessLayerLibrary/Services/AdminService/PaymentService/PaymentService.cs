@@ -4,6 +4,7 @@ namespace LibraryManagement.BuisnessLayerLibrary.Services;
 
 public partial class AdminService
 {
+    // add payments for the fines
     public Payment? AddPayment()
     {
         Payment payment = new Payment();

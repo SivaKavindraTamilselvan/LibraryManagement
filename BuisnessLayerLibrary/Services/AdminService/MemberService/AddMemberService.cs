@@ -7,6 +7,7 @@ using NotificationAppDataAccessLibrary.Repositories;
 
 namespace LibraryManagement.BuisnessLayerLibrary.Services;
 
+// add member service
 public partial class AdminService
 {
     public Member? AddMemberService()

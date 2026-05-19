@@ -1,6 +1,9 @@
 using LibraryManagement.BuisnessLayerLibrary.Services;
 
 namespace LibraryManagement.PresentationLayer.Frontend.Object;
+
+// created to avoid large number of parameter to be passed
+// one single class object paramter can be passed making the code modular
 public class MangmentManager
 {
     public BookManagement bookManagement {get;set;}

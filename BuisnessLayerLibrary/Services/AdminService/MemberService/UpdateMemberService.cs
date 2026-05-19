@@ -4,6 +4,7 @@ using LibraryManagement.ModelLibrary.Models;
 
 namespace LibraryManagement.BuisnessLayerLibrary.Services;
 
+// update the member tyoe service
 public partial class AdminService 
 {
     public Member? UpdateTheMemberTypeByMemberId(int id,int MemberTypeId)

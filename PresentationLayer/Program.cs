@@ -7,6 +7,7 @@ namespace LibraryManagement.PresentationLayer;
 
 public class Program
 {
+    // all common objects are created
     static void Main(string[] args)
     {
         RepositoryManagment repositoryManagment = new RepositoryManagment();

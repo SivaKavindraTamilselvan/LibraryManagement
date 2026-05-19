@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
 namespace NotificationAppDataAccessLibrary.Repositories;
+// book  repo for getting the details based on the filters
+// usage of linq
 
 public class BookRepository : AbstractRepository<int, Book>
 {

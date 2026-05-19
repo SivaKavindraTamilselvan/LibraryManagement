@@ -4,6 +4,9 @@ using LibraryManagement.ModelLibrary.Models;
 
 namespace LibraryManagement.BuisnessLayerLibrary.Services;
 
+// return logic is added
+// check the status of book 
+// based on status fines will alos be added automaticlly
 public partial class AdminService
 {
     public Borrowing? AddReturn()

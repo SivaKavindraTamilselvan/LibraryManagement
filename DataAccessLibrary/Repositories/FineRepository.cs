@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace NotificationAppDataAccessLibrary.Repositories;
 
+// fine repo for getting the details based on the filters
+// usage of linq
+
 public class FineRepository : AbstractRepository<int, Fine>
 {
     public override Fine? Get(int key)

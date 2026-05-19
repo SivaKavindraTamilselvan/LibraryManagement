@@ -23,6 +23,8 @@ public class LibraryManagementContext : DbContext
     public DbSet<DamagedBook> DamagedBook {get;set;}
     public DbSet<DamagedLevel> DamagedLevel {get;set;}
     public DbSet<Payment> Payment { get; set; }
+
+    // conditionis and constraint for the table is added for model creation
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Role>(r =>

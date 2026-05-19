@@ -2,6 +2,7 @@ using LibraryManagement.ModelLibrary.Models;
 
 namespace LibraryManagement.BuisnessLayerLibrary.Services;
 
+// all get borrowing services
 public partial class AdminService
 {
     public Borrowing? GetBorrowingById(int id)

@@ -5,6 +5,9 @@ using Npgsql;
 
 namespace NotificationAppDataAccessLibrary.Repositories;
 
+// book catgory repo for getting the details based on the filters
+// usage of linq
+
 public class BookCategoryRepository : AbstractRepository<int, BookCategory>
 {
     public override BookCategory? Get(int key)

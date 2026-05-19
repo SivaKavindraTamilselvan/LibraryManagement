@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace NotificationAppDataAccessLibrary.Repositories;
 
+// damagedbook repo for getting the details based on the filters
+// usage of linq
+
 public class DamagedBookRepository : AbstractRepository<int, DamagedBook>
 {
     public override DamagedBook? Get(int key)

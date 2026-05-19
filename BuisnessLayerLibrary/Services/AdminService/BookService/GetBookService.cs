@@ -3,6 +3,8 @@ using LibraryManagement.ModelLibrary.Models;
 
 namespace LibraryManagement.BuisnessLayerLibrary.Services;
 
+// get services added for the book created
+// include the book,book isbn,book copy,category
 public partial class AdminService
 {
     public List<Book> GetAllBooks()

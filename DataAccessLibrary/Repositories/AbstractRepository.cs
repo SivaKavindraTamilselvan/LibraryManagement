@@ -3,6 +3,8 @@ using LibraryManagement.DataAccessLibrary.DBContext;
 
 namespace NotificationAppDataAccessLibrary.Repositories;
 
+// usage of linq
+
 public abstract class AbstractRepository<K, T> : IRepository<K, T> where T : class where K : notnull
 {
     protected readonly LibraryManagementContext libraryManagementContext;
@@ -21,10 +23,13 @@ public abstract class AbstractRepository<K, T> : IRepository<K, T> where T : cla
         return item;
     }
 
+    // get all details of a table
     public List<T> GetAll()
     {
         return libraryManagementContext.Set<T>().ToList();
     }
+
+    // update the table by primary key id
 
     public T? Update(K key,T item)
     {

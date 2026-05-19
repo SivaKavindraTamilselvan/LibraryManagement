@@ -2,6 +2,7 @@ using LibraryManagement.ModelLibrary.Models;
 
 namespace LibraryManagement.BuisnessLayerLibrary.Services;
 
+// report services to get all the needed information
 public partial class AdminService
 {
     public List<Borrowing> GetReportOfOverDueBook()

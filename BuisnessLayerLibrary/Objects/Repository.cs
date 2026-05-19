@@ -2,6 +2,7 @@ using NotificationAppDataAccessLibrary.Repositories;
 
 namespace LibraryManagement.DataAccessLibrary.Object;
 
+// created to avoid large number of parameters from one file to another
 public class RepositoryManagment
 {
     public MemberRepository memberRepository {get;set;}

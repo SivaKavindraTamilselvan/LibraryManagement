@@ -7,6 +7,8 @@ using NotificationAppDataAccessLibrary.Repositories;
 
 namespace LibraryManagement.BuisnessLayerLibrary.Services;
 
+// recieve every repo in the constructore
+// to avoid duplicate object creation
 public partial class AdminService
 {
     protected readonly MemberRepository memberRepository;

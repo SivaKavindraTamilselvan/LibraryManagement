@@ -4,6 +4,9 @@ using LibraryManagement.ModelLibrary.Models;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
+// borrowing repo for getting the details based on the filters,create borrowinf,return borrowing
+// usage of procedure and linq
+
 namespace NotificationAppDataAccessLibrary.Repositories;
 
 public class BorrowingRepository : AbstractRepository<int, Borrowing>

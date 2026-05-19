@@ -4,6 +4,8 @@ using LibraryManagement.ModelLibrary.Models;
 
 namespace LibraryManagement.BuisnessLayerLibrary.Services;
 
+// activate the deactive member
+// a member already then exception is raised
 public partial class AdminService 
 {
     public Member? ActivateTheMemberByMemberId(int id)
