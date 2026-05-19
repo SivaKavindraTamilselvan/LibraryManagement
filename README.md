@@ -678,6 +678,12 @@ Mode Of Payment
 <img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/d6a96afb-8347-4a4b-8310-7ea7b54c465d" />
 
 ## Screenshots For Borrowing Managment
+
+
+- Note - While Returning the borrowing details the member email and Book Copy Number not displyed. Later Corrected in the code 
+- var borrowing = libraryManagementContext.Borrowing.AsNoTracking().Include(b => b.Member).Include(b => b.BookCopy).Where(b => b.MemberId == memberId).OrderByDescending(b => b.BorrowedDate).FirstOrDefault();
+- Not linked with other table initially later rectified**
+
 <img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/646f8c20-42fc-4af3-a10e-96a6b028d769" />
 <img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/89aea22a-bcad-44c4-ac66-7273c994c2ab" />
 <img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/cfdb1fa7-1e52-471d-a071-a842b221a094" />
