@@ -23,7 +23,7 @@ public class BorrowingRepository : AbstractRepository<int, Borrowing>
             libraryManagementContext.Database.ExecuteSqlInterpolated($"CALL check_borrowing_rules({memberId},{bookId})");
             transaction.Commit();
             libraryManagementContext.ChangeTracker.Clear();
-            var borrowing = libraryManagementContext.Borrowing.AsNoTracking().Where(b => b.MemberId == memberId).OrderByDescending(b => b.BorrowedDate).FirstOrDefault();
+            var borrowing = libraryManagementContext.Borrowing.AsNoTracking().Include(b => b.Member).Include(b => b.BookCopy).Where(b => b.MemberId == memberId).OrderByDescending(b => b.BorrowedDate).FirstOrDefault();
             return borrowing;
         }
         catch (PostgresException ex)
@@ -54,7 +54,7 @@ public class BorrowingRepository : AbstractRepository<int, Borrowing>
             }
             transaction.Commit();
             libraryManagementContext.ChangeTracker.Clear();
-            var borrowing = libraryManagementContext.Borrowing.AsNoTracking().Where(b => b.BorrowingId == borrowId).FirstOrDefault();
+            var borrowing = libraryManagementContext.Borrowing.AsNoTracking().Include(b => b.Member).Include(b => b.BookCopy).Where(b => b.BorrowingId == borrowId).FirstOrDefault();
             return borrowing;
         }
         catch (PostgresException ex)
