@@ -19,9 +19,10 @@ public class PaymentRepository : AbstractRepository<int, Payment>
         using var transaction = context.Database.BeginTransaction();
         try
         {
-            context.Database.ExecuteSqlInterpolated($"CALL pay_fine({payment.FineId},{payment.AmountPaid},{payment.ModeOfPaymentId})");
+            libraryManagementContext.Database.ExecuteSqlInterpolated($"CALL pay_fine({payment.FineId},{payment.AmountPaid},{payment.ModeOfPaymentId})");
             transaction.Commit();
-            var paidPayment = context.Payment.AsNoTracking().OrderByDescending(p => p.PaymentDate).FirstOrDefault(p => p.FineId == payment.FineId);
+            libraryManagementContext.ChangeTracker.Clear();
+            var paidPayment = libraryManagementContext.Payment.AsNoTracking().OrderByDescending(p => p.PaymentDate).FirstOrDefault(p => p.FineId == payment.FineId);
             return paidPayment;
         }
         catch (PostgresException ex)

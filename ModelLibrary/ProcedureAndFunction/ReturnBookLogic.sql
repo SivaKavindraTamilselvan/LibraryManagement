@@ -55,7 +55,7 @@ UPDATE "BookCopy" SET "BookStatusId" =
 CASE
 WHEN lost THEN 3    
 WHEN damaged_id IS NOT NULL THEN 4  
-ELSE 2                
+ELSE 1                
 END
 WHERE "BookCopyId" = book_copy_id;
 

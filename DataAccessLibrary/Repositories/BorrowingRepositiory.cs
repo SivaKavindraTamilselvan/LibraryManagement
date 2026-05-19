@@ -20,9 +20,10 @@ public class BorrowingRepository : AbstractRepository<int, Borrowing>
         using var transaction = context.Database.BeginTransaction();
         try
         {
-            context.Database.ExecuteSqlInterpolated($"CALL check_borrowing_rules({memberId},{bookId})");
+            libraryManagementContext.Database.ExecuteSqlInterpolated($"CALL check_borrowing_rules({memberId},{bookId})");
             transaction.Commit();
-            var borrowing = context.Borrowing.AsNoTracking().Where(b => b.MemberId == memberId).OrderByDescending(b => b.BorrowedDate).FirstOrDefault();
+            libraryManagementContext.ChangeTracker.Clear();
+            var borrowing = libraryManagementContext.Borrowing.AsNoTracking().Where(b => b.MemberId == memberId).OrderByDescending(b => b.BorrowedDate).FirstOrDefault();
             return borrowing;
         }
         catch (PostgresException ex)
@@ -45,14 +46,15 @@ public class BorrowingRepository : AbstractRepository<int, Borrowing>
         {
             if (damagedLevel == 0)
             {
-                context.Database.ExecuteSqlInterpolated($"CALL return_book({borrowId},{lost})");
+                libraryManagementContext.Database.ExecuteSqlInterpolated($"CALL return_book({borrowId},{lost})");
             }
             else
             {
-                context.Database.ExecuteSqlInterpolated($"CALL return_book({borrowId},{lost},{damagedLevel})");
+                libraryManagementContext.Database.ExecuteSqlInterpolated($"CALL return_book({borrowId},{lost},{damagedLevel})");
             }
             transaction.Commit();
-            var borrowing = context.Borrowing.AsNoTracking().Where(b => b.BorrowingId == borrowId).FirstOrDefault();
+            libraryManagementContext.ChangeTracker.Clear();
+            var borrowing = libraryManagementContext.Borrowing.AsNoTracking().Where(b => b.BorrowingId == borrowId).FirstOrDefault();
             return borrowing;
         }
         catch (PostgresException ex)

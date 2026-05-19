@@ -41,8 +41,9 @@ public class BookRepository : AbstractRepository<int, Book>
         using var transaction = context.Database.BeginTransaction();
         try
         {
-            int count = context.Database.SqlQuery<int>($"SELECT get_number_of_books_by_book({id}) AS \"Value\"").FirstOrDefault();
+            int count = libraryManagementContext.Database.SqlQuery<int>($"SELECT get_number_of_books_by_book({id}) AS \"Value\"").FirstOrDefault();
             transaction.Commit();
+            libraryManagementContext.ChangeTracker.Clear();
             return count;
         }
         catch (PostgresException ex)
@@ -62,8 +63,9 @@ public class BookRepository : AbstractRepository<int, Book>
         using var transaction = context.Database.BeginTransaction();
         try
         {
-            int count = context.Database.SqlQuery<int>($"SELECT get_number_of_books_by_isbn({isbn}) AS \"Value\"").FirstOrDefault();
+            int count = libraryManagementContext.Database.SqlQuery<int>($"SELECT get_number_of_books_by_isbn({isbn}) AS \"Value\"").FirstOrDefault();
             transaction.Commit();
+            libraryManagementContext.ChangeTracker.Clear();
             return count;
         }
         catch (PostgresException ex)
