@@ -1,7 +1,7 @@
 using LibraryManagement.BuisnessLayerLibrary.Interfaces;
 using LibraryManagement.DataAccessLibrary.DBContext;
 
-namespace NotificationAppDataAccessLibrary.Repositories;
+namespace LibraryManagement.Repositories;
 
 // usage of linq
 

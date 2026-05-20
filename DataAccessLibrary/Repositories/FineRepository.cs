@@ -1,7 +1,7 @@
 using LibraryManagement.ModelLibrary.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace NotificationAppDataAccessLibrary.Repositories;
+namespace LibraryManagement.Repositories;
 
 // fine repo for getting the details based on the filters
 // usage of linq

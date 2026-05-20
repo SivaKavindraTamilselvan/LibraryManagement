@@ -1,4 +1,4 @@
-using NotificationAppDataAccessLibrary.Repositories;
+using LibraryManagement.Repositories;
 
 namespace LibraryManagement.DataAccessLibrary.Object;
 

@@ -7,7 +7,7 @@ using Npgsql;
 // borrowing repo for getting the details based on the filters,create borrowinf,return borrowing
 // usage of procedure and linq
 
-namespace NotificationAppDataAccessLibrary.Repositories;
+namespace LibraryManagement.Repositories;
 
 public class BorrowingRepository : AbstractRepository<int, Borrowing>
 {

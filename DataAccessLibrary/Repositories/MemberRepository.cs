@@ -4,7 +4,7 @@ using LibraryManagement.ModelLibrary.Models;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
-namespace NotificationAppDataAccessLibrary.Repositories;
+namespace LibraryManagement.Repositories;
 
 // memebr repo for getting the details based on the filters
 // usage of procedure and linq

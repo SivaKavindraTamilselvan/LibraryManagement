@@ -1,7 +1,7 @@
 using LibraryManagement.DataAccessLibrary.Object;
 using LibraryManagement.DataAccessLibrary.UniqueISBN;
 using LibraryManagement.ModelLibrary.Models;
-using NotificationAppDataAccessLibrary.Repositories;
+using LibraryManagement.Repositories;
 
 namespace LibraryManagement.BuisnessLayerLibrary.Services;
 
